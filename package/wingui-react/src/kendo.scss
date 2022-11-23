@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+$primary: #000;
+
+$font-size: 13px;
+$base-text: #000;
+$text-color: #000;
+
+$selected-bg: #5891e2;
+
+$window-focused-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.3);
+$window-title-font-size: 16px;
+
+$component-border: rgba( black, .3 );
+
+@import "../node_modules/@progress/kendo-theme-default/dist/all.scss";

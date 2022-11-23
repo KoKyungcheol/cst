@@ -1,0 +1,57 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+src/main/webapp/publish*
+src/main/webapp/registry.entries
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VSCode IDEA ###
+.vscode
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+
+/package/node_modules/
+
+### Log files ###
+logfile.log*
+
+### Node modules ###
+/node_modules/
+
+### Yarn ###
+yarn.lock
+
+### Publishing view files ###
+/src/main/webapp/VIEW-INF/publish/
+
+### File storage files ###
+/src/main/webapp/file-storage/
+
+### License files ###
+/src/main/webapp/license/
+
+src/main/webapp/js/commons.bundle.js
+src/main/webapp/js/main.js
+src/main/webapp/js/realgrid.bundle.js
+src/main/webapp/js/vendor.bundle.js
+.history/

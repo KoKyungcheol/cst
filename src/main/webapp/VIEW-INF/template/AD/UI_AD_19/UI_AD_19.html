@@ -1,0 +1,65 @@
+<section id="contentsInner" class="STANDARD">
+  <div id="contents" class="vue-app content_area parentCon">
+    <kendo-splitter :orientation="'horizontal'" :panes="[ { size: '24%', collapsible: true, resizable: false }, {} ]" v-on:resize="doResize" style="height:100%;"  class="split_component">
+      <div class="search_area" style="position: absolute; top: 0px; width: 334px; height: 100%; left: 0px;">
+        <div class="commonBtn_area">
+          <kendo-button @click="doRefresh"><i class="fa fa-lg fa-refresh"></i></kendo-button>
+          <kendo-button @click="doDataLoad(1)"><i class="fa fa-lg fa-search"></i></kendo-button>
+        </div>
+        <div class="srhTab_area">
+          <kendo-tabstrip id="SRH_TAB" style="height: calc(100% - 35px);">
+            <ul>
+              <li class="k-state-active">
+                <span id="t1-1" v-t="'BASE_OPTION'"></span>
+              </li>
+            </ul>
+            <div style="height: calc(100% - 35px); min-height: calc(100% - 35px); display: block;">
+              <div class="parentCon">
+                <span class="leftCon">
+                  <span id="displayNameLabel" v-t="'USER_NM'" class="kd_labelWrap"></span>
+                </span>
+                <span class="rightCon">
+                  <input type="text" class="k-textbox" v-model="displayName" @keydown="doKeyDown" style="width: 190px;"></input>
+                </span>
+              </div>
+              <div class="parentCon">
+                <span class="leftCon">
+                  <span id="viewNameLabel" v-t="'UI_NM'" class="kd_labelWrap"></span>
+                </span>
+                <span class="rightCon">
+                  <input type="text" class="k-textbox" v-model="viewName" @keydown="doKeyDown" style="width: 190px;"></input>
+                </span>
+              </div>
+              <div class="parentCon">
+                <span class="leftCon">
+                  <span id="startDttmLabel" v-t="'STRT_DTTM'" class="kd_labelWrap"></span>
+                </span>
+                <span class="rightCon">
+                  <kendo-datetimepicker :format="'yyyy-MM-dd HH:mm:ss'" v-model="startDttm" style="width: 190px" :culture=local></kendo-datetimepicker>
+                </span>
+              </div>
+              <div class="parentCon">
+                <span class="leftCon">
+                  <span id="endDttmLabel" v-t="'END_DTTM'" class="kd_labelWrap"></span>
+                </span>
+                <span class="rightCon">
+                  <kendo-datetimepicker :format="'yyyy-MM-dd HH:mm:ss'" v-model="endDttm" style="width: 190px" :culture=local></kendo-datetimepicker>
+                </span>
+              </div>
+            </div>
+          </kendo-tabstrip>
+        </div>
+      </div>
+      <div class="result_area">
+        <div class="row" style="height: 100%">
+          <div style="height: calc(100% - 44px) !important;" class="component_ui wingui_component">
+            <div id="grid1" style='width: 1310px; height: 750px;'></div>
+          </div>
+          <div style="height: 42px;">
+            <page-navigator v-on:paging="doDataLoad" :settings="settings" ></page-navigator>
+          </div>
+        </div>
+      </div>
+    </kendo-splitter>
+  </div>
+</section>

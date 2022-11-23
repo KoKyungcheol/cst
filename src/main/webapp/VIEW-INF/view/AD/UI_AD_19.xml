@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="UI_AD_19" template="AD/UI_AD_19/UI_AD_19:AD/UI_AD_19/UI_AD_19JS:AD/UI_AD_19/UI_AD_19CSS" include="vue" version="2.0">
+    <publish parent="MENU_90" open="true" seq="115" />
+</view>

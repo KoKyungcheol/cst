@@ -1,0 +1,90 @@
+{
+    "FILTERS": [{
+            "name": "DP_SALES_LV_MGMT_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_CM_LEVEL_MGMT A INNER JOIN TB_CM_COMM_CONFIG B ON (A.LV_TP_ID = B.ID) WHERE B.CONF_GRP_CD = 'DP_LV_TP' AND B.CONF_CD = 'S' AND A.ACTV_YN = 'Y' AND (SALES_LV_YN = 'Y' OR ACCOUNT_LV_YN = 'Y') AND A.DEL_YN != 'Y'"
+            }],
+            "import_column": "A.ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "SALES_LV_MGMT_CD",
+                "type": "STRING",
+                "column": "A.LV_CD"
+            }]
+        },
+        {
+            "name": "DP_ITEM_LV_MGMT_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_CM_LEVEL_MGMT A INNER JOIN TB_CM_COMM_CONFIG B ON (A.LV_TP_ID = B.ID) WHERE B.CONF_GRP_CD = 'DP_LV_TP' AND B.CONF_CD = 'I' AND A.ACTV_YN = 'Y' AND (SALES_LV_YN = 'N' OR ACCOUNT_LV_YN = 'N') AND A.DEL_YN != 'Y'"
+            }],
+            "import_column": "A.ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "ITEM_LV_MGMT_CD",
+                "type": "STRING",
+                "column": "A.LV_CD"
+            }]
+        },
+        {
+            "name": "DP_CURCY_CD_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_AD_COMN_GRP A INNER JOIN TB_AD_COMN_CODE B ON (A.ID = B.SRC_ID) WHERE A.GRP_CD = 'CURRENCY'"
+            }],
+            "import_column": "B.ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "CURCY_CD",
+                "type": "STRING",
+                "column": "B.COMN_CD"
+            }]
+        },
+
+        {
+            "name": "DP_CHANNEL_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_CM_CONFIGURATION A INNER JOIN TB_CM_CHANNEL_TYPE B ON (A.ID = B.CONF_ID) WHERE B.ACTV_YN = 'Y' AND B.CHANNEL_NM = $CSV_FILE_DATA"
+            }],
+            "import_column": "B.ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "CHANNEL_NM",
+                "type": "STRING",
+                "column": "B.CHANNEL_NM"
+            }]
+        },
+
+        {
+            "name": "DP_INCOTERMS_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_CM_CONFIGURATION A INNER JOIN TB_CM_INCOTERMS B ON A.ID = B.CONF_ID WHERE A.CONF_NM = 'CM_INCOTERMS' AND B.ACTV_YN = 'Y'"
+            }],
+            "import_column": "B.ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "INCOTERMS",
+                "type": "STRING",
+                "column": "B.INCOTERMS"
+            }]
+        },
+
+        {
+            "name": "DP_CORRECTION_COMMENT_ID",
+            "querys": [{
+                "type": "common",
+                "query": "SELECT #REPLACE_COLUMN_NAME# FROM TB_CM_COMM_CONFIG WHERE CONF_GRP_CD LIKE '%BF_SO_MODIFY_REASON%' AND ACTV_YN = 'Y'"
+            }],
+            "import_column": "ID",
+            "import_column_alias": "ID",
+            "exports": [{
+                "header": "CORRECTION_COMMENT_CD",
+                "type": "STRING",
+                "column": "CONF_CD"
+            }]
+        }
+    ]
+}

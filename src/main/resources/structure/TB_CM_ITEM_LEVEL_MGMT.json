@@ -1,0 +1,82 @@
+{
+    "name": "TB_CM_ITEM_LEVEL_MGMT",
+    "useDefaultSchema": "Y",
+    "columns": [{
+            "name": "ID",
+            "type": "ID",
+            "update": "N"
+        },
+        {
+            "name": "ITEM_LV_CD",
+            "type": "STRING",
+            "header": "ITEM_LV_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "ITEM_LV_NM",
+            "type": "STRING",
+            "header": "ITEM_LV_NM"
+        },
+        {
+            "name": "LV_MGMT_ID",
+            "filter": "DP_ITEM_LV_MGMT_ID",
+            "not_null": "Y"
+        },
+        {
+            "name": "PARENT_ITEM_LV_ID",
+            "import_column": "ID",
+            "import_table": "TB_CM_ITEM_LEVEL_MGMT",
+            "outer": "Y",
+            "exports": [{
+                "header": "PARENT_ITEM_LV_CD",
+                "type": "STRING",
+                "column": "ITEM_LV_CD"
+            }],
+            "and": [{
+                    "column": "ACTV_YN",
+                    "value": "'Y'"
+                },
+                {
+                    "column": "COALESCE(DEL_YN, 'N')",
+                    "value": "'N'"
+                }
+            ]
+        },
+        {
+            "name": "SEQ",
+            "type": "NUMBER",
+            "header": "SEQ"
+        },
+        {
+            "name": "ACTV_YN",
+            "type": "STRING",
+            "header": "ACTV_YN",
+            "default": "Y"
+        },
+        {
+            "name": "DEL_YN",
+            "type": "STRING",
+            "header": "DEL_YN",
+            "default": "N"
+        },
+
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

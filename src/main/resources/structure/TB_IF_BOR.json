@@ -1,0 +1,148 @@
+{
+    "name": "TB_IF_BOR",
+    "useDefaultSchema": "Y",
+    "procedure": [{
+            "sequence": "1",
+            "method": "{call dbo.SP_UI_MP_08_BATCH('ALL', 'N', NULL,'N', NULL, 'N', NULL, ?, ?, ?, ?)}",
+            "description": "품목기준 자원 우선순위"
+        },
+        {
+            "sequence": "2",
+            "method": "{call dbo.SP_UI_MP_09_BATCH('ALL', 'N', NULL,'N', NULL, 'N', NULL, ?, ?, ?, ?)}",
+            "description": "품목기준 자원 생산능력"
+        }
+    ],
+    "columns": [{
+            "name": "LOCAT_CD",
+            "type": "STRING",
+            "header": "LOCAT_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "ITEM_CD",
+            "type": "STRING",
+            "header": "ITEM_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "RES_CD",
+            "type": "STRING",
+            "header": "RES_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "ALLOC_RULE_CD",
+            "type": "STRING",
+            "filter": "MP_ALLOC_RULE_CD",
+            "outer": "Y"
+        },
+        {
+            "name": "ALLOC_VAL",
+            "type": "NUMBER",
+            "header": "ALLOC_VAL"
+        },
+        {
+            "name": "TACT_TIME",
+            "type": "NUMBER",
+            "header": "TACT_TIME"
+        },
+        {
+            "name": "TACT_TIME_UOM",
+            "type": "STRING",
+            "import_column": "UOM_CD",
+            "import_table": "TB_CM_UOM",
+            "outer": "Y",
+            "exports": [{
+                "header": "TACT_TIME_UOM",
+                "type": "STRING",
+                "column": "UOM_CD"
+            }]
+        },
+        {
+            "name": "QUEUE_TIME",
+            "type": "NUMBER",
+            "header": "QUEUE_TIME"
+        },
+        {
+            "name": "SETUP_TIME",
+            "type": "NUMBER",
+            "header": "SETUP_TIME"
+        },
+        {
+            "name": "PROCESS_TIME",
+            "type": "NUMBER",
+            "header": "PROCESS_TIME"
+        },
+        {
+            "name": "WAIT_TIME",
+            "type": "NUMBER",
+            "header": "WAIT_TIME"
+        },
+        {
+            "name": "CYCL_TIME_UOM",
+            "type": "STRING",
+            "import_column": "UOM_CD",
+            "import_table": "TB_CM_UOM",
+            "outer": "Y",
+            "exports": [{
+                "header": "CYCL_TIME_UOM",
+                "type": "STRING",
+                "column": "UOM_CD"
+            }]
+        },
+        {
+            "name": "MIN_LOTSIZE",
+            "type": "NUMBER",
+            "header": "MIN_LOTSIZE"
+        },
+        {
+            "name": "MAX_LOTSIZE",
+            "type": "NUMBER",
+            "header": "MAX_LOTSIZE"
+        },
+        {
+            "name": "OVR_MIN_LOTSIZE",
+            "type": "NUMBER",
+            "header": "OVR_MIN_LOTSIZE"
+        },
+        {
+            "name": "MULTP_LOTSIZE",
+            "type": "NUMBER",
+            "header": "MULTP_LOTSIZE"
+        },
+        {
+            "name": "DIRECT_COST",
+            "type": "NUMBER",
+            "header": "DIRECT_COST"
+        },
+        {
+            "name": "INDIRECT_COST",
+            "type": "NUMBER",
+            "header": "INDIRECT_COST"
+        },
+        {
+            "name": "CURCY_CD",
+            "type": "STRING",
+            "filter": "MP_CURCY_CD",
+            "outer": "Y"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

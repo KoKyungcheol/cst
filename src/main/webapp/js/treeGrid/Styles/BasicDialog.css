@@ -1,0 +1,542 @@
+/* TreeGrid Basic Style */
+/* TreeGrid CSS definition, http://www.treegrid.com */
+.BTMain{font-family:Arial,sans-serif;font-style:normal;font-weight:normal;font-variant:normal;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:none}
+.BTMain *{font-family:inherit;font-style:inherit;font-weight:inherit;font-variant:inherit;text-overflow:ellipsis;word-wrap:normal}
+.BTMain,.BTMain *{font-size:12px;line-height:16px}
+.BTWide,.BTWide *{font-size:15px;line-height:20px}
+.BTGiant,.BTGiant *{font-size:21px;line-height:24px}
+.BTHeaderFont{font-weight:bold}
+.BTMessage{font-size:inherit}
+.BTMessage *,.BTMenuItemText *,.BTMenuControl *,.BTPickCell *,.BTPick2CellM *,.BTPick2CellY *,.BTDialogButton *{font-size:inherit;line-height:inherit}
+.BTMenuItemText{font-size:inherit;line-height:22px}
+.BTHigh .BTMenuItemText{line-height:26px}
+.BTBig .BTMenuItemText{line-height:34px}
+.BTSmall .BTMenuItemText{line-height:19px}
+.BTMenuControl{font-size:inherit;line-height:18px}
+.BTWide .BTMenuControl{line-height:20px}
+.BTHigh .BTMenuControl{line-height:22px}
+.BTBig .BTMenuControl{line-height:30px}
+.BTSmall .BTMenuControl{line-height:16px}
+.BTPickCell,.BTPick2CellM,.BTPick2CellY{font-size:inherit;line-height:inherit}
+.BTDialogButton{font-size:inherit;line-height:inherit}
+.BTMain b,.BTMain .GridBold{color:#3D7FC2;font-weight:bold}
+.BTMain i,.BTMain .GridBlue{color:#3D7FC2;font-style:normal}
+.BTDragObject b,.BTDragObject i,.BTTipMain b,.BTTipMain i,.BTDragObject .GridBold,.BTDragObject .GridBlue,.BTTipMain .GridBold,.BTTipMain .GridBlue{color:#FF8}
+.BTMain em,.BTMain .GridRed{color:#EA4647;font-style:normal}
+.BTMain em>b,.BTMain .GridRed .GridBold{color:#EA4647}
+.BTDragObject em b,.BTTipMain em b,.BTDragObject .GridRed .GridBold,.BTTipMain .GridRed .GridBold,.BTDragObject em,.BTTipMain em,.BTDragObject .GridRed,.BTTipMain .GridRed{color:#F88}
+.BTMain s,.BTMain .GridGray{color:#AAA;text-decoration:none}
+.BTMain s>b,.BTMain .GridGray .GridBold,.BTMain s>i,.BTMain .GridGray .GridBlue{color:#AAA}
+.BTMain{color:#626367}
+.BTVivid,.BTDim{color:black}
+.BTSoft{color:#343537}
+.BTMain *{color:inherit}
+.BTDialogButton{background:#F4F4F4;border:1px solid #D9D8DE;border-radius:3px}
+.BTDialogButton:active{background:#4B8FCD;border:1px solid #3D7FC2;color:white}
+.BTDialogButtonHover{color:black}
+.BTMenuHead{background:#F4F4F4;border-bottom:1px solid #E8E8E8}
+ .BTSoft .BTMenuHead{background-color:#EAEAEA}
+.BTDim .BTMenuHead{background-color:#DADADA}
+.BTMenuHorzOuter .BTMenuHead{border-bottom:0px none;border-right:1px solid #E8E8E8}
+ .BTMenuOuter{background:white;border:1px solid #F4F4F4;box-shadow:0px 0px 5px 1px #CCC;border-radius:3px}
+ .BTMenuFoot{background:white}
+ .BTSoft .BTMenuOuter,.BTSoft .BTMenuFoot{background:#F2F2F2}
+.BTDim .BTMenuOuter,.BTSoft .BTDim{background:#EAEAEA}
+.BTMenuEdit,.BTMenuEditEdit,.BTMenuEnum{border:1px solid #D9D8DE;border-radius:3px;background-color:white}
+ .BTDim .BTMenuEdit,.BTDim .BTMenuEditEdit,.BTDim .BTMenuEnum{background-color:#F2F2F2}
+.BTMenuCaption,.BTMenuLevel{font-weight:bold;text-align:center}
+ .BTMenuSeparator{border-top:1px solid #D9D8DE}
+ .BTBright .BTMenuSeparator{border-top-color:#C5C4CA}
+.BTMenuHorz .BTMenuSeparator{background:#D9D8DE}
+ .BTBright .BTMenuHorz .BTMenuSeparator{background-color:#C5C4CA}
+.BTMenuVSeparator{border-right:1px solid #D9D8DE}
+ .BTBright .BTMenuVSeparator{border-right-color:#C5C4CA}
+.BTMenuHover{background:#EBF4FB}
+ .BTSoft .BTMenuHover{background:#DBE4EB}
+.BTDim .BTMenuHover{background:#CBD4DB}
+.BTMenuFocus{background:#F4F4F4}
+ .BTSoft .BTMenuFocus{background:#E4E4E4}
+.BTDim .BTMenuFocus{background:#D4D4D4}
+.BTMenuFocus.BTMenuHover{background:#DBE4EB}
+ .BTMenuFocus.BTMenuHover{background:#ABB4BB}
+.BTMenuHeader{border:1px solid #F4F4F4;background:white;box-shadow:0px 0px 3px 1px #CCC;border-radius:3px}
+ .BTPickMY{background:#F4F4F4;border-bottom:1px solid #E8E8E8}
+ .BTSoft .BTPickMY{background:#EAEAEA}
+.BTDim .BTPickMY{background:#DADADA}
+  .BTPickCell > div,.BTPick2M,.BTPick2Y{border-radius:20px}
+  .BTPickRowW .BTPickCell{padding-bottom:12px}
+ .BTPickCell:first-child{padding-right:10px}
+ .BTPickWN,.BTPickWNE{font-weight:bold}
+ .BTPickOM,.BTPickOMNE{color:#aaaaaa}
+   .BTPickSel,.BTPick2MSel,.BTPick2YSel{background-color:#4B8FCD;color:white}
+ .BTPickNow{background-color:#DDD}
+ .BTPickNE{text-decoration:line-through}
+ .BTPickHover,.BTPick2MHover,.BTPick2YHover{background-color:#F4F4F4}
+ .BTSoft .BTPickHover,.BTSoft .BTPick2MHover,.BTSoft .BTPick2YHover{background-color:#EAEAEA}
+ .BTDim .BTPickHover,.BTDim .BTPick2MHover,.BTDim .BTPick2YHover{background-color:#E2E2E2}
+ .BTPickSelHover,.BTPick2MSelHover,.BTPick2YSelHover{background-color:#5B9FDD;color:white}
+   .BTPick2Sep{background:#ECECEC}
+  .BTMessage,.BTPageMessage{background:white;box-shadow:0px 0px 5px 1px #CCC;border-radius:3px}
+ .BTPageMessage{border:1px solid #CCC}
+.BTMessageButtons,.BTProgressButtons{background:white}
+ .BTSoft .BTMessage,.BTSoft .BTPageMessage,.BTSoft .BTMessageButtons,.BTSoft .BTProgressButtons{background:#F2F2F2}
+.BTDim .BTMessage,.BTDim .BTPageMessage,.BTDim .BTMessageButtons,.BTDim .BTProgressButtons{background:#EAEAEA}
+.BTPrompt input{border:1px solid #D9D8DE;border-radius:3px}
+ .BTDim .BTPrompt input{background:#F2F2F2;color:black}
+.BTEditInput,.BTEditTextarea,.BTEditDiv{color:black;background-color:white}
+  .BTEditReadOnly,.BTEditTextarea.BTEditReadOnly,.BTEditDiv.BTEditReadOnly{background-color:#EEE}
+ .BTEditHeaderInput.BTEditReadOnly,.BTEditHeaderTextarea.BTEditReadOnly,.BTEditHeaderDiv.BTEditReadOnly{background-color:#E1E1E1}
+ .BTDim .BTEditInput,.BTDim .BTEditTextarea,.BTDim .BTEditDiv{background-color:#F2F2F2}
+ .BTEditImg{background:white}
+.BTTipOuter,.BTDragObject{background:black;opacity:0.7;border-radius:3px;color:white}
+ .BTDragCursor{cursor:url(data:application/octet-stream;base64,AAACAAEAICAAAAAAAAAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/AAAB/wAAAf8AAAH/AAAB/wAAAc8AAAG3AAABtwAAAW8AAAFvAAAA3wAAEMAAABmAAAAdgAAAH4AAAB/wAAAf4AAAH8AAAB+AAAAfAAAAHgAAABwAAAAYAAAAEAAAAAAAAAA////////////////////////////////8AH///AB///wAf//8AH///AB///wAf//8AH///AB///wAf//8AH//3AB//8wAf//EAH//wD///8A////AA///wAf//8AP///AH///wD///8B////A////wf///8P////H////z////8=),default}
+.BTNoDragCursor{cursor:url(data:application/octet-stream;base64,AAACAAEAICAAAAAAAACoCAAAFgAAACgAAAAgAAAAQAAAAAEACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfHx/AH9/fwACAoQAAACKABERiAAAAJAAAACVAAEBmgA1NYgANTCSAAYGowAAAKcAAACzAAUFuAAEBLsAAAC+ABsbtgAjI6AAODioACcnugA4OLcANze4ADc3uwBGRpgAaGiCAGtriQBra48AdXWHAH19gAB8fIEAfX2BAHh4iQB4eI0AaGiRAGZmmgB1dZMAdXWbAHBwnwBGRq4AXl6lAFNTqABUVK0AenqnAHV1qwB5easAenqvAGBgsABsbLMAZ2e8AGxsvwB4eLYAcHC5AHt7uwB4eL4AAADEAAAAygAXF8AAFxfNAAAA0AAAANUABQXWAAAA2wAUFNAAJyfDACoqxAAjI8sAJyfNACoqzgAnJ9cAKirYAAAA4AABAeMABQXgAAQE4QAGBuEAAADlACcn4QBUVMQAX1/VAFNT3gBUVN8AYGDBAG9vxwBubskAeXnEAHh4xwB6es4AYGDeAG9v2gBsbN0AcHDRAHt72gB4eNwAb2/rAIeHugCCgrwAgoK+AIeHwACCgsYAi4vBAI+PwQCLi8UAjY3EAISEzACOjssAk5PHAJOTyQCTk8sAlZXKAJeXywCTk80Al5fNAI+P0QCLi9cAjY3VAIKC2gCPj9sAk5PQAJOT0gCqqtUAvLzeAKqq6gC8vOUAxsbnANLS7wDa2u0AwMDwAMPD9QDGxvYA0tLyANra9gDi4vEA4uLzAOfn9wDn5/gA5+f5AOfn+gDn5/sA7+/5AO/v+gDw8PkA8fH5APDw+gDx8foA8vL6APPz+gDz8/0A+fn8APv7/QD7+/4A/Pz+AP///wAAAAAAAAAAAHBm2HewHpYA3LCTdrcAAAABAAAAAgAAACwglgAYAAAAAAAAAJgelgBCAAAAAAAAAHwelgAAAAAAAAAAAAAAAAAAAAAADAAAAAIAAAABAQAAAAAAAAAAAAAAAAAAAwAAAP1o2Hd7m+J2AADyAQAAAACkAfIBBQAAANQelgAbAGsAQwAAAAAAAMAAAAAAAAAAAAIAAABIA/MBIAAAABwAcABDAAAAAAAAAEgA8wHYB/QBWAHzAWBb8gEABfMBnB6WAHCmUACkH5YA+pnSd8fTowH+/////WjYdx9m2HcWAAAAFgAAAAEAAAB8H5YAjB+WAGQflgBFGHJ3AQAAANYjcndmqSPuCAAKANQglgBQVth30taTdkQCAAAAAAAAAAAAAAAAAACIH5YAYFvyARYAAAAAAAAANqqTditJJO4WAAAALCCWACAAAAAAAPIBAAAAAAAAAAAWAAAAFgAAAAAAAABwH5YAwpyGdjwglgCJ/ZJ22/whmP7///82qpN2FupLAAAAAABgW/IBFgAAAOAflgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABM5PD46FQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgPNzg7PD5HSicAAAAAAAAAAAAAAAAAAAAAAAAAAAASDQ5Zf5iYgF5JTEIAAAAAAAAAAAAAAAAAAAAAAAAACgwRgpiYmJiYik1HTBcAAAAAAAAAAAAAAAAAAAAAAAAIC32YmJiYmIlFPE1LSAAAAAAAAAAAAAAAAAAAAAAACQdTmJiYmJiIQzhGil5HFgAAAAAAAAAAAAAAAAAAAAAFBnyYmJiYh0AQRImYgT4/AAAAAAAAAAAAAAAAAAAAAAMElJiYmIYUDUGImJiTPD0AAAAAAAAAAAAAAACZmQAAKSqVmJiLVE5bjJiYmJZRUAAAAAAAAAAAAAAAmZiYmQAoL36YjVZSV4+YmJiYg1hPAAAAAAAAAAAAAACZmJiZACMweI5jMmiQmJiYmJh6WjEAAAAAAAAAAAAAmZiYmQAAHDM1ZjZpkZiYmJiYh1xdJAAAAACZAAAAAACZmJiZAAAAJmBhbZKYmJiYmIZ1dDQAAAAAAJmZAAAAmZiYmQAAAAAALWRneYSXl4V7c3JVAAAAAAAAmZiZAACZmJiZAAAAAAAAJWVqa2xvdndxLAAAAAAAAACZmJiZmZiYmQAAAAAAAAAAICtfbnBiLiEAAAAAAAAAAJmYmJiZmJiZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZiYmJiYmJmZmZmZAAAAAAAAAAAAAAAAAAAAAAAAAACZmJiYmJiYmJiYmQAAAAAAAAAAAAAAAAAAAAAAAAAAAJmYmJiYmJiYmJkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZiYmJiYmJiZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACZmJiYmJiYmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJmYmJiYmJkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZiYmJiZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACZmJiYmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJmYmJkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmZiZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACZmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////////4H///4Af//8AD//+AAf//gAH//wAA//8AAP//AAD/8wAA/+EAAP/hAAD/wwAA98OAAfOHwAPxh+AH8A/wD/AP///wAP//8AH///AD///wB///8A////Af///wP///8H////D////x////8/////),default}
+.BTEditInput,.BTEditTextarea,.BTEditDiv{border:0px none;padding:0px 3px 0px 0px;outline:none;box-sizing:content-box;resize:none}
+.BTEditTextarea,.BTEditDiv{margin:0px;white-space:pre-wrap}
+.BTEditDiv{overflow:hidden;text-overflow:clip;-webkit-user-select:text;user-select:text;-webkit-user-modify:read-write}
+.BTEditWordWrap{word-wrap:break-word;overflow-wrap:break-word}
+.BTEditNoWrap{white-space:pre}
+.BTEditInput::-ms-clear{height:13px}
+.BTEditInt,.BTEditFloat,.BTEditDate,.BTEditRight{text-align:right}
+.BTEditInt::-ms-clear,.BTEditFloat::-ms-clear,.BTEditDate::-ms-clear,.BTEditRight::-ms-clear{display:none}
+.BTEditTab{color:white;text-align:center;font-weight:bold;background:transparent}
+.BTHigh.BTIE .BTEditTab{margin-top:-1px}
+.BTEditDiv *{font-size:inherit;line-height:inherit}
+.BTEditDiv img{vertical-align:baseline}
+.BTEditCutImg img{vertical-align:middle;margin-bottom:-1000px;margin-top:-1000px}
+.BTEditDiv.BTEditLink{text-decoration:underline}
+.BTDisabled,.BTDisabledHard{position:absolute;z-index:264;background:white;opacity:0}
+ .BTDisabledHard{opacity:0.5}
+ .BTMessage{white-space:nowrap;text-align:center;visibility:hidden;z-index:266;position:absolute;left:0px;top:0px;padding:20px;min-width:120px}
+.BTMessageShadow{position:absolute;display:none}
+	.BTPageMessage{padding:20px}
+.BTPrompt{padding-top:30px;padding-bottom:10px}
+.BTLow .BTPrompt{padding-top:10px;padding-bottom:0px}
+.BTPrompt input{padding:5px 6px 5px 6px;display:inline-block;box-sizing:border-box;width:200px}
+.BTWide .BTPrompt input{width:250px}
+.BTGiant .BTPrompt input{width:300px}
+.BTLow .BTPrompt input{padding:2px 4px 2px 4px}
+.BTProgressCaption{font-weight:bold;margin-bottom:15px}
+.BTLow .BTProgressCaption{margin-bottom:5px}
+.BTProgressText{margin-bottom:15px}
+.BTLow .BTProgressText{margin-bottom:10px}
+.BTProgressOuter{text-align:left;width:300px;margin:0px 30px 10px 30px;background:#E8E8E8}
+.BTLow .BTProgressOuter{margin:0px 10px 10px 10px;width:200px}
+.BTProgressInner{height:14px;background:#4B8FCD}
+.BTLow .BTProgressInner{height:20px}
+.BTMessageButtons,.BTProgressButtons{margin:10px -20px -20px -20px;padding:15px}
+.BTLow .BTMessageButtons,.BTLow .BTProgressButtons{padding:5px}
+.BTProgressButton,.BTMessageButton{padding:4px 5px 4px 5px;margin:1px 4px 1px 4px;text-align:center;white-space:nowrap;overflow:hidden;min-width:70px}
+.BTHigh .BTProgressButton,.BTHigh .BTMessageButton{padding-top:6px;padding-bottom:5px}
+.BTBig .BTProgressButton,.BTBig .BTMessageButton{padding-top:8px;padding-bottom:8px}
+.BTLow .BTProgressButton,.BTLow .BTMessageButton{padding-top:2px;padding-bottom:1px;margin-left:3px;margin-right:3px}
+.BTTiny .BTProgressButton,.BTTiny .BTMessageButton{padding-top:1px;padding-bottom:0px}
+ .BTMenuMain{position:absolute;left:0px;top:0px;z-index:258}
+.BTToolbarMain{z-index:5}
+.BTMenuMainSpace{margin-left:1px;margin-right:1px}
+.BTMenuShadow{position:absolute;display:none}
+.BTMenuOuter{overflow:hidden;padding-top:2px;padding-bottom:2px}
+.BTMenuMainTop{margin-top:-4px}
+.BTMenuMainBottom{margin-top:3px}
+.BTMenuHeader{overflow:hidden;position:absolute;z-index:258;cursor:pointer;user-select:none;-ms-user-select:none;-o-user-select:none;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none}
+.BTMenuHeader > div{vertical-align:middle;display:table-cell}
+.BTMenuHead{padding:7px 0px 7px 23px;text-align:center;cursor:default}
+.BTWide .BTMenuHead{padding-left:30px}
+.BTHigh .BTMenuHead{padding-top:15px;padding-bottom:15px}
+.BTLow .BTMenuHead{padding-top:3px;padding-bottom:3px}
+.BTMenuHeadText{white-space:nowrap;margin-right:35px}
+.BTWide .BTMenuHeadText{margin-right:40px}
+.BTLow .BTMenuHeadText{margin-right:30px}
+.BTMenuHorzOuter .BTMenuHead{padding:0px 3px 0px 3px}
+.BTMenuHorzOuter .BTMenuHeadText{margin:0px;white-space:normal;display:inline-block;writing-mode:tb-rl;-ms-transform:rotate(180deg);-moz-transform:rotate(180deg);-webkit-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg)}
+.BTMenuClose{float:right;width:27px;line-height:20px;cursor:pointer;display:none;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8ZyBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNCI+DQogICA8bGluZSB4MT0iMTgiIHkxPSIxOCIgeDI9IjQ2IiB5Mj0iNDYiLz4NCiAgIDxsaW5lIHgxPSIxOCIgeTE9IjQ2IiB4Mj0iNDYiIHkyPSIxOCIvPg0KPC9nPg0KPC9zdmc+) no-repeat;background-size:16px 16px}
+.BTWide .BTMenuClose{background-size:20px 20px;width:31px}
+.BTBig .BTMenuClose{background-size:24px 24px;width:35px;background-position-y:-2px;line-height:30px}
+.BTGiant .BTMenuClose{background-position-y:0px}
+.BTLow .BTMenuClose{line-height:20px;width:24px;background-position-y:0px}
+.BTTiny .BTMenuClose{width:21px}
+.BTMenuHorzOuter .BTMenuClose{width:17px}
+.BTWide .BTMenuHorzOuter .BTMenuClose{width:21px}
+.BTBig .BTMenuHorzOuter .BTMenuClose{width:25px}
+.BTLow .BTMenuHorzOuter .BTMenuClose{width:19px}
+.BTTiny .BTMenuHorzOuter .BTMenuClose{width:17px}
+.BTMenuBody{cursor:default;margin:0px 1px 0px 1px;width:calc(100% - 2px)}
+.BTMenuFoot{padding:7px 6px 7px 6px;text-align:center;white-space:nowrap}
+.BTHigh .BTMenuFoot{padding-top:10px;padding-bottom:10px}
+.BTBig .BTMenuFoot{padding-top:15px;padding-bottom:15px}
+.BTLow .BTMenuFoot{padding:5px 3px 5px 3px}
+.BTTiny .BTMenuFoot{padding:2px 0px 2px 0px}
+ .BTMenuButton{padding:4px 5px 3px 5px;margin:3px 4px 3px 4px;min-width:70px;text-align:center;white-space:nowrap;overflow:hidden}
+.BTHigh .BTMenuButton{padding-top:6px;padding-bottom:5px}
+.BTBig .BTMenuButton{padding-top:8px;padding-bottom:8px;min-width:80px}
+.BTGiant .BTMenuButton{width:90px}
+.BTLow .BTMenuButton{padding:2px 2px 1px 2px;margin-top:1px;margin-bottom:1px;min-width:60px}
+.BTTiny .BTMenuButton{padding-top:1px;padding-bottom:0px}
+.BTMenuItem{margin-left:1px;margin-right:1px;padding:1px 8px 0px 8px}
+.BTLow .BTMenuItem{padding-left:5px;padding-right:5px}
+.BTTiny .BTMenuItem{padding-left:2px;padding-right:2px}
+ .BTMenuCheckedIconLeft,.BTMenuCheckedIconRight{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cmVjdCBmaWxsPSIjNEI4RkNEIiBzdHJva2U9IiMzRDdGQzIiIHN0cm9rZS13aWR0aD0iNCIgeD0iMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIzIiByeT0iMyIvPg0KPHBvbHlsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgcG9pbnRzPSIxNiwyOCAyOCwzOCA0NCwyMCIvPg0KPC9zdmc+) no-repeat}
+.BTMenuUncheckedIconLeft,.BTMenuUncheckedIconRight{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cmVjdCBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNCIgeD0iMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIzIiByeT0iMyIvPg0KPC9zdmc+) no-repeat}
+.BTMenuCheckedRadioLeft,.BTMenuCheckedRadioRight{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IndoaXRlIiBzdHJva2U9IiMzRDdGQzIiIHN0cm9rZS13aWR0aD0iNCIgY3g9IjMwIiBjeT0iMzAiIHI9IjIwIi8+DQo8Y2lyY2xlIGZpbGw9IiM0QjhGQ0QiIGN4PSIzMCIgY3k9IjMwIiByPSIxMiIvPg0KPC9zdmc+) no-repeat}
+.BTMenuUncheckedRadioLeft,.BTMenuUncheckedRadioRight{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLXdpZHRoPSI0IiBjeD0iMzAiIGN5PSIzMCIgcj0iMjAiLz4NCjwvc3ZnPg==) no-repeat}
+.BTMenuEmptyIconLeft,.BTMenuEmptyIconRight{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cmVjdCBmaWxsPSIjQkJCIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNCIgeD0iMTAiIHk9IjEwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSIzIiByeT0iMyIvPg0KPHJlY3QgZmlsbD0id2hpdGUiIHg9IjI2LjMiIHk9IjQxLjIiIHdpZHRoPSI2LjgiIGhlaWdodD0iNi44Ii8+DQo8cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTM4LjksMTUuMWMtMi4zLTItNS40LTMuMS05LjMtMy4xYy0zLjcsMC02LjcsMS05LDNjLTIuMywyLTMuNSw0LjUtMy43LDcuNGw2LjMsMC44YzAuNC0yLDEuMi0zLjUsMi40LTQuNQ0KCWMxLjItMSwyLjYtMS41LDQuMy0xLjVjMS44LDAsMy4yLDAuNSw0LjMsMS40czEuNiwyLjEsMS42LDMuNGMwLDEtMC4zLDEuOC0wLjksMi42Yy0wLjQsMC41LTEuNiwxLjYtMy42LDMuMmMtMiwxLjYtMy4zLDMuMS00LDQuNA0KCWMtMC43LDEuMy0xLDIuOS0xLDQuOWMwLDAsMCwwLjEsMCwwLjJoNi4yYzAuMS0xLjEsMC4yLTEuOSwwLjQtMi41YzAuMy0wLjcsMS4yLTEuNywyLjctMi45YzIuOC0yLjMsNC42LTQuMSw1LjQtNS41DQoJYzAuOC0xLjMsMS4zLTIuOCwxLjMtNC4zQzQyLjQsMTkuNiw0MS4zLDE3LjIsMzguOSwxNS4xeiIvPg0KPC9zdmc+) no-repeat}
+.BTMenuBoolIconLeft{padding-left:20px;background-position:left center;background-size:16px 16px}
+.BTWide .BTMenuBoolIconLeft{padding-left:26px;background-size:20px 20px}
+.BTBig .BTMenuBoolIconLeft{padding-left:32px;background-size:24px 24px}
+.BTMenuBoolIconRight{padding-right:20px;background-position:right center;background-size:16px 16px}
+.BTWide .BTMenuBoolIconRight{padding-right:26px;background-size:20px 20px}
+.BTBig .BTMenuBoolIconRight{padding-right:32px;background-size:24px 24px}
+.BTMenuBoolIconLeft > .BTMenuLevel,.BTMenuBoolIconRight > .BTMenuLevel{text-align:left}
+.BTMenuCheckedColor{background-color:#F0F0F0}
+.BTMenuCursorIcon,.BTMenuHoverIcon{padding-left:0px!important}
+.BTMenuEnumCursorIcon,.BTMenuEnumHoverIcon{padding-left:10px!important}
+.BTWide .BTMenuEnumCursorIcon,.BTWide .BTMenuEnumHoverIcon{padding-left:15px!important}
+.BTBig .BTMenuEnumCursorIcon,.BTBig .BTMenuEnumHoverIcon{padding-left:20px!important}
+.BTLow .BTMenuEnumCursorIcon,.BTLow .BTMenuEnumHoverIcon{padding-left:13px!important}
+.BTTiny .BTMenuEnumCursorIcon,.BTTiny .BTMenuEnumHoverIcon{padding-left:16px!important}
+.BTMenuCursorIconRtl,.BTMenuHoverIconRtl{padding-left:0px!important}
+.BTMenuExpandedIcon{padding-left:0px!important;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsMjYgTDMyLDM4IEw0NCwyNiIvPg0KPC9zdmc+) no-repeat left center;background-size:16px 16px}
+.BTMenuCollapsedIcon{padding-left:0px!important;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjYsMjAgTDM4LDMyIEwyNiw0NCIvPg0KPC9zdmc+) no-repeat left center;background-size:16px 16px}
+.BTWide .BTMenuExpandedIcon,.BTWide .BTMenuCollapsedIcon{background-size:20px 20px}
+.BTBig .BTMenuExpandedIcon,.BTBig .BTMenuCollapsedIcon{background-size:24px 24px}
+.BTMenuExpandedIcon > div, .BTMenuCollapsedIcon > div{border:0px none;margin-left:20px;text-align:left!important}
+.BTWide .BTMenuExpandedIcon > div, .BTWide .BTMenuCollapsedIcon > div{margin-left:26px}
+.BTHigh .BTMenuExpandedIcon > div, .BTHigh .BTMenuCollapsedIcon > div{margin-left:32px}
+.BTMenuNextIcon{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+DQo8cGF0aCBmaWxsPSIjOTk5IiBkPSJNMTIsMTJjLTAuMjczLDAtMC41LTAuMjI3LTAuNS0wLjV2LTdDMTEuNSw0LjIyNywxMS43MjcsNCwxMiw0YzAuMTMzLDAsMC4yNTgsMC4wNTUsMC4zNTIsMC4xNDhsMy41LDMuNUMxNS45NDUsNy43NDIsMTYsNy44NjcsMTYsOHMtMC4wNTUsMC4yNTgtMC4xNDgsMC4zNTJsLTMuNSwzLjVDMTIuMjU4LDExLjk0NSwxMi4xMzMsMTIsMTIsMTJ6Ii8+DQo8L3N2Zz4NCg==) no-repeat right center;background-size:16px 16px;padding-right:20px}
+.BTWide .BTMenuNextIcon{background-size:20px 20px;padding-right:26px}
+.BTBig .BTMenuNextIcon{background-size:24px 24px;padding-right:32px}
+.BTMenuNextIconRtl{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+DQo8cGF0aCBmaWxsPSIjOTk5IiBkPSJNMy42NDgsMTEuODUybC0zLjUtMy41QzAuMDU1LDguMjU4LDAsOC4xMzMsMCw4czAuMDU1LTAuMjU4LDAuMTQ4LTAuMzUybDMuNS0zLjVDMy43NDIsNC4wNTUsMy44NjcsNCw0LDRjMC4yNzMsMCwwLjUsMC4yMjcsMC41LDAuNXY3QzQuNSwxMS43NzMsNC4yNzMsMTIsNCwxMkMzLjg2NywxMiwzLjc0MiwxMS45NDUsMy42NDgsMTEuODUyeiIvPg0KPC9zdmc+DQo=) no-repeat left center;background-size:16px 16px;padding-left:20px}
+.BTWide .BTMenuNextIconRtl{background-size:20px 20px;padding-left:26px}
+.BTBig .BTMenuNextIconRtl{background-size:24px 24px;padding-left:32px}
+.BTMenuNextIconDown{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiI+DQo8cGF0aCBmaWxsPSIjOTk5IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCw4LDEwKSB0cmFuc2xhdGUoLTcsMCkiIGQ9Ik0xMiwxMmMtMC4yNzMsMC0wLjUtMC4yMjctMC41LTAuNXYtN0MxMS41LDQuMjI3LDExLjcyNyw0LDEyLDRjMC4xMzMsMCwwLjI1OCwwLjA1NSwwLjM1MiwwLjE0OGwzLjUsMy41QzE1Ljk0NSw3Ljc0MiwxNiw3Ljg2NywxNiw4cy0wLjA1NSwwLjI1OC0wLjE0OCwwLjM1MmwtMy41LDMuNUMxMi4yNTgsMTEuOTQ1LDEyLjEzMywxMiwxMiwxMnoiLz4NCjwvc3ZnPg0K)}
+.BTMenuItemText{white-space:nowrap;overflow:hidden}
+.BTMenuItemText *{font-size:inherit;line-height:inherit}
+.BTMenuItemIcon{background-repeat:no-repeat;background-position:center center}
+.BTMenuItemDisabled{opacity:0.70}
+.BTMenuAlignLeft{text-align:left}
+.BTMenuAlignRight{text-align:right}
+.BTMenuAlignCenter{text-align:center}
+.BTMenuAlignJustify{text-align:justify}
+.BTMenuEnumParent{padding-left:5px}
+.BTMenuItemLeft .BTMenuEnumParent{padding-left:0px;padding-right:5px}
+.BTMenuEnum,.BTMenuEnumHeaderLeft{white-space:nowrap;overflow:hidden;background-repeat:no-repeat;background-size:16px 16px}
+.BTMenuEnum{background-position:3px center;padding-left:20px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogICA8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsMjYgTDMyLDM4IEw0NCwyNiIvPg0KPC9zdmc+)}
+.BTMenuItemLeft .BTMenuEnum{padding-right:3px}
+.BTMenuEnumHeaderLeft{background-position:4px center;padding:2px 0px 0px 21px;cursor:default;border-radius:3px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogICA8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsNDIgTDMyLDMwIEw0NCw0MiIvPg0KPC9zdmc+)}
+.BTWide .BTMenuEnum{background-size:20px 20px;padding-left:25px}
+.BTWide .BTMenuEnumHeaderLeft{background-size:20px 20px;padding-left:26px}
+.BTBig .BTMenuEnum{background-size:24px 24px;padding-left:30px}
+.BTBig .BTMenuEnumHeaderLeft{background-size:24px 24px;padding-left:31px}
+.BTMenuEnumParent,.BTMenuEnum,.BTMenuEnumHeaderLeft{width:90px}
+.BTWide .BTMenuEnumParent,.BTWide .BTMenuEnum,.BTWide .BTMenuEnumHeaderLeft{width:120px}
+.BTGiant .BTMenuEnumParent,.BTGiant .BTMenuEnum,.BTGiant .BTMenuEnumHeaderLeft{width:150px}
+.BTMenuEnumHeader{border:0px none}
+.BTMenuEnumMain{margin-top:0px}
+.BTMenuEditParent{padding-left:5px}
+.BTMenuItemLeft .BTMenuEditParent{padding-left:0px;padding-right:5px}
+.BTMenuEdit{padding-left:3px;padding-right:3px;overflow:hidden;white-space:nowrap;text-overflow:clip}
+.BTMenuEditParent,.BTMenuEdit{width:30px}
+.BTMenuEditParentPDFName,.BTMenuEditParentPDFName > .BTMenuEdit,.BTMenuEditParentExportName,.BTMenuEditParentExportName > .BTMenuEdit{width:104px}
+.BTWide .BTMenuEditParent,.BTWide .BTMenuEdit{width:50px}
+.BTWide .BTMenuEditParentPDFName,.BTWide .BTMenuEditParentPDFName > .BTMenuEdit,.BTWide .BTMenuEditParentExportName,.BTWide .BTMenuEditParentExportName > .BTMenuEdit{width:139px}
+.BTBig .BTMenuEditParentPDFName,.BTBig .BTMenuEditParentPDFName > .BTMenuEdit,.BTBig .BTMenuEditParentExportName,.BTBig .BTMenuEditParentExportName > .BTMenuEdit{width:144px}
+.BTGiant .BTMenuEditParent,.BTGiant .BTMenuEdit{width:60px}
+.BTGiant .BTMenuEditParentPDFName,.BTGiant .BTMenuEditParentPDFName > .BTMenuEdit,.BTGiant .BTMenuEditParentExportName,.BTGiant .BTMenuEditParentExportName > .BTMenuEdit{width:174px}
+.BTMenuEditMulti{white-space:pre-wrap}
+.BTMain .BTMenuEditInput,.BTMain .BTMenuEditTextarea{border:0px none;margin:0px 1px 0px 0px;padding:0px;height:18px;outline:none;background:transparent;resize:none}
+.BTHigh .BTMenuEditInput,.BTHigh .BTMenuEditTextarea{height:22px}
+.BTGiant .BTMenuEditInput,.BTGiant .BTMenuEditTextarea{height:30px}
+.BTSmall .BTMenuEditInput,.BTSmall .BTMenuEditTextarea{height:15px}
+.BTMenuEditInput::-ms-clear{height:13px}
+.BTMenuEditInt,.BTMenuEditFloat,.BTMenuEditDate{text-align:right}
+ .BTMenuCaption{padding:10px 2px 3px 2px}
+.BTHigh .BTMenuCaption{padding-top:8px;padding-bottom:7px}
+.BTMenuHorz .BTMenuCaption{padding-top:1px;padding-bottom:0px}
+.BTMenuSeparator{margin:6px 8px 6px 8px;height:0px;overflow:hidden}
+.BTLow .BTMenuSeparator{margin:5px 6px 5px 6px}
+.BTTiny .BTMenuSeparator{margin:4px 4px 3px 4px}
+.BTMenuHorz .BTMenuSeparator{margin:0px;border:8px solid white;border-left:6px solid white;border-right:6px solid white}
+.BTLow .BTMenuHorz .BTMenuSeparator{border-width:6px;border-left-width:5px;border-right-width:5px}
+.BTTiny .BTMenuHorz .BTMenuSeparator{border-width:4px;border-left-width:4px;border-right-width:3px}
+.BTMenuHorz .BTMenuSeparator > div{overflow:hidden;width:1px}
+.BTMenuVSeparator{width:0px;font-size:0px}
+ .BTPickMain{position:absolute;left:0px;top:0px;z-index:258}
+.BTPickShadow{position:absolute;display:none}
+.BTPickOuter{border:0px none;padding:0px;overflow:hidden}
+.BTPickBody{cursor:default;padding:0px;margin:0px;width:100%}
+.BTWide .BTPickBody{margin:0px}
+.BTPickHeader{position:absolute;z-index:258;border:1px solid #ABD7D3;background:white;overflow:hidden;cursor:pointer;}
+.BTPickHeaderBottom{border-bottom:0px none}
+.BTPickHeaderTop{border-top:0px none}
+.BTPickHead,.BTPickFoot{background:white;padding:1px 0px 1px 5px;color:white;cursor:default}
+.BTPickClose{display:none}
+.BTPickMY{padding:8px 0px 7px 0px;cursor:default;text-align:center}
+.BTHigh .BTPickMY{padding-top:11px;padding-bottom:9px}
+.BTBig .BTPickMY{padding-top:16px;padding-bottom:14px}
+.BTLow .BTPickMY{padding-top:4px;padding-bottom:3px}
+.BTPickMYDown{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogICA8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsMjYgTDMyLDM4IEw0NCwyNiIvPg0KPC9zdmc+)}
+.BTPickMYUp{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogICA8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsMzQgTDMyLDIyIEw0NCwzNCIvPg0KPC9zdmc+)}
+.BTPickMYDown,.BTPickMYUp{padding-right:18px;background-size:16px 16px;background-position:right calc(50% - 1px);background-repeat:no-repeat;cursor:pointer}
+.BTWide .BTPickMYDown,.BTWide .BTPickMYUp{padding-right:22px;background-size:20px 20px}
+.BTBig .BTPickMYDown,.BTBig .BTPickMYUp{padding-right:26px;background-size:24px 24px}
+.BTPickMYRtl{padding-right:0px;padding-left:13px}
+.BTPickBL{float:left;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMzgsMjAgTDI2LDMyIEwzOCw0NCIvPg0KPC9zdmc+) no-repeat 5px 7px}
+.BTPickBR{float:right;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjYsMjAgTDM4LDMyIEwyNiw0NCIvPg0KPC9zdmc+) no-repeat right 5px top 7px}
+.BTPickBL,.BTPickBR{width:24px;height:24px;background-size:16px 16px;padding:0px;overflow:hidden;cursor:pointer;display:none}
+.BTWide .BTPickBL,.BTWide .BTPickBR{background-size:20px 20px;background-position-y:7px;height:31px}
+.BTHigh .BTPickBL,.BTHigh .BTPickBR{background-position-y:10px;height:34px}
+.BTBig .BTPickBL,.BTBig .BTPickBR{background-size:24px 24px;background-position-y:13px;height:39px}
+.BTGiant .BTPickBL,.BTGiant .BTPickBR{background-position-y:15px;height:42px}
+.BTLow .BTPickBL,.BTLow .BTPickBR{background-position-y:3px;height:20px}
+.BTPickTableParent{border-top:0px none;margin:0px 10px 10px 10px;clear:both}
+.BTBig .BTPickTableParent{margin-bottom:12px}
+.BTLow .BTPickTableParent{margin:0px 5px 5px 5px}
+.BTTiny .BTPickTableParent{margin:0px 2px 2px 2px}
+.BTPickTable{table-layout:fixed;width:0px}
+.BTPickRow{background:white}
+.BTSoft .BTPickRow{background:#F2F2F2}
+.BTDim .BTPickRow{background:#EAEAEA}
+.BTPickCell{width:36px;font-size:inherit;line-height:inherit}
+.BTLow .BTPickCell{width:28px}
+.BTWide .BTPickCell{width:42px}
+.BTPickWDN{margin:2px 3px 2px 3px;padding:1px;font-weight:bold;line-height:22px;text-align:center;cursor:default}
+.BTHigh .BTPickWDN{line-height:30px}
+.BTPickHover,.BTPickSelHover,.BTPickWD,.BTPickSa,.BTPickSu,.BTPickSel,.BTPickNow,.BTPickWDNE,.BTPickSaNE,.BTPickSuNE,.BTPickSelNE,.BTPickNowNE,.BTPickOM,.BTPickOMNE{margin:1px;padding:1px 3px 1px 3px;line-height:22px;text-align:center;cursor:pointer;}
+.BTPickWN,.BTPickWNE{padding:2px 4px 2px 4px;line-height:22px;text-align:center;cursor:pointer}
+.BTHigh .BTPickCell>div{line-height:26px}
+.BTBig .BTPickCell>div{line-height:30px}
+.BTLow .BTPickCell>div{line-height:16px}
+.BTPickWNE{cursor:default}
+.BTPickNE{cursor:default}
+.BTPickEmpty{background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBmaWxsPSIjRTZBREEyIiBkPSJNNDUuNiwxNC40QzM3LDUuOSwyMyw1LjksMTQuNCwxNC40cy04LjYsMjIuNSwwLDMxLjFzMjIuNSw4LjYsMzEuMSwwUzU0LjEsMjMsNDUuNiwxNC40eiBNMzguNSw0MS4zTDMwLDMyLjhsLTguNSw4LjVsLTIuOC0yLjhsOC41LTguNWwtOC41LTguNWwyLjgtMi44bDguNSw4LjVsOC41LTguNWwyLjgsMi44TDMyLjgsMzBsOC41LDguNUwzOC41LDQxLjN6Ii8+DQo8L3N2Zz4=) no-repeat center center;background-size:16px 16px;cursor:pointer;height:17px}
+.BTWide .BTPickEmpty{background-size:20px 20px;height:20px}
+.BTBig .BTPickEmpty{background-size:24px 24px;height:24px}
+.BTPick2TableParent{padding-top:1px;padding-bottom:2px;display:block;overflow:hidden;clear:both}
+.BTWide .BTPick2TableParent{padding-top:1px;padding-bottom:1px}
+.BTHigh .BTPick2TableParent{padding-top:0px;padding-bottom:0px}
+.BTTiny .BTPick2TableParent{padding-top:0px;padding-bottom:0px}
+.BTPick2Table{table-layout:fixed;width:0px;margin-left:3px;margin-right:3px}
+.BTPick2CellM{width:88px}
+.BTLow .BTPick2CellM{width:72px}
+.BTWide .BTPick2CellM{width:105px}
+.BTPick2CellY{width:58px}
+.BTLow .BTPick2CellY{width:46px}
+.BTWide .BTPick2CellY{width:58px}
+.BTPick2CellSep{width:15px}
+.BTLow .BTPick2CellSep{width:2px}
+.BTPick2SepH{display:none}
+.BTPick2M,.BTPick2Y{margin:3px 2px 3px 2px;padding:4px 1px 4px 1px;line-height:20px;cursor:pointer;text-align:center;overflow:hidden}
+.BTHigh .BTPick2M,.BTHigh .BTPick2Y{line-height:25px}
+.BTBig .BTPick2M,.BTBig .BTPick2Y{line-height:30px}
+.BTLow .BTPick2M,.BTLow .BTPick2Y{line-height:17px;padding-top:2px;padding-bottom:1px}
+.BTPick2Sep{height:34px;width:1px;overflow:hidden;margin-left:2px;margin-right:2px}
+.BTHigh .BTPick2Sep{height:35px}
+.BTBig .BTPick2Sep{height:40px}
+.BTLow .BTPick2Sep{height:26px}
+.BTPick2BL,.BTPick2BR{width:53px;cursor:pointer;height:34px;background-repeat:no-repeat;background-position:center 7px;background-size:16px 16px}
+.BTPick2BL{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMzgsMjAgTDI2LDMyIEwzOCw0NCIvPg0KPC9zdmc+)}
+.BTPick2BR{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjYsMjAgTDM4LDMyIEwyNiw0NCIvPg0KPC9zdmc+)}
+.BTWide .BTPick2BL,.BTWide .BTPick2BR{background-position:center 5px;background-size:20px 20px}
+.BTHigh .BTPick2BL,.BTHigh .BTPick2BR{height:38px;background-position:center 10px}
+.BTBig .BTPick2BL,.BTBig .BTPick2BR{height:41px;background-position:center 10px;background-size:24px 24px}
+.BTLow .BTPick2BL,.BTLow .BTPick2BR{height:26px;width:40px;background-position:center 4px}
+ .BTPickTimeCell{padding:15px 24px 16px 0px;text-align:right;line-height:0px;height:15px}
+.BTWide .BTPickTimeCell{height:19px;padding-right:26px}
+.BTHigh .BTPickTimeCell{padding-top:18px;padding-bottom:18px}
+.BTBig .BTPickTimeCell{padding-top:26px;padding-bottom:25px}
+.BTGiant .BTPickTimeCell{height:23px}
+.BTLow .BTPickTimeCell{padding-top:9px;padding-bottom:9px;padding-right:20px}
+.BTTiny .BTPickTimeCell{padding-top:6px;padding-bottom:6px}
+.BTPickTime{margin:0px;padding:0px;border:0px none;white-space:nowrap;text-align:right;outline:none;background:transparent}
+.BTPickFooter,.BTPick2Footer{padding:7px 0px 12px 0px;cursor:default;text-align:center}
+.BTHigh .BTPickFooter,.BTHigh .BTPick2Footer{padding-top:10px;padding-bottom:10px}
+.BTBig .BTPickFooter,.BTBig .BTPick2Footer{padding-top:15px;padding-bottom:15px}
+.BTLow .BTPickFooter,.BTLow .BTPick2Footer{padding-top:5px;padding-bottom:5px}
+.BTTiny .BTPickFooter,.BTTiny .BTPick2Footer{padding-top:2px;padding-bottom:4px}
+.BTPickButton{padding:4px 5px 3px 5px;margin:1px 4px 1px 4px;width:75px;text-align:center;white-space:nowrap;overflow:hidden}
+.BTWide .BTPickButton{width:90px}
+.BTHigh .BTPickButton{padding-top:6px;padding-bottom:5px}
+.BTBig .BTPickButton{padding-top:8px;padding-bottom:8px}
+.BTLow .BTPickButton{padding-top:2px;padding-bottom:1px;width:60px;margin-left:3px;margin-right:3px}
+.BTTiny .BTPickButton{padding-top:1px;padding-bottom:0px}
+.BTEditParent{position:absolute;z-index:258;overflow:hidden}
+.BTEdit,.BTEditInline{padding:2px 4px 2px 4px;border:1px solid #DDD;border-top:1px solid #666;border-left:1px solid #666;background:white;white-space:nowrap;overflow:hidden;}
+.BTEditInline{display:inline-block;vertical-align:bottom}
+.BTEditMulti{white-space:pre-wrap}
+.BTEnumControl,.BTEnumInline,.BTEnumHeader{cursor:pointer;background:white url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogICA8cGF0aCBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iNHB4IiBmaWxsPSJub25lIiBkPSJNMjAsMjYgTDMyLDM4IEw0NCwyNiIvPg0KPC9zdmc+) no-repeat;background-size:16px 16px}
+.BTEnumControl,.BTEnumInline{background-position:2px 5px;padding:2px 4px 2px 20px;border:1px solid #DDD;border-top:1px solid #666;border-left:1px solid #666;overflow:hidden}
+.BTEnumInline{display:inline-block;vertical-align:bottom}
+.BTEnumHeader{background-position:2px 6px;padding:3px 4px 2px 20px}
+.BTMouseOrig{background:yellow!important;opacity:0.5}
+.BTMouseDragObject{position:absolute;z-index:260;background:#888;opacity:0.5}
+.BTFocus{border:1px solid #AAF;border-top:1px solid #00F;border-left:1px solid #00F;background-color:#EEE}
+ .BTTipMain{position:absolute;left:0px;top:0px;z-index:262;visibility:hidden}
+.BTTipOuter{padding:5px;overflow:hidden;cursor:default}
+.BTTipBody{white-space:nowrap;overflow:hidden}
+.BTTipShadow{position:absolute;display:none}
+.BTDragObject{z-index:300;margin-left:15px;margin-top:10px;padding:5px}
+.BTChart{padding:5px}
+.BTChartInner{background:white;width:100%}
+.BTChartLayer{overflow:hidden;height:1000px}
+.BTChartAxisY{background:black;height:1px;overflow:hidden}
+.BTChartAxisYLabel{overflow:hidden}
+.BTChartAxisYText{margin-right:5px;margin-top:12px;text-align:right}
+.BTChartAxisX{width:1px;overflow:hidden;background:black}
+.BTChartAxisXLabel{overflow:hidden}
+.BTChartAxisXText{text-align:center}
+.BTChartCaption{text-align:center;margin-top:3px}
+.BTChartPoint{background-repeat:no-repeat;background-size:9px 9px;background-position:11px 11px;width:32px;height:32px;overflow:hidden}
+.BTChartPoint1{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiMzOTNEM0IiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint2{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiNDMDJEMkMiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint3{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiMxNjY2QUEiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint4{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiNBRUI5NTYiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint5{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiM3MDNEODgiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint6{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiM4ODAiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint7{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiM0MkFFQ0EiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.BTChartPoint8{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQo8Y2lyY2xlIGZpbGw9IiNDQUNDRDMiIGN4PSIzMiIgY3k9IjMyIiByPSIyOCIvPg0KPC9zdmc+)}
+.GridDebugTag,.GridDebugTagMax{overflow:auto;overflow-y:scroll;border:1px solid black;background:#DDD}
+.GridDebugTag,.GridDebugTagMax,.GridDebugButtons,.GridDebugButtonsMax{position:fixed;z-index:256;left:5px;right:5px;bottom:5px;height:200px;padding:4px}
+.GridDebugTagMax,.GridDebugButtonsMax{top:5px;height:auto}
+.GridDebugButtons,.GridDebugButtonsMax{text-align:right;margin-right:25px;width:150px;left:auto}
+.GridDebugButton{font-size:10px;width:40px;padding:0px}
+.GridDebugTitle{font-size:10px;color:#3D7FC2;font-style:normal;font-weight:normal}
+.GridDebugMark{font-weight:bold}
+.GridDebugStop{font-size:18px;font-weight:bold;color:red}
+.GridDebugError{font-size:12px;color:red}
+.GridDebugWarning{font-size:12px;color:#A60}
+.GridDebugList{font-size:10px;color:#888}
+.GridDebugInfo{font-size:12px}
+.BTAnimateOverflow{overflow:hidden}
+@keyframes BTExpandH{from{height:0px}
+ }
+@keyframes BTCollapseH{to{height:0px}
+ }
+.BTAnimateTransparent{opacity:0}
+@keyframes BTShow{from{opacity:0}
+ to{opacity:1}
+ }
+@keyframes BTHide{from{opacity:1}
+ to{opacity:0}
+ }
+.BTAnimateHidden{display:none}
+.BTAnimateVisible{display:inherit}
+.BTAnimateLeftTop{overflow:hidden;transform-origin:0% 0%}
+.BTAnimateCenterTop{overflow:hidden;transform-origin:50% 0%}
+.BTAnimateRightTop{overflow:hidden;transform-origin:100% 0%}
+.BTAnimateLeftBottom{overflow:hidden;transform-origin:0% 100%}
+.BTAnimateRightBottom{overflow:hidden;transform-origin:100% 100%}
+.BTAnimateCenterBottom{overflow:hidden;transform-origin:50% 100%}
+.BTAnimateLeftCenter{overflow:hidden;transform-origin:0% 50%}
+.BTAnimateRightCenter{overflow:hidden;transform-origin:100% 50%}
+.BTAnimateCenterCenter{overflow:hidden;transform-origin:50% 50%}
+@keyframes BTZoomInH{from{height:0px;transform:scale(1,0)}
+ to{transform:scale(1,1)}
+ }
+@keyframes BTZoomOutH{from{transform:scale(1,1)}
+ to{transform:scale(1,0);height:0px}
+ }
+@keyframes BTZoomInY{from{transform:scale(1,0)}
+ to{transform:scale(1,1)}
+ }
+@keyframes BTZoomOutY{from{transform:scale(1,1)}
+ to{transform:scale(1,0)}
+ }
+@keyframes BTZoomInX{from{transform:scale(0,1)}
+ to{transform:scale(1,1)}
+ }
+@keyframes BTZoomOutX{from{transform:scale(1,1)}
+ to{transform:scale(0,1)}
+ }
+@keyframes BTZoomIn{from{transform:scale(0)}
+ to{transform:scale(1)}
+ }
+@keyframes BTZoomOut{from{transform:scale(1)}
+ to{transform:scale(0)}
+ }
+@keyframes BTRotateX90{0%{transform:rotateX(0deg)}
+ 50%{transform:rotateX(90deg)}
+ 100%{transform:rotateX(0deg)}
+ }
+@keyframes BTRotateX90To{from{transform:rotateX(0deg)}
+ to{transform:rotateX(90deg)}
+ }
+@keyframes BTRotateX90From{from{transform:rotateX(90deg)}
+ to{transform:rotateX(0deg)}
+ }
+@keyframes BTRotateY90{0%{transform:rotateY(0deg)}
+ 50%{transform:rotateY(90deg)}
+ 100%{transform:rotateY(0deg)}
+ }
+@keyframes BTRotateY90To{from{transform:rotateY(0deg)}
+ to{transform:rotateY(90deg)}
+ }
+@keyframes BTRotateY90From{from{transform:rotateY(90deg)}
+ to{transform:rotateY(0deg)}
+ }
+@keyframes BTFocus{0%{color:inherit}
+ 50%{color:red}
+ 100%{color:inherit}
+ }
+@keyframes BTCopy{0%{transform:translateX(0px)}
+ 25%{transform:translateX(1px)}
+ 75%{transform:translateX(-1px)}
+ 100%{transform:translateX(0px)}
+ }
+@keyframes BTOpacityBlink{0%{opacity:1}
+ 50%{opacity:0.2}
+ 100%{opacity:1}
+ }
+@keyframes BTBackgroundBlink{0%{background-color:#FFF}
+ 50%{background-color:#888}
+ 100%{background-color:#FFF}
+ }
+.BTMark{background-color:#AAA!important}
+@keyframes BTMark{0%{background-color:#FFF}
+ 25%{background-color:#AAA}
+ 75%{background-color:#AAA}
+ 100%{background-color:#FFF}
+ }
+@keyframes BTHighlight{0%{background-color:#FFF}
+ 25%{background-color:#AAA}
+ 50%{background-color:#FFF}
+ 75%{background-color:#AAA}
+ 100%{background-color:#FFF}
+ }
+@keyframes BTHighlightDeselect{0%{background-color:#FFF}
+ 25%{background-color:#FF0}
+ 50%{background-color:#FFF}
+ 75%{background-color:#FF0}
+ 100%{background-color:#FFF}
+ }
+@keyframes BTHighlightSelect{0%{background-color:#FF0}
+ 25%{background-color:#FFF}
+ 50%{background-color:#FF0}
+ 75%{background-color:#FFF}
+ 100%{background-color:#FF0}
+ }
+@keyframes BTHighlightDelete{0%{background-color:#FAA}
+ 25%{background-color:#FFF}
+ 50%{background-color:#FAA}
+ 75%{background-color:#FFF}
+ 100%{background-color:#FAA}
+ }
+@keyframes BTHighlightMove{0%{background-color:#AEE}
+ 25%{background-color:#FFF}
+ 50%{background-color:#AEE}
+ 75%{background-color:#FFF}
+ 100%{background-color:#AEE}
+ }
+@keyframes BTHighlightAdd{0%{background-color:#AFA}
+ 25%{background-color:#FFF}
+ 50%{background-color:#AFA}
+ 75%{background-color:#FFF}
+ 100%{background-color:#AFA}
+ }
+@keyframes BTHighlightChange{0%{background-color:#AAF}
+ 25%{background-color:#FFF}
+ 50%{background-color:#AAF}
+ 75%{background-color:#FFF}
+ 100%{background-color:#AAF}
+ }
+.GridDisabled{position:absolute;z-index:256;background:white;opacity:0.5}
+ .BTDialogLoaded{border:1px solid black!important}

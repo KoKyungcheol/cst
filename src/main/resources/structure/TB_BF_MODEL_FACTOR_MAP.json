@@ -1,0 +1,17 @@
+{
+    "name": "TB_BF_MODEL_FACTOR_MAP",
+    "useDefaultSchema": "N",
+    "columns": [{
+            "name": "MODEL_CD",
+            "unique": "Y",
+            "type": "STRING",
+            "header": "MODEL_CD"
+        },
+        {
+            "name": "FACTOR_CD",
+            "unique": "Y",
+            "type": "STRING",
+            "header": "FACTOR_CD"
+        }
+    ]
+}

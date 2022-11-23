@@ -1,0 +1,89 @@
+.btn-pill {
+  border-radius: 10rem;
+}
+
+.btn-square {
+  border-radius: 0;
+}
+
+.btn .feather {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-alert {
+  color: #fff;
+  background-color: #f8d7da !important; 
+}
+
+.btn-close-span {
+  font-size: 1.6em;
+  color: #721c24;
+}
+
+.btn-close-span-settings {
+  font-size: 1.9em;
+  opacity: 0.6;
+}
+
+.btn-close-settings {
+  line-height: 0.6 !important;
+  background-color: #121923;
+}
+
+.btn-close-custom {
+  height: 1.5em;
+  padding: 0;
+  color: white;
+  filter: none;
+  line-height: 0;
+  background: none;
+  border: 0;
+  border-radius: 0.2rem;
+  opacity: 1; 
+  z-index: 0 !important;
+}
+
+.login .btn-close-custom {
+  padding: .95rem;
+}
+
+.btn-close-custom:hover {
+  color: white;
+}
+
+.btn-close-custom:focus {
+  box-shadow: none;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-color($static-white);
+    @include button-color-hover($static-white);
+  }
+
+  .btn-outline-#{$color} {
+    @include button-color-hover($static-white);
+    @include button-color-active($static-white);
+  }
+}
+
+@each $color, $value in $social-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+    @include button-color($static-white);
+    @include button-color-hover($static-white);
+  }
+}
+
+.btn-light,
+.btn-white {
+  @include button-color($gray-800);
+  @include button-color-hover($gray-800);
+}
+
+.btn-outline-light,
+.btn-outline-white {
+  @include button-color-hover($gray-800);
+  @include button-color-active($gray-800);
+}

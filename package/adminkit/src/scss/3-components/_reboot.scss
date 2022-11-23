@@ -1,0 +1,18 @@
+body, html, #root {
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+  opacity: 1 !important;
+}
+
+body[data-sidebar=right] {
+  direction: rtl;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  html {
+    overflow-x: hidden;
+  }
+}

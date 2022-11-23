@@ -1,0 +1,83 @@
+#main {
+    margin-left: 10px;
+    padding-bottom: 0px;
+}
+
+
+/* #content{margin-left:200px;} */
+
+#selection-panel {
+    width: 200px;
+}
+
+.row {
+    background-color: gray;
+}
+
+.well-sm {
+    padding-top: 0px;
+    margin-top: 10px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.jarviswidget .widget-body {
+    min-height: 300px;
+    height: 90%;
+}
+
+.jarviswidget {
+    margin-bottom: 0px;
+    margin-top: 5px
+}
+
+.select-ul {
+    padding-inline-start: 20px;
+}
+
+.col-xs-6 .col-sm-6 .col-md-6 .col-lg-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.table>thead>tr>th {
+    vertical-align: middle;
+}
+
+tr.odd {
+    background-color: #f9f9f9
+}
+
+tr.even {
+    background-color: #ffffff
+}
+
+.fa-refresh {
+    color: white;
+}
+
+.list-busy {
+    border-left: 3px solid red;
+    padding-left: 3px;
+}
+
+.btn-right {
+    float: right;
+}
+
+.btn-group ul li {
+    white-space: nowrap;
+}
+
+
+/*.btn-group ul {display:inline-block;}*/

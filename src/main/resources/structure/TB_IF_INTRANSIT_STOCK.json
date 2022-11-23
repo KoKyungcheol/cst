@@ -1,0 +1,182 @@
+{
+    "name": "TB_IF_INTRANSIT_STOCK",
+    "useDefaultSchema": "Y",
+    "procedure": [{
+            "sequence": "1",
+            "method": "{call dbo.SP_UI_IM_12_BATCH(?, ?, ?, ?)}",
+            "description": "창고 재고"
+        },
+        {
+            "sequence": "2",
+            "method": "{call dbo.SP_UI_IM_13_BATCH(?, ?, ?, ?)}",
+            "description": "이동중 재고"
+        }
+    ],
+    "columns": [{
+            "name": "CUTOFF_DATE",
+            "type": "DATE",
+            "header": "CUTOFF_DATE",
+            "unique": "Y"
+        },
+        {
+            "name": "INV_ID",
+            "type": "STRING",
+            "header": "INV_ID",
+            "unique": "Y"
+        },
+        {
+            "name": "FROM_LOCAT_CD",
+            "import_column": "LOCAT_CD",
+            "import_table": "TB_CM_LOC_DTL",
+            "not_null": "Y",
+            "exports": [{
+                "header": "FROM_LOCAT_CD",
+                "type": "STRING",
+                "column": "LOCAT_CD"
+            }]
+        },
+        {
+            "name": "TO_LOCAT_CD",
+            "import_column": "LOCAT_CD",
+            "import_table": "TB_CM_LOC_DTL",
+            "not_null": "Y",
+            "exports": [{
+                "header": "TO_LOCAT_CD",
+                "type": "STRING",
+                "column": "LOCAT_CD"
+            }]
+        },
+        {
+            "name": "ITEM_CD",
+            "import_column": "ITEM_CD",
+            "import_table": "TB_CM_ITEM_MST",
+            "not_null": "Y",
+            "exports": [{
+                "header": "INTRANSIT_STOCK_ITEM_CD",
+                "type": "STRING",
+                "column": "ITEM_CD"
+            }]
+        },
+        {
+            "name": "INV_LOCAT_CD",
+            "import_column": "INV_LOCAT_CD",
+            "import_table": "TB_CM_STORAGE_LOCATION",
+            "not_null": "Y",
+            "exports": [{
+                "header": "INTRANSIT_STOCK_INV_LOCAT_CD",
+                "type": "STRING",
+                "column": "INV_LOCAT_CD"
+            }]
+        },
+        {
+            "name": "VEHICL_VAL",
+            "import_column": "VEHICL_TP",
+            "import_table": "TB_CM_VEHICLE",
+            "outer": "Y",
+            "exports": [{
+                "header": "VEHICL_VAL",
+                "type": "STRING",
+                "column": "VEHICL_TP"
+            }]
+        },
+        {
+            "name": "BOD_LEADTIME",
+            "type": "NUMBER",
+            "header": "BOD_LEADTIME"
+        },
+        {
+            "name": "SHPP_DATE",
+            "type": "DATE",
+            "header": "SHPP_DATE"
+        },
+        {
+            "name": "ETD",
+            "type": "DATE",
+            "header": "ETD"
+        },
+        {
+            "name": "ESTIMT_USABLE_DATE",
+            "type": "DATE",
+            "header": "ESTIMT_USABLE_DATE",
+            "not_null": "Y"
+        },
+        {
+            "name": "EXPIRE_DATE",
+            "type": "DATE",
+            "header": "EXPIRE_DATE"
+        },
+        {
+            "name": "INV_LOCAT_CATAGY_NM",
+            "type": "STRING",
+            "header": "INV_LOCAT_CATAGY_NM",
+            "not_null": "Y"
+        },
+        {
+            "name": "INV_QTY_TP_NM",
+            "type": "STRING",
+            "header": "INV_QTY_TP_NM",
+            "unique": "Y",
+            "not_null": "Y"
+        },
+        {
+            "name": "QTY",
+            "type": "NUMBER",
+            "header": "QTY",
+            "not_null": "Y"
+        },
+        {
+            "name": "PO_NO",
+            "type": "STRING",
+            "header": "PO_NO"
+        },
+        {
+            "name": "INVOICE_NO",
+            "type": "STRING",
+            "header": "INVOICE_NO"
+        },
+        {
+            "name": "CONTAINER_NO",
+            "type": "STRING",
+            "header": "CONTAINER_NO"
+        },
+        {
+            "name": "LOT_NO",
+            "type": "STRING",
+            "header": "LOT_NO"
+        },
+        {
+            "name": "ACCOUNT_CD",
+            "import_column": "ACCOUNT_CD",
+            "import_table": "TB_DP_ACCOUNT_MST",
+            "outer": "Y",
+            "exports": [{
+                "header": "INTRANSIT_STOCK_ACCOUNT_CD",
+                "type": "STRING",
+                "column": "ACCOUNT_CD"
+            }]
+        },
+        {
+            "name": "PLAN_YN",
+            "type": "STRING",
+            "header": "PLAN_YN"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

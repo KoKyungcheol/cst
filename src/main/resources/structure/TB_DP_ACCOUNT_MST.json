@@ -1,0 +1,138 @@
+{
+    "name": "TB_DP_ACCOUNT_MST",
+    "useDefaultSchema": "Y",
+    "columns": [{
+            "name": "ID",
+            "type": "ID",
+            "update": "N"
+        },
+        {
+            "name": "ACCOUNT_CD",
+            "type": "STRING",
+            "header": "ACCOUNT_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "ACCOUNT_NM",
+            "type": "STRING",
+            "header": "ACCOUNT_NM"
+        },
+        {
+            "name": "PARENT_SALES_LV_ID",
+            "not_null": "Y",
+            "import_column": "ID",
+            "import_table": "TB_DP_SALES_LEVEL_MGMT",
+            "exports": [{
+                "header": "PARENT_SALES_LV_CD",
+                "type": "STRING",
+                "column": "SALES_LV_CD"
+            }]
+        },
+        {
+            "name": "CURCY_CD_ID",
+            "filter": "DP_CURCY_CD_ID",
+            "not_null": "Y"
+        },
+        {
+            "name": "COUNTRY_ID",
+            "import_column": "ID",
+            "import_table": "TB_CM_COMM_CONFIG",
+            "exports": [{
+                "header": "COUNTRY_CD",
+                "type": "STRING",
+                "column": "CONF_CD"
+            }],
+            "and": [{
+                    "column": "CONF_GRP_CD",
+                    "value": "'CM_COUNTRY'"
+                },
+                {
+                    "column": "ACTV_YN",
+                    "value": "'Y'"
+                }
+            ]
+        },
+        {
+            "name": "CHANNEL_ID",
+            "import_column": "ID",
+            "import_table": "TB_CM_CHANNEL_TYPE",
+            "exports": [{
+                "header": "CHANNEL_NM",
+                "type": "STRING",
+                "column": "CHANNEL_NM"
+            }],
+            "and": [{
+                "column": "ACTV_YN",
+                "value": "'Y'"
+            }]
+        },
+        {
+            "name": "SOLD_TO_ID",
+            "type": "STRING",
+            "import_column": "ID",
+            "import_table": "TB_CM_CUSTOMER",
+            "outer": "Y",
+            "exports": [{
+                "header": "SOLD_TO_CUST_CD",
+                "column": "CUST_CD"
+            }]
+        },
+        {
+            "name": "SHIP_TO_ID",
+            "import_column": "ID",
+            "import_table": "TB_CM_CUSTOMER",
+            "outer": "Y",
+            "exports": [{
+                "header": "SHIP_TO_CUST_CD",
+                "type": "STRING",
+                "column": "CUST_CD"
+            }]
+        },
+        {
+            "name": "BILL_TO_ID",
+            "import_column": "ID",
+            "import_table": "TB_CM_CUSTOMER",
+            "outer": "Y",
+            "exports": [{
+                "header": "BILL_TO_CUST_CD",
+                "type": "STRING",
+                "column": "CUST_CD"
+            }]
+        },
+        {
+            "name": "INCOTERMS_ID",
+            "filter": "DP_INCOTERMS_ID",
+            "outer": "Y"
+        },
+        {
+            "name": "ACTV_YN",
+            "type": "STRING",
+            "header": "ACTV_YN",
+            "default": "Y"
+        },
+        {
+            "name": "DEL_YN",
+            "type": "STRING",
+            "header": "DEL_YN",
+            "default": "N"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

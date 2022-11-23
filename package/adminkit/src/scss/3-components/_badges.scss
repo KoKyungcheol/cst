@@ -1,0 +1,14 @@
+.badge {
+  color: $static-white;
+}
+
+.badge.bg-light {
+  color: $dark;
+}
+
+@each $color, $value in $theme-colors {
+  .badge-#{$color}-light {
+    @include badge-variant(rgba($value, 0.15));
+    color: $value;
+  }
+}

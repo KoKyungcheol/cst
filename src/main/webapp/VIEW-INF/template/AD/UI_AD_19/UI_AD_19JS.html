@@ -1,0 +1,274 @@
+<script>
+  var ISO_LOCAL_DATE_TIME = 'yyyy-MM-ddTHH:mm:ss';
+
+  var vm = new Vue({
+    el: '#UI_AD_19-contents',
+    i18n: gI18n,
+    data: function () {
+      var nowDate = new Date();
+      nowDate.setHours(0, 0, 0, 0);
+
+      return {
+        displayName: '',
+        viewName: '',
+        startDttm: nowDate.format(ISO_LOCAL_DATE_TIME),
+        endDttm: new Date().format(ISO_LOCAL_DATE_TIME),
+        local: localStorage.getItem('languageCode'),        
+        settings: {
+          currentPage: 0,
+          totalPages: 0,
+          perPageSize: 500,
+          comboboxUse: true,      
+          dataSourceArray: [500, 1000, 2000, 5000, 10000]
+        }
+      };
+    },
+    methods: {
+      doDataLoad: function (page) {
+        var dataProvider = vmGrid.dataProvider;
+        var gridView = vmGrid.gridView;
+
+        var thisVm = this;
+
+        var size = thisVm.settings.perPageSize;
+        var fromDate = new Date(thisVm.startDttm).format(ISO_LOCAL_DATE_TIME);
+        var toDate = new Date(thisVm.endDttm).format(ISO_LOCAL_DATE_TIME);
+
+        gridView.showToast(progressSpinner + 'Loading data...', true);
+
+        axios
+          .get(BASE_URL + 'system/logs/view-execution', {
+            params: {
+              startDttm: fromDate,
+              endDttm: toDate,
+              displayName: this.displayName,
+              viewName: this.viewName,
+              page: page-1,
+              size: size
+            }
+          })
+          .then(function (res) {
+            console.info(res);
+            var resultData = res.data;
+
+            // 2.0에서 3.0으로 포팅이 덜 된 화면이라 수정 필요함.
+            if (res.status === gHttpStatus.SUCCESS) {
+              dataProvider.fillJsonData(resultData, { count: -1 });
+              thisVm.doSetFilter();
+              thisVm.settings.currentPage = 1;
+              thisVm.settings.totalPages = 1;
+            } else if (res.status === gHttpStatus.NO_CONTENT) {
+              dataProvider.clearRows();
+              thisVm.doClearFilter();
+              thisVm.settings.currentPage = 0;
+              thisVm.settings.totalPages = 0;
+            }
+          })
+          .catch(function (err) {
+            console.log(err);
+          })
+          .then(function () {
+            gridView.hideToast();
+          });
+      },
+      doRefresh: function () {
+        var nowDate = new Date();
+        nowDate.setHours(0, 0, 0, 0);
+
+        this.displayName = '';
+        this.viewName = '';
+        this.startDttm = nowDate.format(ISO_LOCAL_DATE_TIME);
+        this.endDttm = new Date().format(ISO_LOCAL_DATE_TIME);
+      },
+      doResize: function () {
+        if (vmGrid) {
+          vmGrid.gridView.resetSize();
+        }
+      },
+      doKeyDown: function (e) {
+        if (e.type === 'keydown' && e.key === 'Enter') {
+          this.doDataLoad(1);
+        }
+      },
+      doSetFilter: function () {
+        var columnNames = vmGrid.gridView.getColumnNames();
+        columnNames.splice(columnNames.indexOf('executionDttm'), 1);
+
+        columnNames.forEach(function (columnName) {
+          var distinctValues = vmGrid.dataProvider.getDistinctValues(columnName);
+          var filters = [];
+          distinctValues.forEach(function (value) {
+            filters.push({
+              name: value,
+              criteria: 'value = ' + '\'' + value + '\''
+            });
+          });
+          vmGrid.gridView.setColumnFilters(columnName, filters);
+        });
+      },
+      doClearFilter: function () {
+        var columnNames = vmGrid.gridView.getColumnNames();
+        columnNames.forEach(function (columnName) {
+          vmGrid.gridView.clearColumnFilters(columnName);
+        });
+      },
+      onChange: function () {
+      }
+    }
+  });
+
+  var vmGrid = new Vue({
+    el: '#UI_AD_19-grid1',
+    i18n: gI18n,
+    data: function () {
+      return {
+        gStyle: {
+          indicator: {
+            visible: true
+          },
+          checkBar: {
+            visible: false
+          },
+          stateBar: {
+            visible: false
+          }
+        },
+        dataProvider: '',
+        gridView: '',
+        fields: [
+          {
+            fieldName: 'executionDttm',
+            dataType: 'datetime',
+            datetimeFormat: 'iso'
+          },
+          {
+            fieldName: 'viewCd'
+          },
+          {
+            fieldName: 'viewNm'
+          },
+          {
+            fieldName: 'actionCd'
+          },
+          {
+            fieldName: 'username'
+          },
+          {
+            fieldName: 'displayName'
+          },
+          {
+            fieldName: 'userIp'
+          },
+          {
+            fieldName: 'userBrowser'
+          },
+          {
+            fieldName: 'executionTime',
+            dataType: 'number'
+          }
+        ],
+        columns: [
+          {
+            name: 'executionDttm',
+            fieldName: 'executionDttm',
+            header: {
+              text: gI18n.tc('EXECUTE_DATE')
+            },
+            styles: {
+              datetimeFormat: 'yyyy-MM-dd HH:mm:ss'
+            },
+            editable: false,
+            width: 350
+          },
+          {
+            name: 'viewCd',
+            fieldName: 'viewCd',
+            header: {
+              text: gI18n.tc('VIEW_ID')
+            },
+            editable: false,
+            width: 250
+          },
+          {
+            name: 'viewNm',
+            fieldName: 'viewNm',
+            header: {
+              text: gI18n.tc('VIEW_NAME')
+            },
+            editable: false,
+            width: 250
+          },
+          {
+            name: 'actionCd',
+            fieldName: 'actionCd',
+            header: {
+              text: gI18n.tc('ACTION_ID')
+            },
+            editable: false,
+            width: 300
+          },
+          {
+            name: 'username',
+            fieldName: 'username',
+            header: {
+              text: gI18n.tc('USER_ID')
+            },
+            editable: false,
+            width: 250
+          },
+          {
+            name: 'displayName',
+            fieldName: 'displayName',
+            header: {
+              text: gI18n.tc('USER_NAME')
+            },
+            editable: false,
+            width: 250
+          },
+          {
+            name: 'userIp',
+            fieldName: 'userIp',
+            header: {
+              text: gI18n.tc('USER_IP')
+            },
+            editable: false,
+            width: 300
+          },
+          {
+            name: 'userBrowser',
+            fieldName: 'userBrowser',
+            header: {
+              text: gI18n.tc('USER_BROWSER')
+            },
+            editable: false,
+            width: 250
+          },
+          {
+            name: 'executionTime',
+            fieldName: 'executionTime',
+            header: {
+              text: gI18n.tc('EXECUTE_TIME')
+            },
+            editable: false,
+            styles: { numberFormat: '#,##0' },
+            width: 250
+          }
+        ]
+      };
+    },
+    methods: {},
+    mounted: function () {
+      gCreateGrid(this);
+
+      this.gridView.setFilteringOptions({
+        clearWhenSearchCheck: true,
+        selector: {
+          showSearchInput: true,
+          showButtons: true,
+          acceptText: '확인',
+          cancelText: '취소'
+        }
+      });
+    }
+  });
+</script>

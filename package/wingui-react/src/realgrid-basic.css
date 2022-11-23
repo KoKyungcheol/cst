@@ -1,0 +1,253 @@
+.realgrid {
+  width: 100%;
+}
+
+ .rg-root {
+  border: 0;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+ .rg-header-focus {
+  background: none;
+}
+
+ .rg-rowindicator-cell {
+  background-color: #ffffff;
+  border: 1px solid #e2e5e7;
+}
+
+ .rg-head,  .rg-header {
+  background: #ffffff;
+}
+
+ .rg-head .rg-table tr td,
+ .rg-header .rg-table tr td {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e5e7;
+}
+
+ .rg-header .rg-table tr td:last-child {
+  border-right: none;
+}
+
+ .rg-root .rg-table tbody tr {
+  height: 30px !important;
+}
+
+ .rg-data-row {
+  height: 30px;
+}
+
+ .rg-rowindicator-head {
+  border-right: none;
+}
+
+ .rg-body .rg-table tr td, .rg-fixed-body .rg-table tr td {
+  border-right: 1px solid #e2e5e7 !important;
+}
+
+ .rg-body .rg-table tr td:last-child {
+  border-right: none !important;
+}
+
+ .rg-table tr td {
+  border-right: 1px solid #e2e5e7;
+  border-bottom: 1px solid #e2e5e7;
+}
+
+ .rg-data-row:hover .rg-data-cell {
+  background-color: #DBEBFB;
+}
+
+ .rg-data-row:hover .rg-data-cell:hover {
+  background-color: #ebebeb;
+}
+
+ .rg-header-cell,
+ .rg-data-cell {
+  border-bottom: 1px solid #e2e5e7;
+}
+
+ .rg-vscrollbar>div {
+  border: none;
+}
+
+ .rg-vscrollbar .rg-scroll-up,
+ .rg-vscrollbar .rg-scroll-down {
+  background-color: #f8f9fa;
+}
+
+ .rg-hscrollbar > div {
+  border: none;
+}
+
+ .rg-hscrollbar .rg-scroll-left,
+ .rg-hscrollbar .rg-scroll-right {
+  background-color: #f8f9fa;
+}
+
+ .rg-scrolledge {
+  border: none;
+}
+
+ .rg-alternate-row {
+  background: #f6f6f8;
+}
+
+ .rg-white-rowbarcontainer:not(.rg-statebar-created) {
+  background-color: #ffffff !important;
+}
+
+ .rg-border-right-none {
+  border-right: 0 !important;
+}
+
+ .rg-rowindicator-focus.rg-white-rowbarcontainer {
+  background-color: #f9d2b9 !important;
+}
+
+ .rg-rowindicator-select.rg-white-rowbarcontainer {
+  background-color: #fdf0e8 !important;
+}
+
+ .rg-head,  .rg-header {
+  background: #f4f6fb !important;
+}
+
+ .rg-head .rg-table tr td,
+ .rg-header .rg-table tr td,
+ .rg-rowgroup-head .rg-table tr:not(.rg-rowgroup-summary) td {
+  background: #f4f6fb !important;
+  border-bottom: 1px solid #e2e5e7 !important;
+}
+
+ .rg-header .rg-table tbody tr,
+ .rg-head .rg-table tbody tr,
+ .rg-rowgroup-head .rg-table tbody tr {
+  height: 35px !important;
+}
+
+ .rg-rowgroup-head .rg-table {
+  height: 100% !important;
+}
+
+ .rg-fixed-body .rg-alternate-row {
+  background-color: #ededed !important;
+}
+
+ .rg-rowgroup-footer {
+  background-color: #e3e3e3 !important;
+}
+
+
+.realgrid-document-title {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.rg-empty-grid {
+  padding: 0px;
+  font-size: 18px;
+}
+
+.left-column {
+  text-align: left;
+}
+
+.right-column {
+  text-align: right;
+}
+
+.editable-text-column {
+  text-align: left;
+  background: #ffffd2;
+}
+
+.text-column {
+  text-align: left;
+}
+
+.editable-number-column {
+  text-align: right;
+  background: #ffffd2;
+}
+
+.number-column {
+  text-align: right;
+}
+
+.editable-column {
+  background: #ffffd2;
+}
+
+.link-column {
+  color: blue;
+  text-align: left;
+}
+
+.link-column:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rg-focused-row .rg-data-cell {
+  background: #DBEBFB;
+}
+
+.rg-focused-row .editable-text-column, .rg-focused-row .editable-number-column {
+  background: #DBEBFB;
+}
+
+.rg-focused-row .editable-column {
+  background: #DBEBFB;
+}
+
+.rg-popup-item {
+  height: 24px;
+  line-height: 18px;
+}
+
+.required-header {
+  position: relative;
+}
+
+.required-header:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid #c00000;
+  border-bottom: 5px solid transparent;
+}
+
+.rg-renderer > .minicolors {
+  position: static !important;
+}
+
+.rg-header-group-cell.header-text-align-left > div > span:first-of-type {
+  position: absolute;
+  left: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.column-textAlignt-near {
+  text-align: left;
+}
+
+.column-textAlignt-far {
+  text-align: right;
+}
+
+.text-color-black {
+  color: black;
+}
+
+.text-font-bold {
+  font-weight: bold;
+}

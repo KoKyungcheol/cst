@@ -1,0 +1,173 @@
+.rg-calendar {
+  font-family: "나눔고딕코딩";
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid rgba(50, 50, 50, 1);
+  box-shadow: rgba(0, 0, 0, 0.8) 1px 2px 5px;
+}
+
+.rg-cal-header {
+  height: 20px;
+}
+
+.rg-cal-year {
+  cursor: default;
+  top: 2px;
+}
+
+.rg-cal-month {
+  cursor: pointer;
+  top: 2px;
+}
+
+.rg-cal-prev-month {
+  background-image: url("/resource/image/icon/cal_prev.png");
+  width: 20px;
+  height: 20px;
+}
+
+.rg-cal-prev-month:hover {
+  background-image: url("/resource/image/icon/cal_prev_hover.png");
+}
+
+.rg-cal-prev-month:active {
+  background-image: url("/resource/image/icon/cal_prev_active.png");
+}
+
+.rg-cal-next-month {
+  background-image: url("/resource/image/icon/cal_next.png");
+  width: 20px;
+  height: 20px;
+}
+
+.rg-cal-next-month:hover {
+  background-image: url("/resource/image/icon/cal_next_hover.png");
+}
+
+.rg-cal-next-month:active {
+  background-image: url("/resource/image/icon/cal_next_active.png");
+}
+
+.rg-cal-today-button {
+  font-size: 12px;
+  font-family: "나눔고딕코딩";
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rg-cal-today-button:hover {
+  border: 1px solid #aaa;
+  background-color: #fff;
+  text-decoration: underline;
+}
+
+.rg-cal-today-button:active {
+}
+
+.rg-cal-next-year {
+  background-image: url("/resource/image/icon/cal_up.png");
+}
+
+.rg-cal-next-year:hover {
+  background-image: url("/resource/image/icon/cal_up_hover.png");
+}
+
+.rg-cal-next-year:active {
+  background-image: url("/resource/image/icon/cal_up_active.png");
+}
+
+.rg-cal-prev-year {
+  background-image: url("/resource/image/icon/cal_down.png");
+}
+
+.rg-cal-prev-year:hover {
+  background-image: url("/resource/image/icon/cal_down_hover.png");
+}
+
+.rg-cal-prev-year:active {
+  background-image: url("/resource/image/icon/cal_down_active.png");
+}
+
+.rg-cal-weeks {
+  color: black;
+  font-size: 12px;
+  font-family: "나눔고딕코딩";
+  cursor: default;
+}
+
+.rg-cal-week-sun {
+  color: red;
+}
+
+.rg-cal-week-sat {
+  color: blue;
+}
+
+.rg-cal-days {
+  font-family: "나눔고딕코딩";
+  font-size: 12px;
+  text-align: center;
+}
+
+.rg-cal-day {
+  cursor: pointer;
+  background: #f5f5f5;
+  border: 1px solid #eee;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  font-family: "나눔고딕코딩";
+  font-size: 12px;
+}
+
+.rg-cal-day:hover {
+  background: #55FFf5;
+  color: red;
+  border: 1px solid #eee;
+}
+
+.rg-cal-prev-day {
+  color: #ccc;
+  border: 1px solid #fff;
+}
+
+.rg-cal-next-day {
+  color: #ccc;
+  border: 1px solid #fff;
+}
+
+.rg-cal-today {
+  background: #d5d5d5;
+}
+
+.rg-cal-focusday {
+  background: rgba(255, 255, 0, 0.3);
+  border: 1px solid #aaa;
+  color: #333;
+}
+
+.rg-cal-month-picker {
+  margin: 0px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid rgba(50, 50, 50, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 2px 5px;
+  font-family: "나눔고딕코딩";
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
+
+.rg-cal-month-picker-month {
+  padding: 1px 4px 1px 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.rg-cal-month-picker-month:hover {
+  background: #e8e8e8;
+}

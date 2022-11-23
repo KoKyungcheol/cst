@@ -1,0 +1,108 @@
+.choices {
+  .choices__inner {
+    transition: $input-transition;
+    padding: 0.25rem 0.7rem;
+    min-height: inherit;
+  }
+
+  &.is-focused .choices__inner {
+    background: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    color: $input-focus-color;
+    box-shadow: $input-focus-box-shadow;
+  }
+
+  &[data-type*="select-one"] .choices__inner {
+    padding-bottom: 0.25rem;
+  }
+}
+
+.choices__list {
+  &--multiple .choices__item {
+    margin: 4px 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  &--single {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  &--dropdown .choices__item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.choices.is-disabled .choices__inner,
+.choices.is-disabled .choices__input {
+  background-color: $gray-200;
+}
+
+.choices[data-type*='select-one'] .choices__input {
+  border-bottom: 1px solid $gray-300;
+  background-color: $white;
+}
+
+.choices[data-type*='select-one']:after {
+  border-color: $gray-900 transparent transparent transparent;
+}
+
+.choices[data-type*='select-one'].is-open:after {
+  border-color: transparent transparent $gray-900 transparent;
+}
+
+
+.choices[data-type*='select-multiple'] .choices__button,
+.choices[data-type*='text'] .choices__button {
+  border-left: 1px solid $primary;
+}
+
+.choices__inner {
+  background-color: $white;
+  border: 1px solid $gray-300;
+}
+
+.is-focused .choices__inner,
+.is-open .choices__inner {
+  border-color: $gray-500;
+}
+
+.choices__list--multiple .choices__item {
+  background-color: $primary;
+  border: 1px solid darken($primary, 2.5%);
+  color: $white;
+}
+
+.choices__list--multiple .choices__item.is-highlighted {
+  background-color: darken($primary, 5%);
+  border: 1px solid darken($primary, 7.5%);
+}
+
+.is-disabled .choices__list--multiple .choices__item {
+  background-color: $gray-500;
+  border: 1px solid$gray-500;
+}
+
+.choices__list--dropdown {
+  background-color: $white;
+  border: 1px solid $gray-300;
+}
+
+.is-open .choices__list--dropdown {
+  border-color: $gray-500;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: $gray-100;
+}
+
+.choices__heading {
+  border-bottom: 1px solid $gray-100;
+  color: $gray-600;
+}
+
+.choices__input {
+  background-color: $white;
+}

@@ -1,0 +1,153 @@
+spring:
+  profiles:
+    active: mssql
+  datasource:
+    name: T3SERIES
+    hikari:
+      minimum-idle: 8
+      maximum-pool-size: 20
+      pool-name: SpringBootJPAHikariCP
+      idle-timeout: 10000
+      connection-timeout: 5000
+      validation-timeout: 5000
+      max-lifetime: 580000
+  sql:
+    init:
+      enabled: false
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        id:
+          new_generator_mappings: false
+        proc:
+          param_null_passing: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    setting: maxmemory 128mb
+  session:
+    store-type: redis
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+  tomcat:
+    max-http-form-post-size: 1024MB
+  error:
+    whitelabel:
+      enabled: false
+  servlet:
+    context-real-path:
+    context-path: /
+    session:
+      cookie:
+        name: T3SESSIONID
+
+app:
+  languages:
+    - en-US
+    - ja-JP
+    - ko-KR
+    - zh-CN
+  authentication:
+    login-url: login
+    default-url: home
+    cors-allow-url:
+      - http://localhost:3000
+    password-policy:
+      usable-username: false
+      min-length: 8
+      max-repeat: 3
+      lcredit: 1
+      ucredit: 1
+      dcredit: 1
+      ocredit: 1
+    login-policy:
+      max-failure-count: 5
+      long-term-unvisited-days: 0
+      max-password-days: 0
+    account:
+      system-admins:
+        - admin
+    initial-password: T3SmartSCM!
+  view-config:
+    publish:
+      enable-watch-service: true
+  service:
+    badge:
+      enable: false
+      interval: 10000
+    file:
+      external-path: C:/Wingui/
+      name: file
+      category:
+        system: system
+        noticeboard: noticeboard
+        temporary: temporary
+        excel: upload-excel
+      temporary-clean-fixed-rate: 86400000
+  server:
+    fp:
+      scheme: http
+      id: T3SeriesFPServer
+      host: 192.168.3.21
+      port: 8079
+  style:
+    font-faces:
+      - en => Noto Sans KR,13
+      - ja => Noto Sans JP,13
+      - ko => Noto Sans KR,13
+      - zh => Noto Sans SC,13
+    grid-custom-skin: false
+  layout:
+    currency-button: hide
+    setting-button: show
+  cache:
+    enable: true
+  session:
+    timeout: 3600
+  engine:
+    registry-entries:
+
+multitenancy:
+  tenant-id: ZIONEX
+
+--- # MSSQL
+spring:
+  config:
+    activate:
+      on-profile: mssql
+  datasource:
+    platform: mssql
+    url: jdbc:sqlserver://192.168.123.16:1433;database=T3SMARTSCM_CST
+    username: cst
+    password: vivazio12#$
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+--- # ORACLE
+spring:
+  config:
+    activate:
+      on-profile: oracle
+  datasource:
+    platform: oracle
+    url: jdbc:oracle:thin:@192.168.3.22:1521:zionex
+    username: T3SMARTSCM_DEV
+    password: T3SMARTSCM_DEV
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect

@@ -1,0 +1,137 @@
+.white-skin .rg-root {
+    border: 0;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.white-skin .rg-header-focus {
+    background: none;
+}
+
+.white-skin .rg-rowindicator-cell {
+    background-color: #ffffff;
+    border: 1px solid #e2e5e7;
+}
+
+.white-skin .rg-head, .white-skin .rg-header {
+    background: #ffffff;
+}
+
+.white-skin .rg-head .rg-table tr td,
+.white-skin .rg-header .rg-table tr td {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e2e5e7;
+}
+
+.white-skin .rg-header .rg-table tr td:last-child {
+    border-right: none;
+}
+
+.white-skin .rg-root .rg-table tbody tr {
+    height: 30px !important;
+}
+
+.white-skin .rg-data-row {
+    height: 30px;
+}
+
+.white-skin .rg-rowindicator-head {
+    border-right: none;
+}
+
+.white-skin .rg-body .rg-table tr td, .rg-fixed-body .rg-table tr td {
+    border-right: 1px solid #e2e5e7 !important;
+}
+
+.white-skin .rg-body .rg-table tr td:last-child {
+    border-right: none !important;
+}
+
+.white-skin .rg-table tr td {
+    border-right: 1px solid #e2e5e7;
+    border-bottom: 1px solid #e2e5e7;
+}
+
+.white-skin .rg-data-row:hover .rg-data-cell {
+    background-color: #DBEBFB;
+}
+
+.white-skin .rg-data-row:hover .rg-data-cell:hover {
+    background-color: #ebebeb;
+}
+
+.white-skin .rg-header-cell,
+.white-skin .rg-data-cell {
+    border-bottom: 1px solid #e2e5e7;
+}
+
+.white-skin .rg-vscrollbar>div {
+    border: none;
+}
+
+.white-skin .rg-vscrollbar .rg-scroll-up,
+.white-skin .rg-vscrollbar .rg-scroll-down {
+    background-color: #f8f9fa;
+}
+
+.white-skin .rg-hscrollbar > div {
+    border: none;
+}
+
+.white-skin .rg-hscrollbar .rg-scroll-left,
+.white-skin .rg-hscrollbar .rg-scroll-right {
+    background-color: #f8f9fa;
+}
+
+.white-skin .rg-scrolledge {
+    border: none;
+}
+
+.white-skin .rg-alternate-row {
+    background: #f6f6f8;
+}
+
+.white-skin .rg-white-rowbarcontainer:not(.rg-statebar-created) {
+    background-color: #ffffff !important;
+}
+
+.white-skin .rg-border-right-none {
+    border-right: 0 !important;
+}
+
+.white-skin .rg-rowindicator-focus.rg-white-rowbarcontainer {
+    background-color: #f9d2b9 !important;
+}
+
+.white-skin .rg-rowindicator-select.rg-white-rowbarcontainer {
+    background-color: #fdf0e8 !important;
+}
+
+.white-skin .rg-head, .white-skin .rg-header {
+    background: #f4f6fb !important;
+}
+
+.white-skin .rg-head .rg-table tr td,
+.white-skin .rg-header .rg-table tr td,
+.white-skin .rg-rowgroup-head .rg-table tr:not(.rg-rowgroup-summary) td {
+    background: #f4f6fb !important;
+    border-bottom: 1px solid #e2e5e7 !important;
+}
+
+.white-skin .rg-header .rg-table tbody tr,
+.white-skin .rg-head .rg-table tbody tr,
+.white-skin .rg-rowgroup-head .rg-table tbody tr {
+    height: 35px !important;
+}
+
+.white-skin .rg-rowgroup-head .rg-table {
+    height: 100% !important;
+}
+
+.white-skin .rg-fixed-body .rg-alternate-row {
+    background-color: #ededed !important;
+}
+
+.white-skin .rg-rowgroup-footer {
+    background-color: #e3e3e3 !important;
+}

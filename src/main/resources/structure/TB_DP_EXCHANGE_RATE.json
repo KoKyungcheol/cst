@@ -1,0 +1,89 @@
+{
+    "name": "TB_DP_EXCHANGE_RATE",
+    "useDefaultSchema": "N",
+    "columns": [{
+            "name": "ID",
+            "type": "ID",
+            "update": "N"
+        },
+        {
+            "name": "CURCY_TP_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_CM_COMM_CONFIG",
+            "exports": [{
+                "header": "CURCY_TP_CD",
+                "type": "STRING",
+                "column": "CONF_CD"
+            }],
+            "and": [{
+                    "column": "CONF_GRP_CD",
+                    "value": "'DP_CURRENCY_TYPE'"
+                },
+                {
+                    "column": "ACTV_YN",
+                    "value": "'Y'"
+                }
+            ]
+        },
+        {
+            "name": "FROM_CURCY_CD_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_AD_COMN_CODE",
+            "exports": [{
+                "header": "FROM_CURCY_CD",
+                "type": "STRING",
+                "column": "COMN_CD"
+            }],
+            "and": [{
+                "column": "USE_YN",
+                "value": "'Y'"
+            }]
+        },
+        {
+            "name": "TO_CURCY_CD_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_AD_COMN_CODE",
+            "exports": [{
+                "header": "TO_CURCY_CD",
+                "type": "STRING",
+                "column": "COMN_CD"
+            }],
+            "and": [{
+                "column": "USE_YN",
+                "value": "'Y'"
+            }]
+        },
+        {
+            "name": "BASE_DATE",
+            "type": "DATE",
+            "unique": "Y",
+            "header": "BASE_DATE"
+        },
+        {
+            "name": "EXCHANGE_RATE",
+            "type": "NUMBER",
+            "header": "EXCHANGE_RATE"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

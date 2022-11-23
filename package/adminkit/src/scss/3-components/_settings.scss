@@ -1,0 +1,101 @@
+.settings {
+  display: none;
+  direction: ltr;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+}
+
+.settings-panel {
+  background: $white;
+  border-left: $card-border-width solid $card-border-color;
+  display: block;
+  height: 100%;
+  position: fixed;
+  width: 264px;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: -264px;
+  transition: right .2s ease-in-out;
+
+  .settings.open &:before {
+    content: "";
+    background: rgba($black, 0.325);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .settings.open & {
+    right: 0;
+  }
+}
+
+.settings-content {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background: $white;
+}
+
+.settings-title {
+  padding: $spacer*1.35 $spacer*1.5;
+  font-size: .875rem;
+  background: $static-gray-900;
+  color: $static-white;
+  
+  h4 {
+    color: $static-white;
+  }
+}
+
+.settings-options {
+  padding: $spacer $spacer*1.5;
+}
+
+.settings-toggle {
+  background: inherit;
+  color: #212529;
+  padding: $spacer;
+  position: fixed;
+  top: 2px;
+  bottom: 20px;
+  right: 0.3rem;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+
+  &:hover {
+    background: inherit;
+  } 
+
+  svg {
+    margin-top: -0.25rem;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.js-settings-reset {
+  width: 100%;
+}
+
+.settings-radio { // for IE radio button background-position set
+  background-color: rgba(0, 0, 0, 0.1);
+  background-size: 12px 12px;
+}
+
+.settings-radio::-ms-check {  // for IE radio button appearance set 
+  display: none !important;
+}
+
+.radio-border {
+  border: 1px solid black;
+}

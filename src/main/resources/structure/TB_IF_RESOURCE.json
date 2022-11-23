@@ -1,0 +1,76 @@
+{
+    "name": "TB_IF_RESOURCE",
+    "useDefaultSchema": "Y",
+    "procedure": [{
+        "sequence": "1",
+        "method": "{call dbo.SP_UI_MP_06_BATCH('ALL', 'N', NULL, ?, ?, ?, ?)}",
+        "description": "자원 관리"
+    }],
+    "columns": [{
+            "name": "LOCAT_CD",
+            "type": "STRING",
+            "header": "LOCAT_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "RES_CD",
+            "type": "STRING",
+            "header": "RES_CD",
+            "unique": "Y"
+        },
+        {
+            "name": "RES_NM",
+            "type": "STRING",
+            "header": "RES_NM"
+        },
+        {
+            "name": "RES_GRP_CD",
+            "type": "STRING",
+            "header": "RES_GRP_CD"
+        },
+        {
+            "name": "RES_GRP_NM",
+            "type": "STRING",
+            "header": "RES_GRP_NM"
+        },
+        {
+            "name": "CAPA_VAL",
+            "type": "NUMBER",
+            "header": "CAPA_VAL"
+        },
+        {
+            "name": "OVR_CAPA_VAL",
+            "type": "NUMBER",
+            "header": "OVR_CAPA_VAL"
+        },
+        {
+            "name": "CAPA_CAL_BASE_CD",
+            "type": "STRING",
+            "filter": "MP_CAPA_CAL_BASE_CD",
+            "outer": "Y"
+        },
+        {
+            "name": "EFFICY_VAL",
+            "type": "NUMBER",
+            "header": "EFFICY_VAL"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}

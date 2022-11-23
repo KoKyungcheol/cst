@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="UI_AD_GROUP_PREF" template="AD/UI_AD_GROUP_PREF/UI_AD_GROUP_PREF" copyfrom="COMM_HELP" version="2.0">
+    <publish parent="MENU_90" open="true" seq="141" />
+    <component id="TTL_CPT_03" type="BUTTON">
+        <props>
+            <icon>refresh</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_SRH_CPT_T1_01_04_INIT">
+                    <component-id>SRH_CPT_T1_01_04</component-id>
+                    <operation-id>INIT</operation-id>
+                </operation-call>
+                <operation-call id="OPC_SRH_CPT_T1_02_04_INIT">
+                    <component-id>SRH_CPT_T1_02_04</component-id>
+                    <operation-id>INIT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="TTL_CPT_04" type="BUTTON">
+        <props>
+            <icon>search</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_RST_CPT_01_LOAD">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="DATA_01" type="DATA">
+        <actions>
+            <action event-type="meta">
+                <operation-call id="VIEW_META_LOAD">
+                    <component-id>DATA_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+            <action event-type="init">
+                <operation-call id="OPC_DATA_01_INIT">
+                    <component-id>DATA_01</component-id>
+                    <operation-id>SET</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="SET">
+                <service-call id="1">
+                    <parameters>
+                        <parameter id="MENU_ID" value="UI_AD_14" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_CANDIDATE_UI_AD_14">
+                    <url>/system/common/code-name-maps</url>
+                    <parameters>
+                        <parameter id="group-cd" value="PIVOT_TP,CROSSTAB_ITEM,SUMMARY_TP,CROSSTAB_OPTION" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="CONTENT_SPLIT" type="SPLIT">
+        <props>
+            <position>horizontal</position>
+            <splits>
+                <split id="search" collapsed="false" collapsible="true" resizable="false" size="340" />
+                <split id="result" collapsible="false" />
+            </splits>
+        </props>
+    </component>
+    <component id="SRH_TAB" type="TAB">
+        <props>
+            <tabs>
+                <tab id="t1-1" title="BASE_OPTION" expand="true" />
+            </tabs>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_01_01" type="LABEL">
+        <props>
+            <width>80</width>
+            <lang>true</lang>
+            <init-value>UI_ID</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_01_04" type="INPUTBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="key-enter">
+                <operation-call id="enterLoad">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="SRH_CPT_T1_02_01" type="LABEL">
+        <props>
+            <width>80</width>
+            <lang>true</lang>
+            <init-value>UI_NM</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_02_04" type="INPUTBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="key-enter">
+                <operation-call id="enterLoad2">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="RST_CPT_01" type="R_GRID">
+        <props>
+            <height>398</height>
+            <selection-mode>block</selection-mode>
+            <indicator>false</indicator>
+            <fit-style>even</fit-style>
+            <data-fit>horizontal</data-fit>
+            <pageable>false</pageable>
+            <cell-attributes>
+                <cell-attribute id="CA_01">
+                    <conditions>
+                        <condition id="COND_01">
+                            <column>id</column>
+                            <operator>equal</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_01">
+                            <column>viewCd, gridCd</column>
+                            <attrs>
+                                <editable>true</editable>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+            </cell-attributes>
+            <toolbar use="true">
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_REFRESH_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0003" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_REFRESH_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_RST_CPT_02_INIT">
+                            <component-id>RST_CPT_02</component-id>
+                            <operation-id>INIT</operation-id>
+                        </operation-call>
+                    </success>
+                </toolbar-button>
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_RST_CPT_01_REFRESH">
+                            <component-id>RST_CPT_01</component-id>
+                            <operation-id>REFRESH</operation-id>
+                            <success>
+                                <operation-call id="OPC_RST_CPT_02_INIT">
+                                    <component-id>RST_CPT_02</component-id>
+                                    <operation-id>INIT</operation-id>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_DELETE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0002" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_DELETE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_RST_CPT_01_REFRESH">
+                            <component-id>RST_CPT_01</component-id>
+                            <operation-id>REFRESH</operation-id>
+                            <success>
+                                <operation-call id="OPC_RST_CPT_02_INIT">
+                                    <component-id>RST_CPT_02</component-id>
+                                    <operation-id>INIT</operation-id>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_SAVE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0001" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_UI_AD_14_GRD_01_SAVE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+            </toolbar>
+            <columns>
+                <column id="id" title="id" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="viewCd" title="UI_ID" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="viewNm" title="UI_NM" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <text-alignment>left</text-alignment>
+                    <lang>true</lang>
+                </column>
+                <column id="gridCd" title="GRID_ID" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                    <button>true</button>
+                </column>
+                <column id="gridDescrip" title="GRID_DESCRIP" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="gridDescripLangValue" title="GRID_DESCRIP" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <text-alignment>left</text-alignment>
+                </column>
+                <column id="crosstabTp" title="CROSSTAB_TP" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <button>true</button>
+                    <candidate>
+                        <drop-down-count>5</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <reference-service-call id="DATA_01:SVC_GET_CANDIDATE_UI_AD_14" extract="group:PIVOT_TP" />
+                        </values>
+                    </candidate>
+                </column>
+                <column id="autoCreateYn" title="AUTO_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <header-checkable>false</header-checkable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="button-click">
+                <operation-call id="OPC_RST_CPT_02_LOAD">
+                    <component-id>RST_CPT_02</component-id>
+                    <operation-id>LOAD</operation-id>
+                    <conditions>
+                        <condition id="COND_01_01">
+                            <on-column>gridCd</on-column>
+                        </condition>
+                    </conditions>
+                </operation-call>
+                <operation-call id="OPC_OPEN_POP_UI_AD_14_01">
+                    <component-id>POP_UI_AD_14_01_WINDOWS</component-id>
+                    <operation-id>OPEN</operation-id>
+                    <conditions>
+                        <condition id="COND_02_2" group="01">
+                            <on-column>crosstabTp</on-column>
+                            <column>crosstabTp</column>
+                            <operator>notequal</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_OPEN_POP_UI_AD_14_01_01_LOAD">
+                            <component-id>POP_UI_AD_14_01_01</component-id>
+                            <operation-id>LOAD</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_PREFER_MASTER_UI_AD_14">
+                    <url>/system/users/preference-masters</url>
+                    <parameters>
+                        <parameter id="view-cd" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="view-nm" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="lang-cd" reference-id="COMMON:LANGUAGE_CODE" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SAVE">
+                <service-call id="SVC_SET_PREFER_MASTER_UI_AD_14">
+                    <url>/system/users/preference-masters</url>
+                    <method>post</method>
+                    <parameters>
+                        <parameter id="data" reference-id="RST_CPT_01:changes" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW">
+                <position>below</position>
+                <edit-on-cell>false</edit-on-cell>
+            </operation>
+            <operation id="REMOVE_ROW">
+                <service-call id="SVC_DEL_PREFER_MASTER_UI_AD_14">
+                    <url>/system/users/preference-masters/delete</url>
+                    <method>post</method>
+                    <parameters>
+                        <parameter id="data" reference-id="RST_CPT_01:checked" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REFRESH">
+                <service-call id="SVC_REF_PREFER_MASTER_UI_AD_14">
+                    <service-id>SVC_GET_PREFER_MASTER_UI_AD_14</service-id>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_GROUP_COMBO_LABEL" type="LABEL">
+        <props>
+            <width>80</width>
+            <lang>true</lang>
+            <init-value>USER_GRP</init-value>
+        </props>
+    </component>
+    <component id="SRH_GROUP_COMBO" type="COMBOBOX">
+        <props>
+            <width>250</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <select-index>0</select-index>
+            <value-id>grpCd</value-id>
+            <text-id>grpNm</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="LOADcomboBox">
+                    <component-id>SRH_GROUP_COMBO</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+            <action event-type="select-item">
+                <operation-call id="LOAD_RST_CPT_02">
+                    <component-id>RST_CPT_02</component-id>
+                    <operation-id>LOAD</operation-id>
+                    <conditions>
+                        <condition id="LOAD_CHECK_CONDITION">
+                            <component>RST_CPT_01</component>
+                            <key>ROWCOUNT</key>
+                            <operator>notEqual</operator>
+                            <value>0</value>
+                        </condition>
+                    </conditions>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_USERGROUPS">
+                    <url>/system/groups</url>
+                    <parameters>
+                        <parameter id="include-default" value="true" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="RST_CPT_02" type="R_GRID">
+        <props>
+            <height>360</height>
+            <selection-mode>block</selection-mode>
+            <indicator>false</indicator>
+            <fit-style>even</fit-style>
+            <data-fit>horizontal</data-fit>
+            <pageable>false</pageable>
+            <cell-attributes>
+                <cell-attribute id="CA_01">
+                    <conditions>
+                        <condition id="COND_01_02">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-VERTICAL-VALUES</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_01_01">
+                            <column>fldWidth</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#FFF9F9F9</background>
+                            </attrs>
+                        </apply>
+                        <apply id="TRGT_01_02">
+                            <column>editMeasureYn,categoryGroup</column>
+                            <attrs>
+                                <editable>true</editable>
+                                <background>#FFFFFFD2</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_03">
+                    <conditions>
+                        <condition id="COND_03_01">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>group-rows</value>
+                        </condition>
+                        <condition id="COND_03_02">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-ROWS</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_03_01">
+                            <column>editTargetYn</column>
+                            <attrs>
+                                <editable>true</editable>
+                                <background>#FFFFFFD2</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_04">
+                    <conditions>
+                        <condition id="COND_04_01">
+                            <column>crosstabYn</column>
+                            <operator>equal</operator>
+                            <value>false</value>
+                        </condition>
+                        <condition id="COND_04_02">
+                            <column>fldCd</column>
+                            <operator>equal</operator>
+                            <value>CATEGORY</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_04_01">
+                            <column>crosstabItemCd</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#FFF9F9F9</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_05">
+                    <conditions>
+                        <condition id="COND_05_01">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-COLUMNS</value>
+                        </condition>
+                        <condition id="COND_05_02">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_05_01">
+                            <column>dataKeyYn,summaryYn</column>
+                            <attrs>
+                                <editable>true</editable>
+                                <background>#FFFFFFD2</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_06">
+                    <conditions>
+                        <condition id="COND_06_01">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-VALUE,GROUP-HORIZONTAL-VALUES,GROUP-VERTICAL-VALUES</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_06_01">
+                            <column>summaryTp</column>
+                            <attrs>
+                                <editable>true</editable>
+                                <background>#FFFFFFD2</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+            </cell-attributes>
+            <toolbar use="true">
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_RST_CPT_02_REFRESH">
+                            <component-id>RST_CPT_02</component-id>
+                            <operation-id>LOAD</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_UI_AD_14_GRD_02_DELETE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0002" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_UI_AD_14_GRD_02_DELETE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right">
+                    <success>
+                        <operation-call id="OPC_RST_CPT_02_REFRESH">
+                            <component-id>RST_CPT_02</component-id>
+                            <operation-id>REFRESH</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_UI_AD_14_GRD_02_SAVE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0001" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_UI_AD_14_GRD_02_SAVE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+            </toolbar>
+            <columns>
+                <column id="id" title="VIEW_CD" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="userPrefMstId" title="USER_PREF_MST_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="grpId" title="GRP_CD" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="fldCd" title="COLUMN_ID" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                    <fix>true</fix>
+                </column>
+                <column id="fldApplyCd" title="COLUMN_APPLY_ID" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="fldApplyCdLang" title="COLUMN_APPLY_NM" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                    <lang>true</lang>
+                </column>
+                <column id="fldWidth" title="COLUMN_WIDTH" type="number">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="fldSeq" title="COLUMN_SEQ" type="number">
+                    <width>70</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="fldActiveYn" title="COLUMN_ACTIVE_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <header-checkable>true</header-checkable>
+                </column>
+                <column id="applyYn" title="APPY_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <header-checkable>true</header-checkable>
+                </column>
+                <column id="referValue" title="REFER_VALUE" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="dataKeyYn" title="DATA_KEY_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <header-checkable>false</header-checkable>
+                </column>
+                <column id="crosstabYn" title="CROSSTAB_APPLY_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <header-checkable>false</header-checkable>
+                </column>
+                <column id="crosstabItemCd" title="CROSSTAB_ITEM_CD" type="string">
+                    <width>120</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <candidate>
+                        <drop-down-count>5</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <reference-service-call id="DATA_01:SVC_GET_CANDIDATE_UI_AD_14" extract="group:CROSSTAB_ITEM" />
+                        </values>
+                    </candidate>
+                </column>
+                <column id="categoryGroup" title="CATEGORY_GROUP" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="dimMeasureTp" title="DIM_MEASURE_TP" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="summaryTp" title="SUMMARY_TP" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <candidate>
+                        <drop-down-count>5</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <reference-service-call id="DATA_01:SVC_GET_CANDIDATE_UI_AD_14" extract="group:SUMMARY_TP" />
+                        </values>
+                    </candidate>
+                </column>
+                <column id="summaryYn" title="SUMMARY_YN" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                </column>
+                <column id="editMeasureYn" title="EDIT_MEASURE" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="editTargetYn" title="EDIT_TARGET" type="bool">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-edited">
+                <operation-call id="OPC_RST_CPT_02_SET_DATA_KEY_YN">
+                    <component-id>RST_CPT_02</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET_VALUE-to-dataKeyYn" reference-id="RST_CPT_02:selections" extract-by="fldActiveYn" />
+                    </parameters>
+                    <conditions>
+                        <condition id="CON_MODULE" group="A">
+                            <component>RST_CPT_01</component>
+                            <column>viewCd</column>
+                            <operator>startsWith</operator>
+                            <value>UI_IM_,UI_RP_,UI_MP_</value>
+                        </condition>
+                        <condition id="CON_PIVOT_TP" group="A">
+                            <component>RST_CPT_01</component>
+                            <column>crosstabTp</column>
+                            <operator>equal</operator>
+                            <value>itc1to2</value>
+                        </condition>
+                        <condition id="CON_PIVOT_ITEM_CD" group="A">
+                            <component>RST_CPT_02</component>
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-COLUMNS</value>
+                        </condition>
+                        <condition id="CON_ACTV_YN" group="A">
+                            <on-column>fldActiveYn</on-column>
+                        </condition>
+                    </conditions>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_PREFER_DETAIL_UI_AD_14">
+                    <url>/system/users/preference-details</url>
+                    <parameters>
+                        <parameter id="pref-mst-id" reference-id="RST_CPT_01:selections" extract-by="id" />
+                        <parameter id="group-id" reference-id="SRH_GROUP_COMBO:SVC_GET_USERGROUPS" extract-by="id" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SAVE">
+                <service-call id="SVC_SET_PREFER_DETAIL_UI_AD_14">
+                    <url>/system/users/preference-details</url>
+                    <method>post</method>
+                    <param-empty-check>data</param-empty-check>
+                    <parameters>
+                        <parameter id="data" reference-id="RST_CPT_02:changes" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW">
+                <edit-on-cell>true</edit-on-cell>
+                <service-call id="OP_INSERT_ROW_RST_CPT_02">
+                    <parameters>
+                        <parameter id="SET_DEFAULT-to-userPrefMstId" reference-id="RST_CPT_01:selections" extract-by="id" />
+                        <parameter id="SET_DEFAULT-to-grpId" reference-id="SRH_GROUP_COMBO:SVC_GET_USERGROUPS" extract-by="id" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REMOVE_ROW">
+                <service-call id="SVC_DEL_PREFER_DETAIL_UI_AD_14">
+                    <url>/system/users/preference-details/delete</url>
+                    <method>post</method>
+                    <parameters>
+                        <parameter id="data" reference-id="RST_CPT_02:checked" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REFRESH" />
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_AD_14_01_WINDOWS" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>PIVOT_INFO</title>
+            <width>500</width>
+            <height>284</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_UI_AD_14_01_01" type="R_GRID">
+        <props>
+            <height>200</height>
+            <indicator>false</indicator>
+            <fit-style>evenFill</fit-style>
+            <header-sortable>false</header-sortable>
+            <pageable>false</pageable>
+            <cell-attributes>
+                <cell-attribute id="CA_01">
+                    <conditions>
+                        <condition id="COND_01">
+                            <column>optTp</column>
+                            <operator>notequal</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_01">
+                            <column>optValue</column>
+                            <attrs>
+                                <editable>true</editable>
+                                <background>#ffffffd2</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+            </cell-attributes>
+            <toolbar use="true">
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" tooltip="Load" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" tooltip="Insert Row" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" tooltip="Remove Row">
+                    <success>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_REFRESH">
+                            <component-id>POP_UI_AD_14_01_01</component-id>
+                            <operation-id>REFRESH</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_DELETE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0002" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_DELETE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" tooltip="Save">
+                    <success>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_REFRESH">
+                            <component-id>POP_UI_AD_14_01_01</component-id>
+                            <operation-id>REFRESH</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_SAVE_SUCCESS_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0001" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                    <fail>
+                        <operation-call id="OPC_POP_UI_AD_14_01_01_SAVE_FAIL_MSG">
+                            <component-id>COMMON</component-id>
+                            <operation-id>MESSAGE</operation-id>
+                            <parameters>
+                                <parameter id="msg" value="MSG_0004" />
+                            </parameters>
+                        </operation-call>
+                    </fail>
+                </toolbar-button>
+            </toolbar>
+            <columns>
+                <column id="id" title="id" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="userPrefMstId" title="USER_PREF_MST_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="optTp" title="OPTN_TP" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <candidate>
+                        <drop-down-count>10</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <reference-service-call id="DATA_01:SVC_GET_CANDIDATE_UI_AD_14" extract="group:CROSSTAB_OPTION" />
+                        </values>
+                    </candidate>
+                </column>
+                <column id="optValue" title="OPTN_VAL" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+            </columns>
+        </props>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_PVT_OPTN_UI_AD_14">
+                    <url>/system/users/preference-options</url>
+                    <parameters>
+                        <parameter id="pref-mst-id" reference-id="RST_CPT_01:selections" extract-by="id" default-value="[]" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SAVE">
+                <service-call id="SVC_SET_PVT_OPTN_UI_AD_14">
+                    <url>/system/users/preference-options</url>
+                    <method>post</method>
+                    <parameters>
+                        <parameter id="data" reference-id="POP_UI_AD_14_01_01:changes" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW">
+                <edit-on-cell>true</edit-on-cell>
+                <service-call id="OP_INSERT_ROW_POP_UI_AD_14_01_01">
+                    <parameters>
+                        <parameter id="SET_DEFAULT-to-userPrefMstId" reference-id="RST_CPT_01:selections" extract-by="id" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REMOVE_ROW">
+                <service-call id="SVC_DEL_PVT_OPTN_UI_AD_14">
+                    <url>/system/users/preference-options/delete</url>
+                    <method>post</method>
+                    <parameters>
+                        <parameter id="data" reference-id="POP_UI_AD_14_01_01:checked" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REFRESH">
+                <service-call id="SVC_REF_PVT_OPTN_UI_AD_14">
+                    <service-id>SVC_GET_PVT_OPTN_UI_AD_14</service-id>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

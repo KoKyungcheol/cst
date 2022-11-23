@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ZIONEX - Value Chain Innovator">
+  <meta name="google" content="notranslate" /> 
+  <title>T³SmartSCM</title>
+
+  <style>
+    @font-face {
+      font-family: 'Noto Sans SC';
+      src: url('fonts/NotoSansSC-Regular.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'Noto Sans JP';
+      src: url('fonts/NotoSansJP-Regular.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'Noto Sans KR';
+      src: url('fonts/NotoSansKR-Regular.otf') format('opentype');
+    }
+  </style>
+  <link class="js-stylesheet" href="css/adminkit.css" rel="stylesheet">
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- kendo UI component theme style -->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/kendo.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
+
+  <!-- wait me -->
+  <link rel="stylesheet" type="text/css" href="js/waitme/waitMe.min.css" />
+
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="js/realpivot/css/basic.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/realgrid-custom.css" />
+
+  <!-- bpmn -->
+  <link rel="stylesheet" type="text/css" href="js/bpmn-js/assets/diagram-js.css" />
+  <link rel="stylesheet" type="text/css" href="js/bpmn-js/assets/bpmn-font/css/bpmn-embedded.css" />
+
+  <link rel="stylesheet" type="text/css" href="js/jquery/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="js/jquery/jquery-ui.theme.min.css">
+  <link rel="stylesheet" type="text/css" href="js/jquery/jquery-ui.structure.min.css">
+  <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" type="text/css" href="js/minicolors/jquery.minicolors.css" />
+
+  <base th:href="@{/}" />
+  
+  <script type="text/javascript" src="js/jquery/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/minicolors/jquery.minicolors.js"></script>
+  <script type="text/javascript" src="js/taffy-db/taffy.js"></script>
+  <script type="text/javascript" src="js/kendo/js/kendo.custom.min.js"></script>
+  <script type="text/javascript" src="js/kendo/js/kendo.timezones.min.js"></script>
+  <script type="text/javascript" src="js/waitme/waitMe.js"></script>
+  <script type="text/javascript" src="js/realgridjs/realgridjs-lic.js"></script>
+  <script type="text/javascript" src="js/realgridjs/realgrid-lic.js"></script>
+  <script type="text/javascript" src="js/realgridjs/realgridjs.1.1.33.min.js"></script>
+  <script type="text/javascript" src="js/realgridjs/realgridjs-api.1.1.33.js"></script>
+  <script type="text/javascript" src="js/realgridjs/jszip.min.js"></script>
+  <script type="text/javascript" src="js/realgridjs/xlsx.js"></script>
+  <script type="text/javascript" src="js/realgridjs/RealGridSkins.js"></script>
+
+  <script type="text/javascript" src="js/realpivot/realgridpivot-lic.js"></script>
+  <script type="text/javascript" src="js/realpivot/messages/realpivot-messages.js"></script>
+  <script type="text/javascript" src="js/realpivot/realpivot.1.0.8.min.js"></script>
+
+  <script type="text/javascript" src="js/bootstrap/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap/locales/bootstrap-datepicker.ko.min.js"></script>
+  <script type="text/javascript" src="js/vuejs/vue.min.js"></script>
+  <script type="text/javascript" src="js/treeGrid/GridE.js"></script>
+
+  <script type="text/javascript" src="js/adminkit-settings.js"></script>
+</head>
+
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
+  <div id="root" class="wrapper"></div>
+  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script>
+    // Fix preventDefault for IE
+    (function () {
+      var workingDefaultPrevented = (function () {
+        var e = document.createEvent('CustomEvent')
+        e.initEvent('Bootstrap', true, true)
+        e.preventDefault()
+        return e.defaultPrevented
+      })()
+      if (!workingDefaultPrevented) {
+        var origPreventDefault = Event.prototype.preventDefault
+        Event.prototype.preventDefault = function () {
+          if (!this.cancelable) {
+            return
+          }
+          origPreventDefault.call(this)
+          Object.defineProperty(this, 'defaultPrevented', {
+            get: function () {
+              return true
+            },
+            configurable: true
+          })
+        }
+      }
+    })()
+  </script>
+  <script type="text/javascript" src="js/wingui-viewconfig.js"></script>
+  <script type="text/javascript" src="js/wingui-custom.js"></script>
+  <script type="text/javascript" src="js/adminkit.js"></script>
+  
+  <script type="text/javascript" src="js/commons.bundle.js"></script>
+  <script type="text/javascript" src="js/realgrid.bundle.js"></script>
+  <script type="text/javascript" src="js/vendor.bundle.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  
+  <script nomodule>
+    window.MSInputMethodContext 
+    && document.documentMode 
+    && document.write('<script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js,npm/ie11-custom-properties@4,npm/element-qsa-scope@1"><\/script><script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Number.parseFloat"><\/script>');
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      try {
+        RealGridJS.setTrace(false);
+        RealGridJS.setRootContext('js/realgridjs');
+        feather.replace()
+      } catch (err) {
+        showMessage('ERR_DESC', transLangKey('MSG_5140'));
+      }
+
+      window.onfocus = function (event) {
+        var sessionInfo = authentication.getSessionInfo();
+        if (sessionInfo) {
+          var username = authentication.getUsername();
+          if (username !== '' && username !== 'None' && username !== sessionInfo.username) {
+            showMessage(transLangKey('MSG_CONFIRM'), transLangKey('MSG_0024'), {close: false}, function(answer){
+              if(answer) {
+                authentication.evaluate();
+              }
+            })
+          }
+        } else {
+          showMessage(transLangKey('MSG_CONFIRM'), transLangKey('MSG_0024'), {close: false}, function(answer){
+            if(answer) {
+              authentication.evaluate();
+            }
+          })
+        }
+        sessionInfo = null;
+      };
+
+      $.ajaxSetup({ cache: false });
+    });
+  </script>
+  <script th:inline="javascript">
+    /* <![CDATA[*/
+    let check =  /*[[${check}]]*/ '';
+    let username =  /*[[${session.SPRING_SECURITY_CONTEXT.authentication.name}]]*/ '';
+    
+    if (check != null) {
+      if (check === 'true') {
+        localStorage.setItem('username', username);
+        localStorage.setItem('rememberCheck', check);
+      } else {
+        localStorage.setItem('username', '');
+        localStorage.setItem('rememberCheck', check);
+      }
+    }
+    /*]]>*/
+  </script>
+</body>
+
+</html>

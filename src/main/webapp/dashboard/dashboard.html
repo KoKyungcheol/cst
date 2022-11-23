@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title> T3SmartSCM </title>
+		<meta name="description" content="ZIONEX - Value Chain Innovator">
+		<meta name="author" content="">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="css/customize.css"> 
+
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<style>
+			tr.odd {background-color:#f9f9f9;}
+			tr.even {background-color:#ffffff;}
+		</style>
+	</head>
+
+	<body class="">
+		<!-- #MAIN PANEL -->
+		<div id="main" role="main">
+			<!-- #MAIN CONTENT -->
+			<div id="content">
+				<!-- widget grid -->
+				<div id="widget-grid" style="height:100%;">
+					<!-- row -->
+					<div class="row" style="height:50%;">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left:5px; padding-right:5px;">
+							<div class="jarviswidget jarviswidget-color-darken" id="cts00" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" >
+								<header>
+									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+									<h2 id="cts00_caption">cts00_caption</h2>
+									<input type='hidden' id="cts00_id">
+								</header>
+								<div>
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox" id="cts00_box" style="display:block;">
+									</div>
+									<!-- end widget edit box -->
+									<div class="widget-body" id="cts00_body">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left:5px; padding-right:5px;">
+							<div class="jarviswidget jarviswidget-color-darken" id="cts01" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" >
+								<header>
+									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+									<h2 id="cts01_caption">cts01</h2>
+									<input type='hidden' id="cts01_id">				
+								</header>
+								<div>
+									<div class="jarviswidget-editbox" id="cts01_box" style="display:block;">
+									</div>
+									<div class="widget-body" id="cts01_body">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- row -->
+					<div class="row" style="height:50%;">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left:5px; padding-right:5px;">
+							<div class="jarviswidget jarviswidget-color-darken" id="cts02" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" >
+								<header>
+									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+									<h2 id="cts02_caption">cts02</h2>
+									<input type='hidden' id="cts02_id">
+								</header>
+								<div>
+									<div class="jarviswidget-editbox" id="cts02_box" style="display:block;">
+									</div>
+									<div class="widget-body" id="cts02_body">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left:5px; padding-right:5px;">
+							<div class="jarviswidget jarviswidget-color-darken" id="cts03" data-widget-deletebutton="false" data-widget-togglebutton="false" data-widget-editbutton="false" >
+								<header>
+									<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+									<h2 id="cts03_caption">cts03</h2>	
+									<input type='hidden' id="cts03_id">			
+								</header>
+								<div>
+									<div class="jarviswidget-editbox" id="cts03_box" style="display:block;">
+									</div>
+									<div class="widget-body" id="cts03_body" style="overflow:auto;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			<!-- END #MAIN CONTENT -->
+			</div>
+		</div>
+		<!-- END #MAIN PANEL -->
+
+		<!--================================================== -->
+		<!-- #PLUGINS -->
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="js/libs/jquery-3.2.1.min.js"></script>
+		<script src="js/libs/jquery-ui.min.js"></script>
+
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="js/app.config.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+		
+		<!-- BOOTSTRAP JS -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+		<!--[if IE 8]>
+			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+		<![endif]-->
+		
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.min.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		<script src="js/plugin/datatables/jquery.dataTables.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.colVis.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
+		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+
+		<script src="js/plugin/moment/moment.min.js"></script>
+		<script src="js/plugin/chartjs/chart.min.js"></script>
+
+
+		<script src="js/amcharts/amcharts.js"></script>
+		<script src="js/amcharts/serial.js"></script>
+		
+		
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/version/4.7.16/core.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/charts.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/themes/dataviz.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/themes/kelly.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/themes/frozen.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/themes/material.js"></script>
+<script src="https://www.amcharts.com/lib/version/4.7.16/themes/animated.js"></script>
+
+
+        <!-- Aras Object >
+        <script type="text/javascript" src="../../../javascript/include.aspx?files=TopWindowHelper"></script>
+        <script type="text/javascript">
+            var topWnd = TopWindowHelper.getMostTopWindowWithAras(window);
+            var aras = parent.parent.aras || topWnd.aras;
+        </script>
+        <script type="text/javascript" src="../../../javascript/include.aspx?classes=ScriptSet1"></script -->
+		<script type="text/javascript">
+			var aras = {
+							getServerBaseURL : function() {return "";},
+							getCurrentUserID : function() {return "";}
+						}
+		</script>
+		
+
+		<script type="text/javascript">
+			/**
+			* Get the user item.
+			*/
+			function getUserItem(userId, success, fail) {
+				if (!userId) return;
+				
+				var jqxhr = $.ajax({
+					method: "GET",
+					url: aras.getServerBaseURL() + "odata/User('" + userId + "')",
+					headers: {
+						DATABASE: aras.getDatabase(),
+						AUTHUSER: aras.getLoginName(),
+						AUTHPASSWORD: aras.getPassword(),
+					},
+					data: {},
+					dataType: "json",
+				});
+				if (success) jqxhr.done(success);
+				if (fail) jqxhr.fail(fail);
+			} // function
+			
+			/**
+			* Invoke the server method.
+			*/
+			function invokeMethod(methodName, data, success, fail) {
+				if (!methodName) return;
+
+				/* LeeJH 2020 
+				var jqxhr = $.ajax({
+					method: "POST",
+					url: aras.getServerBaseURL() + "odata/Method/method." + methodName,
+					//async: false,
+					headers: {
+						DATABASE: aras.getDatabase(),
+						AUTHUSER: aras.getLoginName(),
+						AUTHPASSWORD: aras.getPassword(),
+					},
+					contentType: "application/json",
+					data: data,
+					dataType: "json",
+				});
+				if (success) jqxhr.done(success);
+				if (fail) jqxhr.fail(fail);
+				LeeJH 2020 */
+				var dat = {};
+				dat["Item"] = eval(JSON.parse(data).dataDiv);
+				success(dat);
+			} // function
+
+			
+			/**
+			* Get the items.
+			*/
+			function getItems(itemTypeName, queryOptions, callback) {
+				if (!itemTypeName) return false;
+				
+				/* LeeJH 2020 
+				var requiredQueryOption = { "$count": true };
+				
+				$.ajax({
+					method: "GET",
+					url: aras.getServerBaseURL() + "odata/" + itemTypeName,
+					async: false,
+					headers: {
+						DATABASE: aras.getDatabase(),
+						AUTHUSER: aras.getLoginName(),
+						AUTHPASSWORD: aras.getPassword(),
+					},
+					data: $.extend(queryOptions || {}, requiredQueryOption),
+					dataType: "json"
+				})
+					.done(function (data, textStatus, xhr) {
+						if (callback) {
+							callback(data["@odata.count"] ? data.value : [data]);
+						}
+					})
+					.fail(function (xhr, textStatus, errorThrown) {
+						var error = xhr.responseJSON ? xhr.responseJSON.error : xhr.responseText;
+						if (error.code === "NotFound") {
+							if (callback) callback([]);
+						}
+						else {
+							aras.AlertError(error.message || error);
+						}
+					}); // fail(...)
+					LeeJH 2020 */
+				var dat = eval(itemTypeName);
+				callback(dat);
+			} // function
+			
+			/*
+			$(window).resize(function() {
+				var windowHeight = $(window).height();
+				$('#content').css({'height':(windowHeight)+'px'});
+
+				$('.widget-body').css({'height':(windowHeight/2 - 110)+'px'});
+				$('#cts00_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts01_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts02_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts03_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+
+				if (isFullScreen != 0) {
+					$('.widget-body').css({'height':(windowHeight - 110)+'px'});
+
+					if (id == "cts00") {
+						$('#cts00_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+					}
+					else if (id == "cts01") {
+						$('#cts01_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+					}
+					else if (id == "cts02") {
+						$('#cts02_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+					}
+					else if (id == "cts03") {
+						$('#cts03_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+					}
+				}		
+			});
+			*/
+		</script>
+
+		<script src="js/zxDashBoardData.js"></script>
+		<script src="js/zxDashBoard.js"></script>
+		
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script>
+			var objDef = {};
+			var chartObj = {};
+			var userContents;
+			var isFullScreen = 0;
+			var currCtsId = "";
+			var reDraw = "";
+			var identityID = "";
+
+			var id = "";
+			
+			
+		
+			$('[data-toggle="tooltip"]').tooltip();
+			
+			$(document).ready(function() {
+				/*
+				LeeJH 2020
+				getItems("User('" + aras.getCurrentUserID() + "')/owned_by_id", {}, function(dat) {
+					identityID = dat[0].id;
+				});
+				*/
+			
+				var windowHeight = $(window).height();
+				$('#content').css({'height':(windowHeight)+'px'});
+				$('.widget-body').css({'height':(windowHeight/2 - 110)+'px'});
+				$('#cts00_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts01_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts02_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+				$('#cts03_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});				
+
+				//var topHeight = $("#top").height();
+				//$('#content').css({'height':(windowHeight-topHeight)+'px'});
+				
+				pageSetUp();
+			
+				//zxCustomPageSetUp();
+				zxGetUserConfigure();
+								
+				$(".jarviswidget").resize(function() {
+					var ctsId = this.id;
+					var idx = ctsId.substring(ctsId.length - 1, ctsId.length);
+
+					if ($.isNumeric(idx) && reDraw == ctsId) {
+						zxContentsDrop(userContents[idx].contentsid, ctsId);
+						reDraw = "";
+					}
+				});
+				
+				$(document).click(function() {
+					if (event.target.className == "fa fa-compress" || event.target.className == "fa fa-expand" || event.target.className == "button-icon jarviswidget-fullscreen-btn") {
+						$(".tooltip-arrow").remove();
+						$(".tooltip-inner").remove();
+						reDraw = $(event.target).closest(".jarviswidget")[0].id;
+						
+						if (!isFullScreen) {
+							currCtsId = "#" + $("#jarviswidget-fullscreen-mode").children("div").attr("id") + "_body";
+							id = $("#jarviswidget-fullscreen-mode").children("div").attr("id");
+						} else {
+							$(currCtsId).empty();
+
+							$(id).empty();
+						}
+						isFullScreen = $("#jarviswidget-fullscreen-mode").length;
+
+						//var windowHeight = $(window).height();
+						
+						if (isFullScreen != 0) {
+							$('.widget-body').css({'height':(windowHeight - 110)+'px'});
+
+							if (id == "cts00") {
+								$('#cts00_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+							}
+							else if (id == "cts01") {
+								$('#cts01_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+							}
+							else if (id == "cts02") {
+								$('#cts02_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+							}
+							else if (id == "cts03") {
+								$('#cts03_ContentsArea').css({'height':($(window).height() - 150) + 'px'});
+							}
+						}
+						else {
+							$('#content').css({'height':(windowHeight)+'px'});
+
+							$('.widget-body').css({'height':(windowHeight/2 - 110)+'px'});
+							$('#cts00_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+							$('#cts01_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+							$('#cts02_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+							$('#cts03_ContentsArea').css({'height':($(window).height()/2 - 125) + 'px'});
+						}	
+					
+					} else if (event.target.className == "fa fa-cog" || event.target.className == "fa fa-save") {
+						$(".tooltip-arrow").remove();
+						$(".tooltip-inner").remove();
+					}
+				}); 
+			})
+			
+		    // custom toolbar
+		    $("div.toolbar").html('<div class="text-right"><img src="img/logo.png" alt="SmartAdmin" style="width: 111px; margin-top: 3px; margin-right: 10px;"></div>');
+		</script>
+	
+	
+		<script>
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+		  _gaq.push(['_trackPageview']);
+		</script>
+
+	</body>
+</html>

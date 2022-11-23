@@ -1,0 +1,23 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7", "ie >= 7"]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/syntax-dynamic-import",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}

@@ -1,0 +1,30 @@
+<!--https://spotbugs.readthedocs.io/en/latest/filter.html#types-of-match-clauses-->
+<!--https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html-->
+<FindBugsFilter>
+    <Match>
+        <Bug category="BAD_PRACTICICE"/>
+    </Match>
+    <Match>
+        <Bug category="CORRECTNESS"/>
+    </Match>
+    <Match>
+        <Bug category="MALICIOUS_CODE"/>
+    </Match>
+    <Match>
+        <Bug category="MT_CORRECTNESS"/>
+    </Match>
+    <Match>
+        <Bug category="PERFORMANCE"/>
+    </Match>
+    <Match>
+        <Bug category="SECURITY"/>
+    </Match>
+    <!--
+    <Match>
+        <Bug code="SECSQLIJDBC"/>
+    </Match>
+    -->
+    <Match>
+        <Bug category="STYLE"/>
+    </Match>
+</FindBugsFilter>

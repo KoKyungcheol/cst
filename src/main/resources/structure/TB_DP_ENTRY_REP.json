@@ -1,0 +1,151 @@
+{
+    "name": "TB_DP_ENTRY_REP",
+    "useDefaultSchema": "N",
+    "columns": [{
+            "name": "ID",
+            "type": "ID",
+            "update": "N"
+        },
+        {
+            "name": "PLAN_TP_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_CM_COMM_CONFIG",
+            "exports": [{
+                "header": "PLAN_TP_CD",
+                "type": "STRING",
+                "column": "CONF_CD"
+            }],
+            "and": [{
+                "column": "CONF_GRP_CD",
+                "value": "'DP_PLAN_TYPE'"
+            }]
+        },
+        {
+            "name": "AUTH_TP_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_CM_LEVEL_MGMT",
+            "exports": [{
+                "header": "AUTH_TP_CD",
+                "type": "STRING",
+                "column": "LV_CD"
+            }],
+            "and": [{
+                    "column": "SALES_LV_YN",
+                    "value": "'Y'"
+                },
+                {
+                    "column": "ACTV_YN",
+                    "value": "'Y'"
+                }
+            ]
+        },
+        {
+            "name": "ACCOUNT_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_DP_ACCOUNT_MST",
+            "exports": [{
+                "header": "ACCOUNT_CD",
+                "type": "STRING",
+                "column": "ACCOUNT_CD"
+            }]
+        },
+        {
+            "name": "BASE_DATE",
+            "unique": "Y",
+            "type": "DATE",
+            "header": "BASE_DATE"
+        },
+        {
+            "name": "ITEM_MST_ID",
+            "unique": "Y",
+            "import_column": "ID",
+            "import_table": "TB_CM_ITEM_MST",
+            "exports": [{
+                "header": "ITEM_CD",
+                "type": "STRING",
+                "column": "ITEM_CD"
+            }]
+        },
+        {
+            "name": "EMP_ID",
+            "import_column": "ID",
+            "import_table": "TB_DP_EMPLOYEE",
+            "outer": "Y",
+            "exports": [{
+                "header": "USER_ID",
+                "type": "STRING",
+                "column": "USER_ID"
+            }]
+        },
+
+        {
+            "name": "QTY",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "QTY"
+        },
+        {
+            "name": "AMT",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "AMT"
+        },
+        {
+            "name": "QTY_1",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "QTY_1"
+        },
+        {
+            "name": "AMT_1",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "AMT_1"
+        },
+        {
+            "name": "QTY_2",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "QTY_2"
+        },
+        {
+            "name": "AMT_2",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "AMT_2"
+        },
+        {
+            "name": "QTY_3",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "QTY_3"
+        },
+        {
+            "name": "AMT_3",
+            "type": "NUMBER",
+            "default": "0",
+            "header": "AMT_3"
+        },
+        {
+            "name": "CREATE_BY",
+            "type": "USER_ID",
+            "update": "N"
+        },
+        {
+            "name": "CREATE_DTTM",
+            "type": "NOW",
+            "update": "N"
+        },
+        {
+            "name": "MODIFY_BY",
+            "type": "USER_ID"
+        },
+        {
+            "name": "MODIFY_DTTM",
+            "type": "NOW"
+        }
+    ]
+}
