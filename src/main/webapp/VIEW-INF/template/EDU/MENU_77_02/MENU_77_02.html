@@ -1,0 +1,91 @@
+<section id="contentsInner" class="STANDARD">
+  <div id="contents" class="vue-app content_area parentCon">
+    <kendo-splitter :orientation="'horizontal'" :panes="[ { size: '18%', collapsible: true, resizable: false }, {} ]"
+                    v-on:resize="doResize" style="height:100%;">
+      <div class="search_area" style="position: absolute; top: 0px; width: 200px; height: 100%; left: 0px;">
+        <div class='commonBtn_area'>
+          <kendo-button @click="doRefresh"><i class="fa fa-lg fa-refresh"></i></kendo-button>
+          <kendo-button @click="doDataLoad"><i class="fa fa-lg fa-search"></i></kendo-button>
+        </div>
+        <div class='srhTab_area'>
+          <kendo-tabstrip style="height: calc(100% - 25px);">
+            <ul>
+              <li class="k-state-active">
+                <p v-t="'BASE_OPTION'"></p>
+              </li>
+            </ul>
+            <div style="height: calc(100% - 50px); min-height: calc(100% - 57px); display: block;">              
+              <div class="parentCon">
+                <div class="leftCon">
+                  <span class="kd_labelWrap" v-t="'자재 유형'"></span>
+                </div>
+                <div class="rightCon"> 
+                  <kendo-combobox ref="comboBoxVersion" :data-source="mMatClassArray" :data-text-field="'comnCdnm'"
+                  :data-value-field="'comnCd'" v-model="mMatClass">
+                  </kendo-combobox>
+                </div> 
+              </div>
+              <div class="parentCon">
+                <div class="leftCon">
+                  <span class="kd_labelWrap" v-t="'자재 코드'"></span>
+                </div>
+                <div class="rightCon"> 
+                  <input class="k-textbox" v-model="mMatCode"/>
+                </div>
+              </div>
+              <div class="parentCon">
+                <div class="leftCon">
+                  <span class="kd_labelWrap" v-t="'자재그룹'"></span>
+                </div>
+                <div class="rightCon"> 
+                  <kendo-combobox ref="comboBoxVersion" :data-source="mMatGroupArray" :data-text-field="'comnCdnm'"
+                  :data-value-field="'comnCd'" v-model="mMatGroup">
+                  </kendo-combobox>
+                </div> 
+              </div>
+              <div class="parentCon">
+                <div class="leftCon">
+                  <span class="kd_labelWrap" v-t="'공장 등록 여부'"></span>
+                </div>
+                <div class="rightCon" style="padding-right: 148px;">
+                  <input type="checkbox" v-model="mSetCheck"/>
+                </div>
+              </div>
+            </div>
+          </kendo-tabstrip>
+        </div>
+      </div>
+      <div class="result_area">
+        <div class="row" style="height: 60%">
+          <div class="parentCon" style="height: 4%">
+            <div class="leftCon">
+            </div>
+            <div class="rightCon">
+              <kendo-button @click="doGridRefresh"><i class="fa fa-lg fa-refresh"></i></kendo-button> 
+              <kendo-button @click="doSave"><i class="fa fa-lg fa-save"></i></kendo-button>
+              <excel-export style="margin-left: 2px;" v-bind="exportGridSetting"></excel-export> 
+            </div>
+          </div>
+          <div style="height: calc(100% - 44px) !important;" class="component_ui wingui_component">
+            <div id="grid1" style="width: 1326px; height: 750px;"></div>
+          </div>
+        </div>
+        <div class="row" style="height: 40%">
+          <div class="parentCon" style="height: 4%">
+            <div class="leftCon">
+            </div>
+            <div class="rightCon">
+              <kendo-button @click="doGridRefresh2"><i class="fa fa-lg fa-refresh"></i></kendo-button> 
+              <kendo-button @click="doInsertRow2"><i class="fa fa-lg fa-plus"></i></kendo-button>
+              <kendo-button @click="doDeleteRow2"><i class="fa fa-lg fa-minus"></i></kendo-button>
+              <kendo-button @click="doSave2"><i class="fa fa-lg fa-save"></i></kendo-button>
+            </div>
+          </div>
+          <div style="height: calc(100% - 44px) !important;" class="component_ui wingui_component">
+            <div id="grid2"></div>
+          </div>
+        </div>
+      </div>
+    </kendo-splitter>
+  </div>
+</section>
