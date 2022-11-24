@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_ITEM_CLASS" version="2.0">
+    <component id="POP_SRH_ITEM_CLASS_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>POP_UI_CM_03_03</title>
+            <width>400</width>
+            <height>420</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_SRH_ITEM_CLASS_WINDOW_01_GRD" type="R_GRID">
+        <props>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <grid-summary>false</grid-summary>
+            <group-header>false</group-header>
+            <group-summary>false</group-summary>
+            <group-sort>false</group-sort>
+            <group-merge-mode>true</group-merge-mode>
+            <group-expander>false</group-expander>
+            <toolbar use="false" />
+            <columns>
+                <column id="ID" title="ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="SRC_ID" title="SRC_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="VIEW_ID" title="VIEW_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="ITEM_LV_NM" title="ITEM_LV" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                    <init-group-order>1</init-group-order>
+                </column>
+                <column id="ITEM_CLASS_VAL" title="ITEM_CLASS_VAL" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="DESCRIP" title="DESCRIP" type="string">
+                    <width>200</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="POP_SRH_ITEM_CLASS_WINDOW_01_GRD_SETDATA_CM_03_SEARCH_01">
+                    <component-id>SRH_ITEM_CLASS_02_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="POP_SRH_ITEM_CLASS_WINDOW_01_GRD:selections" extract-by="ITEM_CLASS_VAL" />
+                    </parameters>
+                    <success>
+                        <operation-call id="POP_SRH_ITEM_CLASS_WINDOW_01_GRD_SETDATA_CM_03_SEARCH_CLOSE">
+                            <component-id>POP_SRH_ITEM_CLASS_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SC_POP_SRH_ITEM_CLASS_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_GET_ITEM_CLASS</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

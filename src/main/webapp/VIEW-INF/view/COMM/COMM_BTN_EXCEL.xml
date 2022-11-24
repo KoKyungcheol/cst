@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_BTN_EXCEL" version="2.0">
+    <component id="BTN_EXPORT" type="BUTTON">
+        <props>
+            <tooltip>Excel download</tooltip>
+            <icon>download</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_EXPORT_01">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>EXPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="BTN_IMPORT" type="BUTTON">
+        <props>
+            <tooltip>Excel Upload</tooltip>
+            <icon>upload</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_IMPORT_01">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>IMPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="BTN_EXPORT_02" type="BUTTON">
+        <props>
+            <tooltip>Excel download</tooltip>
+            <icon>download</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_EXPORT_02">
+                    <component-id>RST_CPT_02</component-id>
+                    <operation-id>EXPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="BTN_IMPORT_02" type="BUTTON">
+        <props>
+            <tooltip>Excel Upload</tooltip>
+            <icon>upload</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_IMPORT_02">
+                    <component-id>RST_CPT_02</component-id>
+                    <operation-id>IMPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="BTN_EXPORT_03" type="BUTTON">
+        <props>
+            <tooltip>Excel download</tooltip>
+            <icon>download</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_EXPORT_03">
+                    <component-id>RST_CPT_03</component-id>
+                    <operation-id>EXPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="BTN_IMPORT_03" type="BUTTON">
+        <props>
+            <tooltip>Excel Upload</tooltip>
+            <icon>upload</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_BTN_IMPORT_03">
+                    <component-id>RST_CPT_03</component-id>
+                    <operation-id>IMPORT</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

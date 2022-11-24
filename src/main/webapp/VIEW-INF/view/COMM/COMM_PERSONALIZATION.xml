@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_PERSONALIZATION" version="2.0">
+    <component id="POP_COMM_CPT_PERSONALIZATION_WINDOWS" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>PSNZ</title>
+            <width>700</width>
+            <height>560</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_COMM_CPT_PERSONALIZATION_CPT_01" type="COMBOBOX">
+        <props>
+            <width>400</width>
+            <name>GRID</name>
+            <name-position>left</name-position>
+            <lang>true</lang>
+            <select-index>0</select-index>
+            <value-id>code</value-id>
+            <text-id sort="asc">name</text-id>
+        </props>
+        <actions>
+            <action event-type="select-item">
+                <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_LOAD_WHEN_SELECT_COMBO">
+                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                    <conditions>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_004" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_DP_25_CHART</value>
+                        </condition>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_001" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_DP_25</value>
+                        </condition>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_009" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_DP_95</value>
+                        </condition>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_010" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_DP_95_CHART</value>
+                        </condition>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_002" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_SRP_10</value>
+                        </condition>
+                        <condition id="CON_POP_PERSONAL_RST_CPT_01_LOAD_003" group="AND">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>notEqual</operator>
+                            <value>UI_SRP_11</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_SAVE_BUTTON_ENABLE_TRUE_003">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>ENABLE</operation-id>
+                            <parameters>
+                                <parameter id="ENABLE" value="true" />
+                            </parameters>
+                            <conditions>
+                                <condition id="CON_GRID_CHANGED_ROW_CNT_003">
+                                    <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                                    <key>ROWCOUNT</key>
+                                    <operator>notEqual</operator>
+                                    <value>0</value>
+                                </condition>
+                            </conditions>
+                        </operation-call>
+                        <operation-call id="OPC_SAVE_BUTTON_ENABLE_TRUE_004">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>ENABLE</operation-id>
+                            <parameters>
+                                <parameter id="ENABLE" value="false" />
+                            </parameters>
+                            <conditions>
+                                <condition id="CON_GRID_CHANGED_ROW_CNT_004">
+                                    <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                                    <key>ROWCOUNT</key>
+                                    <operator>equal</operator>
+                                    <value>0</value>
+                                </condition>
+                            </conditions>
+                        </operation-call>
+                    </success>
+                </operation-call>
+                <operation-call id="OPC_02_POP_PERSONALIZATION_RST_CPT_01_LOAD">
+                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                    <operation-id>LOAD_DP</operation-id>
+                    <conditions>
+                        <condition id="CON_02_POP_PERSONAL_RST_CPT_01_LOAD">
+                            <component>COMMON</component>
+                            <key>VIEW_ID</key>
+                            <operator>equal</operator>
+                            <value>UI_DP_25,UI_SRP_10,UI_SRP_11,UI_DP_25_CHART,UI_DP_95,UI_DP_95_CHART</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_02_SAVE_BUTTON_ENABLE_TRUE_003">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>ENABLE</operation-id>
+                            <parameters>
+                                <parameter id="ENABLE" value="true" />
+                            </parameters>
+                            <conditions>
+                                <condition id="CON_02_GRID_CHANGED_ROW_CNT_003">
+                                    <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                                    <key>ROWCOUNT</key>
+                                    <operator>notEqual</operator>
+                                    <value>0</value>
+                                </condition>
+                            </conditions>
+                        </operation-call>
+                        <operation-call id="OPC_02_SAVE_BUTTON_ENABLE_TRUE_004">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>ENABLE</operation-id>
+                            <parameters>
+                                <parameter id="ENABLE" value="false" />
+                            </parameters>
+                            <conditions>
+                                <condition id="CON_02_GRID_CHANGED_ROW_CNT_004">
+                                    <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                                    <key>ROWCOUNT</key>
+                                    <operator>equal</operator>
+                                    <value>0</value>
+                                </condition>
+                            </conditions>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_PSNZ_GRID_LIST">
+                    <url>/ad/users/personalization-masters/code-name-maps</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="POP_PERSONALIZATION_RST_TAB" type="TAB">
+        <props>
+            <tabs>
+                <tab id="t1-1" title="FIELD_PSNZ" expand="true" />
+            </tabs>
+        </props>
+        <operations>
+            <operation id="ACTIVATE" />
+        </operations>
+    </component>
+    <component id="POP_PERSONALIZATION_RST_CPT_01_07" type="BUTTON">
+        <props>
+            <tooltip>initialization</tooltip>
+            <icon>reply</icon>
+            <disable>true</disable>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_DIALOG_PERSONAL_RESET_INFO">
+                    <component-id>COMMON</component-id>
+                    <operation-id>DIALOG</operation-id>
+                    <parameters>
+                        <parameter id="title" value="OK" />
+                        <parameter id="msg" value="MSG_5103" />
+                        <parameter id="type" value="confirm" />
+                        <parameter id="modal" value="true" />
+                    </parameters>
+                    <success>
+                        <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_INIT">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>SAVE</operation-id>
+                            <conditions>
+                                <condition id="CON_POP_PERSONAL_DATA_01_LOAD1" group="AND">
+                                    <component>COMMON</component>
+                                    <key>VIEW_ID</key>
+                                    <operator>notEqual</operator>
+                                    <value>UI_DP_25</value>
+                                </condition>
+                                <condition id="CON_POP_PERSONAL_DATA_01_LOAD2" group="AND">
+                                    <component>COMMON</component>
+                                    <key>VIEW_ID</key>
+                                    <operator>notEqual</operator>
+                                    <value>UI_DP_25_CHART</value>
+                                </condition>
+                                <condition id="CON_POP_PERSONAL_DATA_01_LOAD3" group="AND">
+                                    <component>COMMON</component>
+                                    <key>VIEW_ID</key>
+                                    <operator>notEqual</operator>
+                                    <value>UI_DP_95</value>
+                                </condition>
+                                <condition id="CON_POP_PERSONAL_DATA_01_LOAD4" group="AND">
+                                    <component>COMMON</component>
+                                    <key>VIEW_ID</key>
+                                    <operator>notEqual</operator>
+                                    <value>UI_DP_95_CHART</value>
+                                </condition>
+                            </conditions>
+                            <success>
+                                <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_LOAD_WHEN_INIT">
+                                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                </operation-call>
+                                <operation-call id="OPC_VIEW_META_LOAD_RE_02">
+                                    <component-id>VIEW_META</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                </operation-call>
+                                <operation-call id="DATA_01_INIT_POP_PERSONAL">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                    <conditions>
+                                        <condition id="CON_POP_PERSONAL_DATA_01_LOAD">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_25,UI_SRP_10,UI_SRP_11,UI_DP_26,UI_DP_25_CHART,UI_DP_26_CHART,UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                        <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_INIT_DP">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01_07</component-id>
+                            <operation-id>SAVE_DP</operation-id>
+                            <conditions>
+                                <condition id="CON_POP_PERSONAL_DATA_01_LOAD_DP">
+                                    <component>COMMON</component>
+                                    <key>VIEW_ID</key>
+                                    <operator>equal</operator>
+                                    <value>UI_DP_25,UI_DP_25_CHART,UI_DP_95,UI_DP_95_CHART</value>
+                                </condition>
+                            </conditions>
+                            <success>
+                                <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_LOAD_WHEN_INIT_DP">
+                                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                                    <operation-id>LOAD_DP</operation-id>
+                                </operation-call>
+                                <operation-call id="OPC_VIEW_META_LOAD_RE_02_DP">
+                                    <component-id>VIEW_META</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                </operation-call>
+                                <operation-call id="DATA_01_INIT_POP_PERSONAL_DP">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                    <conditions>
+                                        <condition id="CON_POP_PERSONAL_DATA_01_LOAD_DP">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_25,UI_SRP_10,UI_SRP_11,UI_DP_26,UI_DP_25_CHART,UI_DP_26_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                                <operation-call id="DATA_01_INIT_POP_PERSONAL_DP_95_01">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD_M</operation-id>
+                                    <conditions>
+                                        <condition id="CON_POP_PERSONAL_DATA_01_LOAD_DP_95_01">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                                <operation-call id="DATA_01_INIT_POP_PERSONAL_DP_95_02">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD_D</operation-id>
+                                    <conditions>
+                                        <condition id="CON_POP_PERSONAL_DATA_01_LOAD_DP_95_02">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="ENABLE" />
+            <operation id="SAVE">
+                <service-call id="SVC_SP_UI_AD_PSNZ_S3">
+                    <url>/ad/users/personalizations/init</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="grid-id" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="auth-tp" value="COMMON" />
+                        <parameter id="username" reference-id="POP_PERSONALIZATION_RST_CPT_01:selections" extract-by="username" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SAVE_DP">
+                <service-call id="SVC_SP_UI_AD_PSNZ_S3">
+                    <url>/ad/users/personalizations/init</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="grid-id" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="auth-tp" reference-id="SRH_CPT_T1_04_04" extract-by="CD" default-value="COMMON" />
+                        <parameter id="username" reference-id="POP_PERSONALIZATION_RST_CPT_01:selections" extract-by="username" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="POP_PERSONALIZATION_RST_CPT_01_06" type="BUTTON">
+        <props>
+            <tooltip>Save</tooltip>
+            <icon>save</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_SAVE">
+                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                    <operation-id>SAVE</operation-id>
+                    <success>
+                        <operation-call id="OPC_POP_COMM_CPT_PERSONALIZATION_WINDOWS_CLOSE">
+                            <component-id>POP_COMM_CPT_PERSONALIZATION_WINDOWS</component-id>
+                            <operation-id>CLOSE</operation-id>
+                            <success>
+                                <operation-call id="OPC_VIEW_META_LOAD_RE">
+                                    <component-id>VIEW_META</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                </operation-call>
+                                <operation-call id="DATA_01_INIT_POP_PERSONAL_02">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                    <conditions>
+                                        <condition id="CON_POP_PERSONAL_DATA_01_LOAD_02">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_25,UI_SRP_10,UI_SRP_11,UI_DP_26,UI_DP_25_CHART,UI_DP_26_CHART,UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                    <success>
+                                        <operation-call id="DATA_01_INIT_POP_PERSONAL_03">
+                                            <component-id>DATA_01</component-id>
+                                            <operation-id>LOAD_CHART</operation-id>
+                                            <conditions>
+                                                <condition id="CON_UI_ID_IS_UI_DP_25_cHART">
+                                                    <component>COMMON</component>
+                                                    <key>VIEW_ID</key>
+                                                    <operator>equal</operator>
+                                                    <value>UI_DP_25_CHART,UI_DP_26_CHART</value>
+                                                </condition>
+                                            </conditions>
+                                        </operation-call>
+                                    </success>
+                                </operation-call>
+                                <operation-call id="DATA_01_DP_95_01">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD_M</operation-id>
+                                    <conditions>
+                                        <condition id="CON_DATA_01_LOAD_DP_95_01">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                                <operation-call id="DATA_01_DP_95_02">
+                                    <component-id>DATA_01</component-id>
+                                    <operation-id>LOAD_D</operation-id>
+                                    <conditions>
+                                        <condition id="CON_DATA_01_LOAD_DP_95_02">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_DP_95,UI_DP_95_CHART</value>
+                                        </condition>
+                                    </conditions>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="ENABLE" />
+        </operations>
+    </component>
+    <component id="POP_PERSONALIZATION_RST_CPT_01" type="R_GRID">
+        <props>
+            <height>380</height>
+            <indicator>false</indicator>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <cell-attributes>
+                <cell-attribute id="CA_01">
+                    <conditions>
+                        <condition id="COND_01">
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-VERTICAL-VALUES</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_01">
+                            <column>columnWidth</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#fff9f9f9</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_02">
+                    <conditions>
+                        <condition id="COND_02_01">
+                            <column>crosstabYn</column>
+                            <operator>equal</operator>
+                            <value>false</value>
+                        </condition>
+                        <condition id="COND_02_02">
+                            <column>columnId</column>
+                            <operator>equal</operator>
+                            <value>CATEGORY</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_02_01">
+                            <column>crosstabItemCd</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#fff9f9f9</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_03">
+                    <conditions>
+                        <condition id="COND_03_01">
+                            <column>applyYn</column>
+                            <operator>equal</operator>
+                            <value>false</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_03_01">
+                            <column>activeYn,columnNm</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#fff9f9f9</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+                <cell-attribute id="CA_04">
+                    <conditions>
+                        <condition id="COND_04_01">
+                            <column>columnId</column>
+                            <operator>startsWith</operator>
+                            <value>DIMENSION_,MEASURE_,SRPN_</value>
+                        </condition>
+                    </conditions>
+                    <applies>
+                        <apply id="TRGT_04_01">
+                            <column>columnNm</column>
+                            <attrs>
+                                <editable>false</editable>
+                                <background>#fff9f9f9</background>
+                            </attrs>
+                        </apply>
+                    </applies>
+                </cell-attribute>
+            </cell-attributes>
+            <toolbar use="false" />
+            <columns>
+                <column id="viewId" title="UI_ID" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="gridId" title="GRID_ID" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="columnId" title="FIELD_ID" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                    <text-alignment>left</text-alignment>
+                </column>
+                <column id="authTp" title="AUTH_TP_NM" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="username" title="USER_ID" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="columnNm" title="FIELD_NM" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <text-alignment>left</text-alignment>
+                </column>
+                <column id="columnNmLang" title="FIELD_NM_VAL" type="string">
+                    <width>100</width>
+                    <visible>true</visible>
+                    <editable if-new="true">false</editable>
+                    <text-alignment>left</text-alignment>
+                    <lang>true</lang>
+                </column>
+                <column id="columnValue" title="FIELD_VAL" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="columnWidth" title="FIELD_WDTH" type="number">
+                    <width>70</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="columnSeq" title="SEQ" type="number">
+                    <width>60</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                </column>
+                <column id="activeYn" title="ACTV_YN" type="bool">
+                    <width>60</width>
+                    <visible>true</visible>
+                    <editable>true</editable>
+                    <header-checkable>true</header-checkable>
+                </column>
+                <column id="applyYn" title="PSNZ_APPY_YN" type="bool">
+                    <width>80</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="dataKeyYn" title="DATA_KEY_YN" type="bool">
+                    <width>80</width>
+                    <visible>false</visible>
+                    <editable>true</editable>
+                    <header-checkable>false</header-checkable>
+                </column>
+                <column id="crosstabItemCd" title="PIVOT_ITEM_CD" type="string">
+                    <width>120</width>
+                    <visible>false</visible>
+                    <editable>true</editable>
+                    <candidate>
+                        <drop-down-count>5</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <service-call id="SVC_GET_PIVOT_ITEM_CD">
+                                <url>/ad/common/code-name-maps</url>
+                                <parameters>
+                                    <parameter id="group-cd" value="CROSSTAB_ITEM" />
+                                </parameters>
+                            </service-call>
+                        </values>
+                    </candidate>
+                </column>
+                <column id="crosstabApplyYn" title="PIVOT_GRID_YN" type="bool">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>true</editable>
+                    <header-checkable>false</header-checkable>
+                </column>
+                <column id="summaryTp" title="SUMMARY_TP" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable if-new="true">false</editable>
+                    <candidate>
+                        <drop-down-count>5</drop-down-count>
+                        <values>
+                            <value-id>code</value-id>
+                            <text-id>name</text-id>
+                            <service-call id="SVC_GET_SUMMARY_TP">
+                                <url>/ad/common/code-name-maps</url>
+                                <parameters>
+                                    <parameter id="group-cd" value="SUMMARY_TP" />
+                                </parameters>
+                            </service-call>
+                        </values>
+                    </candidate>
+                </column>
+                <column id="crosstabYn" title="PIVOT_GRID_YN" type="bool">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                    <header-checkable>false</header-checkable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-edited">
+                <operation-call id="changeVal">
+                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET_VALUE-to-crosstabApplyYn" reference-id="POP_PERSONALIZATION_RST_CPT_01:selections" extract-by="activeYn" />
+                    </parameters>
+                    <conditions>
+                        <condition id="ch01" group="A">
+                            <on-column>activeYn</on-column>
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-VERTICAL-VALUES</value>
+                        </condition>
+                        <condition id="ch02" group="B">
+                            <on-column>activeYn</on-column>
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-HORIZONTAL-VALUES</value>
+                        </condition>
+                        <condition id="ch03" group="C">
+                            <on-column>activeYn</on-column>
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-COLUMNS</value>
+                        </condition>
+                    </conditions>
+                </operation-call>
+                <operation-call id="changeVa2">
+                    <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET_VALUE-to-dataKeyYn" reference-id="POP_PERSONALIZATION_RST_CPT_01:selections" extract-by="activeYn" />
+                    </parameters>
+                    <conditions>
+                        <condition id="CON_MODULE" group="A">
+                            <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                            <column>viewId</column>
+                            <operator>startsWith</operator>
+                            <value>UI_IM_,UI_RP_,UI_MP_</value>
+                        </condition>
+                        <condition id="CON_PIVOT_ITEM_CD" group="A">
+                            <component>POP_PERSONALIZATION_RST_CPT_01</component>
+                            <column>crosstabItemCd</column>
+                            <operator>equal</operator>
+                            <value>GROUP-COLUMNS</value>
+                        </condition>
+                        <condition id="CON_ACTV_YN" group="A">
+                            <on-column>activeYn</on-column>
+                        </condition>
+                    </conditions>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_GET_PSNZ_GRID">
+                    <url>/ad/users/personalizations</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="grid-id" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="auth-tp" value="COMMON" />
+                        <parameter id="username" reference-id="COMMON:loginId" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="LOAD_DP">
+                <service-call id="SVC_GET_PSNZ_GRID_DP">
+                    <url>/ad/users/personalizations</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="grid-id" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="auth-tp" reference-id="SRH_CPT_T1_04_04" extract-by="CD" default-value="COMMON" />
+                        <parameter id="username" reference-id="SRH_CPT_T1_02_04" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SAVE">
+                <service-call id="SVC_SET_PSNZ_GRID">
+                    <url>/ad/users/personalizations</url>
+                    <method>post</method>
+                    <param-empty-check>data</param-empty-check>
+                    <parameters>
+                        <parameter id="data" reference-id="POP_PERSONALIZATION_RST_CPT_01:changes" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW">
+                <service-call id="OP_INSERT_ROW_POP_PERSONALIZATION_RST_CPT_01">
+                    <parameters>
+                        <parameter id="SET_DEFAULT-to-viewId" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="SET_DEFAULT-to-gridId" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="SET_DEFAULT-to-activeYn" value="false" />
+                        <parameter id="SET_DEFAULT-to-applyYn" value="false" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REMOVE_ROW">
+                <service-call id="SVC_DEL_PSNZ_GRID">
+                    <url>/ad/users/personalizations</url>
+                    <method>delete</method>
+                    <parameters>
+                        <parameter id="data" reference-id="POP_PERSONALIZATION_RST_CPT_01:checked" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="REFRESH">
+                <service-call id="SVC_GET_PSNZ_GRID_RE">
+                    <url>/ad/users/personalizations</url>
+                    <parameters>
+                        <parameter id="view-id" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="grid-id" reference-id="POP_COMM_CPT_PERSONALIZATION_CPT_01" />
+                        <parameter id="auth-tp" value="COMMON" />
+                        <parameter id="username" reference-id="COMMON:loginId" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="TTL_COMM_CPT_PERSONALIZATION" type="BUTTON">
+        <props>
+            <icon>users</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="openWindow_PERSONAL_WINDOWS">
+                    <component-id>POP_COMM_CPT_PERSONALIZATION_WINDOWS</component-id>
+                    <operation-id>OPEN</operation-id>
+                    <success>
+                        <operation-call id="OPC_POP_COMM_CPT_PERSONALIZATION_CPT_01_LOAD">
+                            <component-id>POP_COMM_CPT_PERSONALIZATION_CPT_01</component-id>
+                            <operation-id>LOAD</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_PERSONALIZATION_RST_CPT_01_LOAD_WHEN_OPEN">
+                            <component-id>POP_PERSONALIZATION_RST_CPT_01</component-id>
+                            <operation-id>INIT</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

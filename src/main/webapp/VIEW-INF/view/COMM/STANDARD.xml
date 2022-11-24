@@ -1,0 +1,1685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="STANDARD" template="COMM/STANDARD:COMM/COMM_HELP:COMM/COMM_PERSONALIZATION" copyfrom="COMM_HELP:COMM_PREFERENCE:COMM_DEPARTMENT" version="2.0">
+    <component id="POP_CPT_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>Grid Popup2</title>
+            <width>700</width>
+            <height>600</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_CPT_01_01" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="POP_CPT_01_02" type="BUTTON">
+        <props>
+            <name />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_POP_CPT_01_02_INSERTROW">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>INSERT_ROW</operation-id>
+                    <parameters>
+                        <parameter id="PJT_NM" reference-id="POP_CPT_01_01" />
+                    </parameters>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="TTL_CPT_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>UI_CM_01</init-value>
+        </props>
+    </component>
+    <component id="TTL_CPT_03" type="BUTTON">
+        <props>
+            <name>tab select</name>
+            <tooltip />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_SRH_TAB_LOAD">
+                    <component-id>SRH_TAB</component-id>
+                    <operation-id>ACTIVATE</operation-id>
+                    <parameters>
+                        <parameter id="ACTIVATE" value="t1-3" />
+                    </parameters>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="TTL_CPT_04" type="BUTTON">
+        <props>
+            <icon>refresh</icon>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="TTL_CPT_05" type="BUTTON">
+        <props>
+            <icon>search</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_GRID_LOAD">
+                    <component-id>RST_CPT_01</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="TTL_CPT_06" type="DATA">
+        <actions>
+            <action event-type="init">
+                <operation-call id="OPC_TTL_CPT_06_INIT">
+                    <component-id>TTL_CPT_06</component-id>
+                    <operation-id>SET</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="SET">
+                <service-call id="1">
+                    <parameters>
+                        <parameter id="MENU_ID" value="UI_CM_01" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="CONTENT_SPLIT" type="SPLIT">
+        <props>
+            <height>810</height>
+            <position>horizontal</position>
+            <splits>
+                <split id="search" collapsible="true" resizable="false" size="340" />
+                <split id="result" collapsible="false" />
+            </splits>
+        </props>
+    </component>
+    <component id="SRH_TAB" type="TAB">
+        <props>
+            <tabs>
+                <tab id="t1-1" title="tab1" expand="true" />
+                <tab id="t1-2" title="tab2" />
+                <tab id="t1-3" title="tab3" />
+                <tab id="t1-4" title="tab4" />
+                <tab id="t1-5" title="tab5" />
+            </tabs>
+        </props>
+        <operations>
+            <operation id="ACTIVATE" />
+        </operations>
+    </component>
+    <component id="SRH_CPT_T1_01_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>1</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_01_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_01_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_02_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>2</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_02_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_03_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>3</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_03_04" type="COMBOBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+            <value-id>CD</value-id>
+            <text-id>CD_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="SRC_PJT_TP_INIT">
+                    <component-id>SRH_CPT_T1_03_04</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PJT_TP">
+                    <service-id>get_PJT_TP</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_CPT_T1_04_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_05_01" type="CHECKBOX">
+        <props>
+            <name>Check 1</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_05_02" type="CHECKBOX">
+        <props>
+            <name>Check 2</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_05_03" type="CHECKBOX">
+        <props>
+            <name>Check 3</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_06_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Start</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_06_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+            <init-value>2000-01-01</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_07_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Finish</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_07_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_08_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_09_01" type="RADIO">
+        <props>
+            <lang>true</lang>
+            <option-deployment />
+            <init-value>
+                <option value="FC" text="Radio 01" text-position="right" />
+                <option value="IC" text="Radio 02" text-position="right" />
+                <option value="FM" text="Radio 03" text-position="right" selected="true" />
+                <option value="IM" text="Radio 04" text-position="right" />
+            </init-value>
+            <value-id>ID</value-id>
+            <text-id>TEXT</text-id>
+            <select-id>USE</select-id>
+        </props>
+    </component>
+    <component id="SRH_CPT_T1_10_01" type="BUTTON">
+        <props>
+            <name />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="popup">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_02</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_03</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_04</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_05</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="SRH_CPT_T2_11" type="TREE">
+        <props>
+            <width>314</width>
+            <height>635</height>
+            <checkbox>false</checkbox>
+            <value-id sort="asc">DEPT_CD</value-id>
+            <text-id>DEPT_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="SRC_TRE_CMPT_01_INIT">
+                    <component-id>SRH_CPT_T2_11</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+            <action event-type="select-item" />
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_TRE_CMPT_01_LOAD">
+                    <service-id>get_DEPT_TREE</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="TREE_PARENT_ID" value="PARENT_DEPT" />
+                        <parameter id="TREE_KEY_ID" value="DEPT_CD" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_CPT_T3_01_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>1</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_01_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_01_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_02_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>2</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_02_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_03_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>3</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_03_04" type="COMBOBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+            <value-id>CD</value-id>
+            <text-id>CD_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="SRC_PJT_TP_INIT">
+                    <component-id>SRH_CPT_T3_03_04</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PJT_TP">
+                    <service-id>get_PJT_TP</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_CPT_T3_04_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_05_01" type="CHECKBOX">
+        <props>
+            <name>Check 1</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_05_02" type="CHECKBOX">
+        <props>
+            <name>Check 2</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_05_03" type="CHECKBOX">
+        <props>
+            <name>Check 3</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_06_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Start</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_06_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+            <init-value>2000-01-01</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_07_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Finish</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_07_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_08_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_09_01" type="RADIO">
+        <props>
+            <lang>true</lang>
+            <option-deployment />
+            <init-value>
+                <option value="FC" text="Radio 01" text-position="right" />
+                <option value="IC" text="Radio 02" text-position="right" />
+                <option value="FM" text="Radio 03" text-position="right" selected="true" />
+                <option value="IM" text="Radio 04" text-position="right" />
+            </init-value>
+            <value-id>ID</value-id>
+            <text-id>TEXT</text-id>
+            <select-id>USE</select-id>
+        </props>
+    </component>
+    <component id="SRH_CPT_T3_10_01" type="BUTTON">
+        <props>
+            <name />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="popup">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_02</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_03</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_04</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_05</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="SRH_CPT_T4_01_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>1</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_01_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_01_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_02_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>2</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_02_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_03_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>3</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_03_04" type="COMBOBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+            <value-id>CD</value-id>
+            <text-id>CD_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="SRC_PJT_TP_INIT">
+                    <component-id>SRH_CPT_T4_03_04</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PJT_TP">
+                    <service-id>get_PJT_TP</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_CPT_T4_04_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_05_01" type="CHECKBOX">
+        <props>
+            <name>Check 1</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_05_02" type="CHECKBOX">
+        <props>
+            <name>Check 2</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_05_03" type="CHECKBOX">
+        <props>
+            <name>Check 3</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_06_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Start</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_06_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+            <init-value>2000-01-01</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_07_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Finish</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_07_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_08_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_09_01" type="RADIO">
+        <props>
+            <lang>true</lang>
+            <option-deployment />
+            <init-value>
+                <option value="FC" text="Radio 01" text-position="right" />
+                <option value="IC" text="Radio 02" text-position="right" />
+                <option value="FM" text="Radio 03" text-position="right" selected="true" />
+                <option value="IM" text="Radio 04" text-position="right" />
+            </init-value>
+            <value-id>ID</value-id>
+            <text-id>TEXT</text-id>
+            <select-id>USE</select-id>
+        </props>
+    </component>
+    <component id="SRH_CPT_T4_10_01" type="BUTTON">
+        <props>
+            <name />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="popup">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_02</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_03</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_04</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_05</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="SRH_CPT_T5_01_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>1</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_01_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_01_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_02_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>2</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_02_04" type="INPUTBOX">
+        <props>
+            <width>180</width>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_03_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>3</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_03_04" type="COMBOBOX">
+        <props>
+            <width>210</width>
+            <lang>true</lang>
+            <value-id>CD</value-id>
+            <text-id>CD_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="SRC_PJT_TP_INIT">
+                    <component-id>SRH_CPT_T5_03_04</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PJT_TP">
+                    <service-id>get_PJT_TP</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_CPT_T5_04_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_05_01" type="CHECKBOX">
+        <props>
+            <name>Check 1</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_05_02" type="CHECKBOX">
+        <props>
+            <name>Check 2</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_05_03" type="CHECKBOX">
+        <props>
+            <name>Check 3</name>
+            <name-position>right</name-position>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_06_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Start</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_06_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+            <init-value>2000-01-01</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_07_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>Finish</init-value>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_07_04" type="DATEPICKER">
+        <props>
+            <width>210</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <date-type>day</date-type>
+            <date-format>yyyy-MM-dd</date-format>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_08_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value />
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_09_01" type="RADIO">
+        <props>
+            <lang>true</lang>
+            <option-deployment />
+            <init-value>
+                <option value="FC" text="Radio 01" text-position="right" />
+                <option value="IC" text="Radio 02" text-position="right" />
+                <option value="FM" text="Radio 03" text-position="right" selected="true" />
+                <option value="IM" text="Radio 04" text-position="right" />
+            </init-value>
+            <value-id>ID</value-id>
+            <text-id>TEXT</text-id>
+            <select-id>USE</select-id>
+        </props>
+    </component>
+    <component id="SRH_CPT_T5_10_01" type="BUTTON">
+        <props>
+            <name />
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="popup">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_02</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_03</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_04</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+                <operation-call id="popup">
+                    <component-id>POP_CPT_05</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="RST_CPT_01_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_01" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+    <component id="RST_CPT_02_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_02" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+    <component id="RST_CPT_03_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_03" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+    <component id="RST_CPT_04_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_04" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+    <component id="RST_CPT_05_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_05" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+    <component id="RST_CPT_06_01" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_02" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_03" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_04" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_06" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_07" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_08" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_09" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06_10" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+    </component>
+    <component id="RST_CPT_06" type="R_GRID">
+        <props>
+            <height>185</height>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="true">
+                <toolbar-button operation-id="EXPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="IMPORT" enable="true" visible="true" position="left" />
+                <toolbar-button operation-id="CONFIG" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="COPY" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="ROLLBACK" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REFRESH" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="LOAD" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="INSERT_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="REMOVE_ROW" enable="true" visible="true" position="right" />
+                <toolbar-button operation-id="SAVE" enable="true" visible="true" position="right" />
+            </toolbar>
+            <columns>
+                <column id="PMS_PJT_NO" title="Project NO." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                </column>
+                <column id="PJT_NM" title="Project Name" type="string">
+                    <width>250</width>
+                    <editable>true</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_STRT_DT" title="Start" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="CNTRCT_END_DT" title="Finish" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="DEPT_NM" title="Department" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NO" title="Employee No." type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="EMP_NM" title="Employee Name" type="string">
+                    <width>50</width>
+                    <editable if-new="true">false</editable>
+                    <filterable>true</filterable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_POP_CPT_01_OPEN">
+                    <component-id>POP_CPT_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SRC_PROJECT_INFO">
+                    <service-id>get_PROJECT_INFO</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_TEST_01_11" reference-id="SRH_CPT_T1_01_04" default-value="" />
+                        <parameter id="SP_TEST_01_12" reference-id="SRH_CPT_T1_02_04" default-value="" />
+                        <parameter id="SP_TEST_01_13" reference-id="SRH_CPT_T1_03_04" default-value="" />
+                        <parameter id="SP_TEST_01_14" reference-id="SRH_COMM_CPT_DEPARTMENT" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="INSERT_ROW" />
+        </operations>
+    </component>
+</view>

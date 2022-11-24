@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_VIEW_META" version="2.0">
+    <component id="VIEW_META" type="DATA">
+        <actions>
+            <action event-type="meta">
+                <operation-call id="VIEW_META_LOAD">
+                    <component-id>VIEW_META</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="CROSSTAB_INFO">
+                    <url>/ad/users/preferences/crosstab-info</url>
+                    <parameters>
+                        <parameter id="view-cd" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="username" reference-id="COMMON:loginid" />
+                    </parameters>
+                </service-call>
+                <service-call id="PREF_INFO">
+                    <url>/ad/users/preferences/pref-info</url>
+                    <parameters>
+                        <parameter id="view-cd" reference-id="COMMON:VIEW_ID" />
+                        <parameter id="username" reference-id="COMMON:loginid" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SET">
+                <service-call id="VIEW_META_SET" />
+            </operation>
+        </operations>
+    </component>
+</view>

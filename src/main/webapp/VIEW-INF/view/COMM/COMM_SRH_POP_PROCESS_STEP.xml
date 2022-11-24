@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_PROCESS_STEP" version="2.0">
+    <component id="COMM_SRH_POP_PROCESS_STEP_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>SCENARIO_STEP</title>
+            <width>800</width>
+            <height>300</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_PROCESS_STEP_GRD" type="R_GRID">
+        <props>
+            <height>255</height>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <group-merge-mode>true</group-merge-mode>
+            <toolbar use="false" />
+            <columns>
+                <column id="SNRIO_MGMT_MST_ID" title="SNRIO_MGMT_MST_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="STEP" title="STEP" type="number">
+                    <width>50</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PROCESS_TP_01" title="PROCESS_TP" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PROCESS_DESCRIP" title="PROCESS_DESCRIP" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PROCESS_TP_02" title="PROCESS_TP" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_COMM_SRH_POP_PROCESS_STEP_GRD_DBL_CLICK_01">
+                    <component-id>SRH_CPT_PROCESS_STEP_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_PROCESS_STEP_GRD:selections" extract-by="STEP" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_COMM_SRH_POP_PROCESS_STEP_GRD_DBL_CLICK_02">
+                    <component-id>SRH_CPT_PROCESS_DESCRIP_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_PROCESS_STEP_GRD:selections" extract-by="PROCESS_DESCRIP" />
+                    </parameters>
+                    <success>
+                        <operation-call id="OPC_COMM_SRH_POP_PROCESS_STEP_GRD_DBL_CLICK_03">
+                            <component-id>COMM_SRH_POP_PROCESS_STEP_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_COMM_SRH_PROCESS_STEP_Q">
+                    <service-id>SRV_COMM_SRH_PROCESS_STEP_Q</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="MAIN_VER_ID" reference-id="SRH_CPT_MAIN_VER_ID_04" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

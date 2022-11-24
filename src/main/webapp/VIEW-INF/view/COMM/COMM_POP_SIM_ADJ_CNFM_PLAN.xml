@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_POP_SIM_ADJ_CNFM_PLAN" version="2.0">
+    <component id="DATA_03" type="DATA">
+        <operations>
+            <operation id="LOAD_ADJUST_SIMUL_VER_PRE_CHECK">
+                <service-call id="ADJUST_SIMUL_VER_PRE_CHECK">
+                    <service-id>SRV_UI_CM_17_Q5</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="LOAD_SVC_SIMUL_VER">
+                <service-call id="SVC_SIMUL_VER">
+                    <service-id>SRV_UI_CM_17_S5</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" default-value="" />
+                        <parameter id="USER_ID" reference-id="COMMON:loginId" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="LOAD_SVC_ADJUST_PLAN">
+                <service-call id="SVC_ADJUST_PLAN">
+                    <service-id>SRV_UI_CM_17_Q3</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="MAIN_VER_ID" reference-id="SRH_CPT_MAIN_VER_ID_04" default-value="" />
+                        <parameter id="SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="LOAD_SVC_CONFIRM_PLAN">
+                <service-call id="SVC_CONFIRM_PLAN">
+                    <service-id>SRV_UI_CM_17_Q3</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+            <operation id="LOAD_SVC_CHECK_ADJUST_PLAN">
+                <service-call id="SVC_CHECK_ADJUST_PLAN">
+                    <service-id>SRV_UI_CM_17_Q6</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>PLAN_CONFIRM</title>
+            <width>500</width>
+            <height>715</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+            <operation id="SET_TITLE" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_01_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>MODULE_VAL</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_01_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_02_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>MAIN_VER_ID</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_02_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_03_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>DESCRIP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_03_02" type="TEXTAREA">
+        <props>
+            <width>300</width>
+            <height>50</height>
+            <lang>true</lang>
+            <editable>false</editable>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_04_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>SCENARIO_VER</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_04_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_05_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>DESCRIP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_05_02" type="TEXTAREA">
+        <props>
+            <width>300</width>
+            <height>50</height>
+            <lang>true</lang>
+            <editable>false</editable>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_06_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>STEP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_06_02" type="INPUTBOX">
+        <props>
+            <width>273</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+            <operation id="ENABLE" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_06_03" type="BUTTON">
+        <props>
+            <width>30</width>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_POP_UI_CM_17_01_06_03_CLICK">
+                    <component-id>POP_UI_CM_17_SELECT_STEP</component-id>
+                    <operation-id>OPEN</operation-id>
+                    <success>
+                        <operation-call id="OPC_POP_UI_CM_17_01_06_03_CLICK_SUCCESS_01">
+                            <component-id>POP_UI_CM_17_SELECT_STEP_01_01</component-id>
+                            <operation-id>LOAD</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="ENABLE" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_07_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>PROCESS</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_07_02" type="TEXTAREA">
+        <props>
+            <width>300</width>
+            <height>50</height>
+            <lang>true</lang>
+            <editable>false</editable>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_08_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>PROCESS_TP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_08_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_09_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>ORIGIN_VER</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_09_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_10_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>DESCRIP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_10_02" type="TEXTAREA">
+        <props>
+            <width>300</width>
+            <height>50</height>
+            <lang>true</lang>
+            <editable>false</editable>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_11_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>SIMULATION_VERSION</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_11_02" type="INPUTBOX">
+        <props>
+            <width>306</width>
+            <editable>false</editable>
+            <lang>true</lang>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_12_01" type="LABEL">
+        <props>
+            <width>140</width>
+            <lang>true</lang>
+            <position>right</position>
+            <init-value>DESCRIP</init-value>
+        </props>
+    </component>
+    <component id="POP_UI_CM_17_01_12_02" type="TEXTAREA">
+        <props>
+            <width>300</width>
+            <height>50</height>
+            <lang>true</lang>
+            <editable>true</editable>
+            <value-id>VAL</value-id>
+        </props>
+        <operations>
+            <operation id="SET" />
+            <operation id="ENABLE" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_CONFIRM" type="BUTTON">
+        <props>
+            <name>OK</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_POP_UI_CM_17_01_CLOSE_01">
+                    <component-id>POP_UI_CM_17_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                    <conditions>
+                        <condition id="ADJUST_CON_01" group="A">
+                            <component>POP_UI_CM_17_01_06_02</component>
+                            <operator>notEqual</operator>
+                            <value>empty</value>
+                            <msg>MSG_5129</msg>
+                        </condition>
+                        <condition id="ADJUST_CON_02" group="A">
+                            <component>DATA_03</component>
+                            <key>ACTION_KEY</key>
+                            <operator>equal</operator>
+                            <value>SIMUL_VER</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="POP_UI_CM_17_01_NEW_ADJ_SIM_VER_WAIT_ON">
+                            <component-id>COMMON</component-id>
+                            <operation-id>WAIT-ON</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_UI_CM_17_01_NEW_ADJ_SIM_VER_PLAN">
+                            <component-id>POP_UI_CM_17_01_CONFIRM</component-id>
+                            <operation-id>NEW_ADJ_SIM_VER</operation-id>
+                            <success>
+                                <operation-call id="OPC_POP_UI_CM_17_01_NEW_ADJ_SIM_VER_PLAN_SUCCESS_MSG">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>DIALOG</operation-id>
+                                    <parameters>
+                                        <parameter id="title" value="Information" />
+                                        <parameter id="msg" reference-data="POP_UI_CM_17_01_CONFIRM:SVC_SP_COMM_NEW_ADJ_SIM_VER:IM_DATA" extract-by="SP_COMM_NEW_ADJ_SIM_VER_S_P_RT_MSG" />
+                                        <parameter id="type" value="info" />
+                                    </parameters>
+                                </operation-call>
+                            </success>
+                            <complete>
+                                <operation-call id="OPC_POP_UI_CM_17_01_NEW_ADJ_SIM_VER_PLAN_WAIT_OFF">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>WAIT-OFF</operation-id>
+                                </operation-call>
+                            </complete>
+                        </operation-call>
+                    </success>
+                </operation-call>
+                <operation-call id="OPC_POP_UI_CM_17_01_CLOSE_02">
+                    <component-id>POP_UI_CM_17_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                    <conditions>
+                        <condition id="CONFIRM_CON">
+                            <component>DATA_03</component>
+                            <key>ACTION_KEY</key>
+                            <operator>equal</operator>
+                            <value>ADJUST_PLAN</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="POP_UI_CM_17_01_ADJUST_PLAN_WAIT_ON">
+                            <component-id>COMMON</component-id>
+                            <operation-id>WAIT-ON</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_UI_CM_17_01_ADJUST_PLAN_PLAN">
+                            <component-id>POP_UI_CM_17_01_CONFIRM</component-id>
+                            <operation-id>ADJUST_PLAN</operation-id>
+                            <success>
+                                <operation-call id="OPC_POP_UI_CM_17_01_ADJUST_PLAN_PLAN_SUCCESS_MSG">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>MESSAGE</operation-id>
+                                    <parameters>
+                                        <parameter id="msg" value="MSG_0003" />
+                                    </parameters>
+                                </operation-call>
+                            </success>
+                            <complete>
+                                <operation-call id="OPC_POP_UI_CM_17_01_ADJUST_PLAN_PLAN_WAIT_OFF">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>WAIT-OFF</operation-id>
+                                </operation-call>
+                            </complete>
+                        </operation-call>
+                    </success>
+                </operation-call>
+                <operation-call id="OPC_POP_UI_CM_17_01_CLOSE_03">
+                    <component-id>POP_UI_CM_17_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                    <conditions>
+                        <condition id="CONFIRM_CON">
+                            <component>DATA_03</component>
+                            <key>ACTION_KEY</key>
+                            <operator>equal</operator>
+                            <value>CONFIRM_PLAN</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="POP_UI_CM_17_01_CONFIRM_WAIT_ON">
+                            <component-id>COMMON</component-id>
+                            <operation-id>WAIT-ON</operation-id>
+                        </operation-call>
+                        <operation-call id="OPC_POP_UI_CM_17_01_CONFIRM_PLAN">
+                            <component-id>POP_UI_CM_17_01_CONFIRM</component-id>
+                            <operation-id>CONFIRM</operation-id>
+                            <success>
+                                <operation-call id="OPC_POP_UI_CM_17_01_CONFIRM_PLAN_SUCCESS_MSG">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>MESSAGE</operation-id>
+                                    <parameters>
+                                        <parameter id="msg" value="MSG_0003" />
+                                    </parameters>
+                                </operation-call>
+                            </success>
+                            <complete>
+                                <operation-call id="OPC_POP_UI_CM_17_01_CONFIRM_PLAN_WAIT_OFF">
+                                    <component-id>COMMON</component-id>
+                                    <operation-id>WAIT-OFF</operation-id>
+                                </operation-call>
+                                <operation-call id="OPC_POP_UI_CM_17_01_CONFIRM_PLAN_LOAD">
+                                    <component-id>RST_CPT_01</component-id>
+                                    <operation-id>LOAD</operation-id>
+                                    <conditions>
+                                        <condition id="LOAD_CON_01" group="A">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_MP_26</value>
+                                        </condition>
+                                        <condition id="LOAD_CON_02" group="B">
+                                            <component>COMMON</component>
+                                            <key>VIEW_ID</key>
+                                            <operator>equal</operator>
+                                            <value>UI_RP_14</value>
+                                        </condition>
+                                    </conditions>
+                                    <success>
+                                        <operation-call id="OPC_RST_CRT_01_LOAD">
+                                            <component-id>RST_CRT_01</component-id>
+                                            <operation-id>LOAD</operation-id>
+                                        </operation-call>
+                                        <operation-call id="OPC_RST_CRT_02_LOAD">
+                                            <component-id>RST_CRT_02</component-id>
+                                            <operation-id>LOAD</operation-id>
+                                        </operation-call>
+                                        <operation-call id="OPC_RST_CRT_03_LOAD">
+                                            <component-id>RST_CRT_03</component-id>
+                                            <operation-id>LOAD</operation-id>
+                                        </operation-call>
+                                        <operation-call id="OPC_RST_CRT_04_LOAD">
+                                            <component-id>RST_CRT_04</component-id>
+                                            <operation-id>LOAD</operation-id>
+                                        </operation-call>
+                                    </success>
+                                </operation-call>
+                            </complete>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="NEW_ADJ_SIM_VER" permission-type="UPDATE">
+                <service-call id="SVC_SP_COMM_NEW_ADJ_SIM_VER">
+                    <service-id>SRV_SP_COMM_NEW_ADJ_SIM_VER</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SOURCE_SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" />
+                        <parameter id="TARGET_SIMUL_VER_ID" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="MAX_SIMUL_VER_ID" />
+                        <parameter id="PLAN_SNRIO_MGMT_DTL_ID" reference-id="DATA_03:PLAN_SNRIO_MGMT_DTL_ID" />
+                        <parameter id="SIMUL_VER_DESCRIP" reference-id="POP_UI_CM_17_01_12_02" default-value="" />
+                        <parameter id="USER_ID" reference-id="COMMON:loginId" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="ADJUST_PLAN" permission-type="UPDATE">
+                <service-call id="SVC_POP_UI_CM_17_01_ADJUST_PLAN">
+                    <service-id>RunPlan</service-id>
+                    <service-target>T3SeriesSupplyNetServer</service-target>
+                    <parameters>
+                        <parameter id="PLAN_POLICY_MGMT_ID" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="PLAN_POLICY_MGMT_ID" />
+                        <parameter id="VERSION_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+            <operation id="CONFIRM" permission-type="UPDATE">
+                <service-call id="SVC_POP_UI_CM_17_01_CONFIRM_PLAN">
+                    <service-id>ConfirmPlan</service-id>
+                    <service-target>T3SeriesSupplyNetServer</service-target>
+                    <parameters>
+                        <parameter id="VERSION_ID" reference-id="POP_UI_CM_17_01_11_02" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_01_CANCEL" type="BUTTON">
+        <props>
+            <name>CANCEL</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_POP_UI_CM_17_01_CLOSE">
+                    <component-id>POP_UI_CM_17_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="POP_UI_CM_17_SELECT_STEP" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>SELECT_STEP</title>
+            <width>750</width>
+            <height>280</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_UI_CM_17_SELECT_STEP_01_01" type="R_GRID">
+        <props>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="false" />
+            <columns>
+                <column id="ID" title="ID" type="string">
+                    <width>100</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="STEP" title="STEP" type="number">
+                    <width>80</width>
+                    <editable>false</editable>
+                    <text-alignment>left</text-alignment>
+                </column>
+                <column id="PLAN_POLICY_VER_ID" title="PLAN_POLICY_VERSION" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PLAN_POLICY_DESCRIP" title="DESCRIP" type="string">
+                    <width>200</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PROCESS_DESCRIP" title="PROCESS_DESCRIP" type="string">
+                    <width>200</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_SET_POP_UI_CM_17_01_06_02_SELECT_STEP">
+                    <component-id>POP_UI_CM_17_01_06_02</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="POP_UI_CM_17_SELECT_STEP_01_01:selections" extract-by="STEP" />
+                    </parameters>
+                    <success>
+                        <operation-call id="OPC_SET_POP_UI_CM_17_01_07_02_SELECT_STEP">
+                            <component-id>POP_UI_CM_17_01_07_02</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="POP_UI_CM_17_SELECT_STEP_01_01:selections" extract-by="PROCESS_DESCRIP" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="OPC_SET_DATA_03_SELECT_STEP">
+                            <component-id>DATA_03</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="PLAN_SNRIO_MGMT_DTL_ID" reference-id="POP_UI_CM_17_SELECT_STEP_01_01:selections" extract-by="ID" />
+                            </parameters>
+                            <success>
+                                <operation-call id="COMM_POP_UI_CM_17_SELECT_STEP_CLOSE">
+                                    <component-id>POP_UI_CM_17_SELECT_STEP</component-id>
+                                    <operation-id>CLOSE</operation-id>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_POP_UI_CM_17_SELECT_STEP_01_01_LOAD">
+                    <service-id>SRV_UI_CM_17_Q4</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SIMUL_VER_ID" reference-id="SRH_CPT_SIMUL_VER_ID_04" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

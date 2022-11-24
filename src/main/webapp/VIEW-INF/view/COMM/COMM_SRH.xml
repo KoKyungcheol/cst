@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="COMM_SRH_LOCAT" version="2.0">
+        <component id="SRH_CPT_LOCAT_MST_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_TP_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_DTL_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_MGMT_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_TP_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>LOCAT_TP_NM</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_LOCAT_TP_04" type="INPUTBOX">
+            <props>
+                <width>147.7</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_TP_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_LOCAT_TP_05_CLICK">
+                        <component-id>COMM_SRH_POP_LOCAT_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_LOCAT_TP_05_CLICK_SUCCESS_01">
+                                <component-id>COMM_SRH_POP_LOCAT_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+        </component>
+        <component id="SRH_CPT_LOCAT_LV_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>LOCAT_LV</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_LOCAT_LV_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>LOCAT_CD</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_LOCAT_CD_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_LOCAT_NM_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>LOCAT_NM</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_LOCAT_NM_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_ITEM" version="2.0">
+        <component id="SRH_CPT_ITEM_MST_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_TP_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_UOM_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_CD</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_ITEM_CD_04" type="INPUTBOX">
+            <props>
+                <width>147.7</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_CD_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_ITEM_CD_05_CLICK">
+                        <component-id>COMM_SRH_POP_ITEM_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_ITEM_CD_05_CLICK_SUCCESS">
+                                <component-id>COMM_SRH_POP_ITEM_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_NM_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_NM</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_ITEM_NM_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ITEM_TP_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_TP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_ITEM_TP_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_RES" version="2.0">
+        <component id="SRH_CPT_RES_DTL_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_RES_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>RES_CD</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_RES_CD_04" type="INPUTBOX">
+            <props>
+                <width>150</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_RES_CD_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_RES_CD_05_CLICK">
+                        <component-id>COMM_SRH_POP_RES_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_RES_CD_05_CLICK_SUCCESS_01">
+                                <component-id>COMM_SRH_POP_RES_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_RES_DESCRIP_01" type="LABEL">
+            <props>
+                <width>100</width>
+                <lang>true</lang>
+                <init-value>RES_DESCRIP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_RES_DESCRIP_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_ACCOUNT" version="2.0">
+        <component id="SRH_CPT_ACCOUNT_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_CHANNEL_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_INCOTERMS_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ACCOUNT_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ACCOUNT_CD</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_ACCOUNT_CD_04" type="INPUTBOX">
+            <props>
+                <width>147.7</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ACCOUNT_CD_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_ACCOUNT_CD_05_CLICK">
+                        <component-id>COMM_SRH_POP_ACCOUNT_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_ACCOUNT_CD_05_CLICK_SUCCESS_01">
+                                <component-id>COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_ACCOUNT_NM_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ACCOUNT_NM</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_ACCOUNT_NM_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+                <operation id="ENABLE" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_VERSION" version="2.0">
+        <component id="VER_META" type="DATA">
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_DEFAULT_VER">
+                        <service-id>SRV_COMM_DEFAULT_VER</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="MENU_ID" reference-id="COMMON:VIEW_ID" default-value="" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_MST_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="init">
+                    <operation-call id="OPC_DEFAULT_VERSION_LOAD">
+                        <component-id>VER_META</component-id>
+                        <operation-id>LOAD</operation-id>
+                        <success>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_01">
+                                <component-id>SRH_CPT_MAIN_VER_MST_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="CONBD_MAIN_VER_MST_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_02">
+                                <component-id>SRH_CPT_MAIN_VER_DTL_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="CONBD_MAIN_VER_DTL_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_03">
+                                <component-id>SRH_CPT_PLAN_SNRIO_MGMT_DTL_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="PLAN_SNRIO_MGMT_DTL_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_04">
+                                <component-id>SRH_CPT_MODULE_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="MODULE_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_05">
+                                <component-id>SRH_CPT_MODULE_CD_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="MODULE_CD" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_06">
+                                <component-id>SRH_CPT_MAIN_VER_ID_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="MAIN_VER_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_07">
+                                <component-id>SRH_CPT_SIMUL_VER_ID_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="SIMUL_VER_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_08">
+                                <component-id>SRH_CPT_PRSS_DESC_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_VER" extract-by="PROCESS_DESCRIP" />
+                                </parameters>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_DTL_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_PLAN_SNRIO_MGMT_DTL_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MODULE_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MODULE_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>MODULE_VAL</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_MODULE_CD_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_ID_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>MAIN_VER</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_ID_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_SIMUL_VER_ID_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>SIMUL_VER_SHORTN</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_SIMUL_VER_ID_04" type="INPUTBOX">
+            <props>
+                <width>150</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_SIMUL_VER_ID_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_SIMUL_VER_ID_05_CLICK">
+                        <component-id>COMM_SRH_POP_VER_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_SIMUL_VER_ID_05_CLICK_SUCCESS_01">
+                                <component-id>COMM_SRH_POP_VER_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                            <operation-call id="OPC_SRH_CPT_SIMUL_VER_ID_05_CLICK_SUCCESS_02">
+                                <component-id>COMM_SRH_POP_VER_WINDOW_01_CPT_02</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="SRH_CPT_MODULE_CD_04" />
+                                </parameters>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+        </component>
+        <component id="SRH_CPT_PRSS_DESC_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>PRSS_DESCRIP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_PRSS_DESC_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_MAIN_VERSION" version="2.0">
+        <component id="VER_META" type="DATA">
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_DEFAULT_MAIN_VER">
+                        <service-id>SRV_COMM_DEFAULT_VER</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="MENU_ID" reference-id="COMMON:VIEW_ID" default-value="" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_MST_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="init">
+                    <operation-call id="OPC_DEFAULT_VERSION_LOAD">
+                        <component-id>VER_META</component-id>
+                        <operation-id>LOAD</operation-id>
+                        <success>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_01">
+                                <component-id>SRH_CPT_MAIN_VER_MST_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="CONBD_MAIN_VER_MST_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_02">
+                                <component-id>SRH_CPT_MODULE_ID</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="MODULE_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_03">
+                                <component-id>SRH_CPT_MODULE_CD_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="MODULE_CD" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_04">
+                                <component-id>SRH_CPT_MAIN_VER_ID_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="MAIN_VER_ID" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_05">
+                                <component-id>SRH_CPT_DESCRIP_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="MAIN_VER_DESCRIP" />
+                                </parameters>
+                            </operation-call>
+                            <operation-call id="OPC_DEFAULT_VERSION_SET_06">
+                                <component-id>SRH_CPT_PROCESS_STEP_04</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="PROCESS_STEP" />
+                                </parameters>
+                                <conditions>
+                                    <condition id="CHECK_UI_ID_02">
+                                        <component>COMMON</component>
+                                        <key>VIEW_ID</key>
+                                        <operator>equal</operator>
+                                        <value>UI_RP_14,UI_MP_26</value>
+                                    </condition>
+                                </conditions>
+                                <success>
+                                    <operation-call id="OPC_DEFAULT_VERSION_SET_07">
+                                        <component-id>SRH_CPT_PROCESS_DESCRIP_04</component-id>
+                                        <operation-id>SET</operation-id>
+                                        <parameters>
+                                            <parameter id="SET" reference-id="VER_META:SVC_COMM_DEFAULT_MAIN_VER" extract-by="PROCESS_DESCRIP" />
+                                        </parameters>
+                                    </operation-call>
+                                </success>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MODULE_ID" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <hidden>true</hidden>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MODULE_CD_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>MODULE_VAL</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_MODULE_CD_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_ID_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>MAIN_VER</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_ID_04" type="INPUTBOX">
+            <props>
+                <width>150</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_MAIN_VER_ID_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_MAIN_VER_ID_05_CLICK">
+                        <component-id>COMM_SRH_POP_MAIN_VER_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_MAIN_VER_ID_05_CLICK_SUCCESS_01">
+                                <component-id>COMM_SRH_POP_MAIN_VER_WINDOW_01_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                            <operation-call id="OPC_SRH_CPT_MAIN_VER_ID_05_CLICK_SUCCESS_02">
+                                <component-id>COMM_SRH_POP_MAIN_VER_WINDOW_01_CPT_02</component-id>
+                                <operation-id>SET</operation-id>
+                                <parameters>
+                                    <parameter id="SET" reference-id="SRH_CPT_MODULE_CD_04" />
+                                </parameters>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+        </component>
+        <component id="SRH_CPT_DESCRIP_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>DESCRIP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_DESCRIP_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_SRH_PROCESS_STEP" version="2.0">
+        <component id="SRH_CPT_PROCESS_STEP_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>STEP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_PROCESS_STEP_04" type="INPUTBOX">
+            <props>
+                <width>150</width>
+                <editable>false</editable>
+                <lang>true</lang>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="SRH_CPT_PROCESS_STEP_05" type="BUTTON">
+            <props>
+                <name>...</name>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_SRH_CPT_T1_03_05_CLICK_01">
+                        <component-id>COMM_SRH_POP_PROCESS_STEP_WINDOW_01</component-id>
+                        <operation-id>OPEN</operation-id>
+                        <success>
+                            <operation-call id="OPC_SRH_CPT_T1_03_05_CLICK_02">
+                                <component-id>COMM_SRH_POP_PROCESS_STEP_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+            </actions>
+        </component>
+        <component id="SRH_CPT_PROCESS_DESCRIP_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>DESCRIP</init-value>
+            </props>
+        </component>
+        <component id="SRH_CPT_PROCESS_DESCRIP_04" type="INPUTBOX">
+            <props>
+                <width>180</width>
+                <editable>false</editable>
+                <lang>true</lang>
+                <type>TEXT</type>
+            </props>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+    </view>
+</views>

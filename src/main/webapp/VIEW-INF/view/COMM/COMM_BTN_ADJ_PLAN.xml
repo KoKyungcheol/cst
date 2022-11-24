@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_BTN_ADJ_PLAN" version="2.0">
+    <component id="BTN_ADJUST_PLAN" type="BUTTON">
+        <props>
+            <tooltip>Adjust Plan</tooltip>
+            <icon>adjust</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_SET_DATA_03_ADJUST_PLAN">
+                    <component-id>DATA_03</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="ACTION_KEY" value="ADJUST_PLAN" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_RST_CPT_01_ADJUST_PLAN">
+                    <component-id>DATA_03</component-id>
+                    <operation-id>LOAD_SVC_CHECK_ADJUST_PLAN</operation-id>
+                    <conditions>
+                        <condition id="OPC_RST_CPT_01_ADJUST_PLAN_COND_01">
+                            <component>SRH_CPT_MODULE_ID</component>
+                            <operator>notequal</operator>
+                            <value>empty</value>
+                            <msg>MODULE_ID, MAIN_VERSION_DTL_ID is necessary.</msg>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_RST_CPT_01_CHECK_ADJUST_PLAN">
+                            <component-id>POP_UI_CM_17_01</component-id>
+                            <operation-id>OPEN</operation-id>
+                            <conditions>
+                                <condition id="OPC_RST_CPT_01_ADJUST_PLAN_COND_02">
+                                    <component>DATA_03</component>
+                                    <key>SVC_CHECK_ADJUST_PLAN</key>
+                                    <operator>equal</operator>
+                                    <value>1</value>
+                                    <extract-by>IS_ADJUST_PLAN</extract-by>
+                                    <msg>MSG_5119</msg>
+                                </condition>
+                            </conditions>
+                            <success>
+                                <operation-call id="OPC_POP_UI_CM_17_01_SET_TITLE_ADJUST_PLAN">
+                                    <component-id>POP_UI_CM_17_01</component-id>
+                                    <operation-id>SET_TITLE</operation-id>
+                                    <parameters>
+                                        <parameter id="TITLE" value="ADJUST_PLAN" />
+                                    </parameters>
+                                </operation-call>
+                                <operation-call id="OPC_ADJUST_PLAN">
+                                    <component-id>DATA_03</component-id>
+                                    <operation-id>LOAD_SVC_ADJUST_PLAN</operation-id>
+                                    <success>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_01_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_01_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="MODULE_CD" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_02_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_02_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="MAIN_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_03_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_03_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="MAIN_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_04_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_04_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="SNRIO_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_05_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_05_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="SNRIO_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_06_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_06_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="STEP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_06_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_06_02</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="false" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_06_03_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_06_03</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="false" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_07_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_07_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="PROCESS_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_08_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_08_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="PROCESS_TP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_09_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_09_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="ORIGINAL_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_10_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_10_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="ORIGINAL_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_11_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_11_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="MAX_SIMUL_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_12_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_12_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_ADJUST_PLAN" extract-by="SIMUL_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_12_02_ADJUST_PLAN">
+                                            <component-id>POP_UI_CM_17_01_12_02</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="false" />
+                                            </parameters>
+                                        </operation-call>
+                                    </success>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

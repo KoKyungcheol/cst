@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_VER" version="2.0">
+    <component id="COMM_SRH_POP_VER_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>SIMUL_VER</title>
+            <width>950</width>
+            <height>492</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>MODULE_VAL</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_02" type="INPUTBOX">
+        <props>
+            <width>100</width>
+            <editable>false</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_03" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>MAIN_VER</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_04" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_05" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>SIMUL_VER_SHORTN</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_06" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_07" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>DESCRIP</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_08" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_CPT_90" type="BUTTON">
+        <props>
+            <tooltip>SEARCH</tooltip>
+            <icon>search</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_COMM_SRH_POP_VER_WINDOW_01_CPT_90_CLICK_SUCCESS_01">
+                    <component-id>COMM_SRH_POP_VER_WINDOW_01_GRD</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="COMM_SRH_POP_VER_WINDOW_01_GRD" type="R_GRID">
+        <props>
+            <height>400</height>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <grid-summary>false</grid-summary>
+            <group-header>false</group-header>
+            <group-summary>false</group-summary>
+            <group-sort>false</group-sort>
+            <group-merge-mode>true</group-merge-mode>
+            <group-expander>false</group-expander>
+            <toolbar use="false" />
+            <columns>
+                <column id="CONBD_MAIN_VER_MST_ID" title="CONBD_MAIN_VER_MST_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="CONBD_MAIN_VER_DTL_ID" title="CONBD_MAIN_VER_DTL_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="PLAN_SNRIO_MGMT_DTL_ID" title="PLAN_SNRIO_MGMT_DTL_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="MODULE_ID" title="MODULE_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="MODULE_CD" title="MODULE_VAL" type="string">
+                    <width>70</width>
+                    <editable>false</editable>
+                    <filterable>true</filterable>
+                    <init-group-order>1</init-group-order>
+                </column>
+                <column id="MAIN_VER" title="MAIN_VER" type="string">
+                    <width>120</width>
+                    <editable>false</editable>
+                    <init-group-order>2</init-group-order>
+                </column>
+                <column id="SIMUL_VER" title="SIMUL_VER_SHORTN" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="SIMUL_VER_DESCRIP" title="DESCRIP" type="string">
+                    <width>180</width>
+                    <editable>false</editable>
+                </column>
+                <column id="PROCESS_DESCRIP" title="PRSS_DESCRIP" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="CONFRM_YN" title="CONFRM_YN" type="bool">
+                    <width>70</width>
+                    <editable>false</editable>
+                </column>
+                <column id="CREATE_DTTM" title="CREATE_DTTM" type="date">
+                    <width>80</width>
+                    <editable>false</editable>
+                    <format>yyyy-MM-dd</format>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_01">
+                    <component-id>SRH_CPT_MAIN_VER_MST_ID</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="CONBD_MAIN_VER_MST_ID" />
+                    </parameters>
+                    <success>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_02">
+                            <component-id>SRH_CPT_MAIN_VER_DTL_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="CONBD_MAIN_VER_DTL_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_03">
+                            <component-id>SRH_CPT_PLAN_SNRIO_MGMT_DTL_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="PLAN_SNRIO_MGMT_DTL_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_04">
+                            <component-id>SRH_CPT_MODULE_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="MODULE_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_05">
+                            <component-id>SRH_CPT_MODULE_CD_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="MODULE_CD" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_06">
+                            <component-id>SRH_CPT_MAIN_VER_ID_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="MAIN_VER" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_07">
+                            <component-id>SRH_CPT_SIMUL_VER_ID_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="SIMUL_VER" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_GRD_SETDATA_08">
+                            <component-id>SRH_CPT_PRSS_DESC_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_VER_WINDOW_01_GRD:selections" extract-by="PROCESS_DESCRIP" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_VER_WINDOW_01_CLOSE">
+                            <component-id>COMM_SRH_POP_VER_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_COMM_SRH_POP_VER_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_COMM_SRH_VER_Q</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="MODULE_CD" reference-id="SRH_CPT_MODULE_CD_04" default-value="" />
+                        <parameter id="MAIN_VER_ID" reference-id="COMM_SRH_POP_VER_WINDOW_01_CPT_04" default-value="" />
+                        <parameter id="SIMUL_VER_ID" reference-id="COMM_SRH_POP_VER_WINDOW_01_CPT_06" default-value="" />
+                        <parameter id="SIMUL_VER_DESCRIP" reference-id="COMM_SRH_POP_VER_WINDOW_01_CPT_08" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

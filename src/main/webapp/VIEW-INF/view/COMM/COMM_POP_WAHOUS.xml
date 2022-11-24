@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_POP_WAHOUS" version="2.0">
+    <component id="POP_WAHOUS_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>POP_UI_CM_13_01</title>
+            <width>500</width>
+            <height>435</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="POP_WAHOUS_DATA_COMP_01" type="DATA">
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_POP_WAHOUS_GRD" type="R_GRID">
+        <props>
+            <height>400</height>
+            <selection-mode>rows</selection-mode>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <grid-summary>false</grid-summary>
+            <group-header>false</group-header>
+            <group-summary>false</group-summary>
+            <group-sort>false</group-sort>
+            <group-merge-mode>true</group-merge-mode>
+            <group-expander>false</group-expander>
+            <toolbar use="false" />
+            <columns>
+                <column id="ID" title="ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="WAREHOUSE_TP" title="WAREHOUSE_TP" type="string">
+                    <width>180</width>
+                    <visible>false</visible>
+                    <editable>false</editable>
+                </column>
+                <column id="WAREHOUSE_TP_NM" title="WAREHOUSE_NM" type="string">
+                    <width>120</width>
+                    <editable>false</editable>
+                    <init-group-order>1</init-group-order>
+                </column>
+                <column id="LOAD_CAPA_MGMT_BASE" title="LOAD_CAPA_MGMT_BASE" type="string">
+                    <width>180</width>
+                    <editable>false</editable>
+                </column>
+                <column id="VIEW_ID" title="VIEW_ID" type="string">
+                    <visible>false</visible>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="OPC_SET_WAHOUS_TP">
+                    <component-id>POP_WAHOUS_TP_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="WAREHOUSE_TP" default-value="" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_SET_WAHOUS_NM">
+                    <component-id>POP_WAHOUS_NM_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="WAREHOUSE_TP_NM" default-value="" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_SET_WAHOUS_LOAD_CAPA">
+                    <component-id>POP_LOAD_CAPA_04</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="LOAD_CAPA_MGMT_BASE" default-value="" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_SET_WAHOUS_DATA">
+                    <component-id>POP_WAHOUS_DATA_COMP_01</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="WAREHOUSE_ID" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="ID" />
+                        <parameter id="WAREHOUSE_TP" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="WAREHOUSE_TP" />
+                        <parameter id="WAREHOUSE_TP_NM" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="WAREHOUSE_TP_NM" />
+                        <parameter id="LOAD_CAPA_MGMT_BASE" reference-id="COMM_POP_WAHOUS_GRD:selections" extract-by="LOAD_CAPA_MGMT_BASE" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_ENABLE_FALSE_POP_CAPA_LIMIT_VAL_04">
+                    <component-id>POP_CAPA_LIMIT_VAL_04</component-id>
+                    <operation-id>ENABLE</operation-id>
+                    <parameters>
+                        <parameter id="ENABLE" value="false" />
+                    </parameters>
+                    <conditions>
+                        <condition id="CON_ENABLE_FALSE">
+                            <component>COMM_POP_WAHOUS_GRD</component>
+                            <column>LOAD_CAPA_MGMT_BASE</column>
+                            <operator>equal</operator>
+                            <value>Pallet Layer/Location Limit</value>
+                        </condition>
+                    </conditions>
+                </operation-call>
+                <operation-call id="OPC_ENABLE_TRUE_POP_CAPA_LIMIT_VAL_04">
+                    <component-id>POP_CAPA_LIMIT_VAL_04</component-id>
+                    <operation-id>ENABLE</operation-id>
+                    <parameters>
+                        <parameter id="ENABLE" value="true" />
+                    </parameters>
+                    <conditions>
+                        <condition id="CON_ENABLE_TRUE">
+                            <component>COMM_POP_WAHOUS_GRD</component>
+                            <column>LOAD_CAPA_MGMT_BASE</column>
+                            <operator>notEqual</operator>
+                            <value>Pallet Layer/Location Limit</value>
+                        </condition>
+                    </conditions>
+                </operation-call>
+                <operation-call id="OPC_POP_WAHOUS_WINDOW_01_CLOSE">
+                    <component-id>POP_WAHOUS_WINDOW_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_POP_UI_CM_13_01_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_UI_CM_13_POP_01_Q</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="CONF_KEY" value="001" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

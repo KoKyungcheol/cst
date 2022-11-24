@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_RES" version="2.0">
+    <component id="COMM_SRH_POP_RES_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>COMM_SRH_POP_RES</title>
+            <width>910</width>
+            <height>500</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_01" type="LABEL">
+        <props>
+            <width>60</width>
+            <lang>true</lang>
+            <init-value>LOCAT_TP_NM</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_02" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_03" type="LABEL">
+        <props>
+            <width>60</width>
+            <lang>true</lang>
+            <init-value>LOCAT_CD</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_04" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_05" type="LABEL">
+        <props>
+            <width>60</width>
+            <lang>true</lang>
+            <init-value>LOCAT_NM</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_06" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_07" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>RES_CD</init-value>
+        </props>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_08" type="INPUTBOX">
+        <props>
+            <width>120</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_90" type="BUTTON">
+        <props>
+            <tooltip>SEARCH</tooltip>
+            <icon>search</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_COMM_SRH_POP_RES_WINDOW_01_CPT_90_CLICK_SUCCESS_01">
+                    <component-id>COMM_SRH_POP_RES_WINDOW_01_GRD</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_GRD" type="R_GRID">
+        <props>
+            <height>390</height>
+            <header-height>30</header-height>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="false" />
+            <columns>
+                <column id="RES_DTL_ID" title="RES_DTL_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="LOCAT_TP_NM" title="LOCAT_TP_NM" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+                <column id="LOCAT_LV" title="LOCAT_LV" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="LOCAT_CD" title="LOCAT_CD" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="LOCAT_NM" title="LOCAT_NM" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="ROUTE_GRP" title="ROUTE_GRP" type="string">
+                    <width>120</width>
+                    <editable>false</editable>
+                </column>
+                <column id="WC" title="WC" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+                <column id="RES_CD" title="RES_CD" type="string">
+                    <width>90</width>
+                    <editable>false</editable>
+                </column>
+                <column id="RES_DESCRIP" title="RES_DESCRIP" type="string">
+                    <width>120</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="COMM_SRH_POP_RES_WINDOW_01_GRD_SETDATA_01">
+                    <component-id>SRH_CPT_RES_DTL_ID</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:selections" extract-by="RES_DTL_ID" />
+                    </parameters>
+                    <success>
+                        <operation-call id="COMM_SRH_POP_RES_WINDOW_01_GRD_SETDATA_02">
+                            <component-id>SRH_CPT_RES_CD_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:selections" extract-by="RES_CD" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_RES_WINDOW_01_GRD_SETDATA_03">
+                            <component-id>SRH_CPT_RES_DESCRIP_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:selections" extract-by="RES_DESCRIP" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_RES_WINDOW_01_CLOSE">
+                            <component-id>COMM_SRH_POP_RES_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_COMM_SRH_POP_RES_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_GET_RES_GRID_LIST</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="SP_COMM_SRH_RES_Q_01" reference-id="COMM_SRH_POP_RES_WINDOW_01_CPT_02" default-value="" />
+                        <parameter id="SP_COMM_SRH_RES_Q_02" reference-id="COMM_SRH_POP_RES_WINDOW_01_CPT_04" default-value="" />
+                        <parameter id="SP_COMM_SRH_RES_Q_03" reference-id="COMM_SRH_POP_RES_WINDOW_01_CPT_06" default-value="" />
+                        <parameter id="SP_COMM_SRH_RES_Q_04" reference-id="COMM_SRH_POP_RES_WINDOW_01_CPT_08" default-value="" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_99_01" type="BUTTON">
+        <props>
+            <name>OK</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="COMM_COMM_SRH_POP_RES_WINDOW_01_CPT_99_01_CLICK_01">
+                    <component-id>SRH_CPT_RES_DTL_ID</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:checked" extract-by="RES_MST_ID" />
+                    </parameters>
+                    <success>
+                        <operation-call id="COMM_COMM_SRH_POP_RES_WINDOW_01_CPT_99_01_CLICK_02">
+                            <component-id>SRH_CPT_RES_CD_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:checked" extract-by="RES_CD" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_COMM_SRH_POP_RES_WINDOW_01_CPT_99_01_CLICK_03">
+                            <component-id>SRH_CPT_RES_DESCRIP_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_RES_WINDOW_01_GRD:checked" extract-by="RES_DESCRIP" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_COMM_SRH_POP_RES_WINDOW_01_CPT_99_01_CLICK_04">
+                            <component-id>COMM_SRH_POP_RES_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+    <component id="COMM_SRH_POP_RES_WINDOW_01_CPT_99_02" type="BUTTON">
+        <props>
+            <name>CANCEL</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_COMM_SRH_POP_RES_WINDOW_01_CPT_99_02_CLICK">
+                    <component-id>COMM_SRH_POP_RES_WINDOW_01</component-id>
+                    <operation-id>CLOSE</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

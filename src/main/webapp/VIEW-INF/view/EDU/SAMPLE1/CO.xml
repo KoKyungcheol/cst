@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <!-- 12. 환경 설정 -->
+    <!-- 12.1. 자재 마스터 기준 관리 -->
+    <view id="UI_CO_062" include="vue" template="EDU/SAMPLE1/UI_CO_062:EDU/SAMPLE1/UI_CO_062JS:EDU/SAMPLE1/UI_CO_062CSS:COMM/COMM_PERSONALIZATION" copyfrom="COMM_PERSONALIZATION:COMM_VIEW_META" version="2.0">
+        <publish parent="MENU_PARENT" open="true" seq="1210" />
+    </view>
+</views>

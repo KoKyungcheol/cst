@@ -1,0 +1,792 @@
+<!-- contents, grid1, grid2, vmGrid 이름 앞에 화면ID 붙혀 줄 것-->
+<script>
+  var UI_CO_062_vm = new Vue({
+    el: "#UI_CO_062-contents",
+    i18n: gI18n,
+    data: function () {
+      return {
+        local: localStorage.getItem('languageCode'),
+        mUserId: gSessionInfo.getUserId(),
+        mMatClassArray: [],
+        mMatClass: "",
+        mMatCode: "",
+        mMatGroupArray: [],
+        mMatGroup: "",
+        mSetCheck: false,
+        // grid 1 자재그룹 drop down
+        mMatGroupGridvals: [],
+        mMatGroupGridlabs: [],
+        // grid 2 drop down
+        mGrid2PlantDropDonw: {
+          id:"plantCd", 
+          levels:1, 
+          keys: [], 
+          values: []
+        },
+        
+        mGrid2MatGroupGrid: {
+          id:"mtrlGrp", 
+          levels:2, 
+          tags: [], 
+          keys: [], 
+          values: []
+        },
+
+        mGrid2IrollVals: [],
+        mGrid2IrollLabs: [],
+
+        exportGridSetting: {
+          grid: "UI_CO_062_vmGrid1",
+          headerDepth: 1, // GridView Header 행수
+          footer: "default",
+          allColumns: true,          
+          separateRows: false
+        },
+
+        mMountedFlag: false
+      };
+    },
+    methods: {
+      doDataLoad: function () {
+        UI_CO_062_vmGrid1.dataProvider.clearRows();
+        UI_CO_062_vmGrid1.gridView.showToast(progressSpinner + "Loading data...", true);
+        var plantYn = '';
+        if(UI_CO_062_vm.mSetCheck){
+          plantYn = 'Y'
+        }else{
+          plantYn = 'N'
+        }
+        axios.get(BASE_URL+"sample/winguiv2/uico062/mainDataload",{
+              params:{
+                MTRL_TYPE:UI_CO_062_vm.mMatClass,
+                MTRL_CD:UI_CO_062_vm.mMatCode,
+                MTRL_GRP_LRG:UI_CO_062_vm.mMatGroup,
+                PLANT_YN:plantYn
+              }
+            })
+            .then(function(response){
+              if (response.status === gHttpStatus.SUCCESS) {
+                  if(response.data.length>0){
+                    UI_CO_062_vmGrid1.dataProvider.fillJsonData(response.data, { count: -1 });
+                  }
+              } else if (response.status === gHttpStatus.NO_CONTENT) {
+                UI_CO_062_vmGrid1.dataProvider.clearRows();
+              }
+            })
+            .catch(function(err){})
+            .then(function(){
+              
+              UI_CO_062_vmGrid1.gridView.hideToast();
+
+              UI_CO_062_vmGrid1.dataProvider.clearSavePoints();
+              UI_CO_062_vmGrid1.dataProvider.savePoint();
+
+              var current = UI_CO_062_vmGrid1.gridView.getCurrent();
+              var currentMtrlCd = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlCd');
+              
+              UI_CO_062_vm.currentRowSelect(currentMtrlCd);
+            })
+      },
+      doSave: function () {
+        UI_CO_062_vmGrid1.gridView.commit(true);
+        var checkPermission = checkUserPermission(gOperationType.UPDATE);
+        if (checkPermission) {
+          var changes = gChangedRows(UI_CO_062_vmGrid1);
+          var err = "";
+          
+          changes.map(function (row) {
+            row["modifyId"] = gSessionInfo.getUserId();
+            /* var necessaryColumns = UI_CO_062_vm.doCheckNecessary(row);
+            
+            if (necessaryColumns !== "") {
+              err = necessaryColumns;
+            } */
+          });
+
+          console.log(changes);
+
+          if (changes.length === 0) {
+            showDialog("알림", gI18n.tc("MSG_5039"), DIALOG_TYPE.CONFIRM);
+          }  else if (err === "1") {
+            showDialog("알림", gI18n.tc("LS_MSG_004"), DIALOG_TYPE.CONFIRM);
+          } else {
+            showDialog("저장", gI18n.tc("LS_MSG_001"), DIALOG_TYPE.CONFIRM).then(
+                function (answer) {
+                  if (answer) {
+                    UI_CO_062_vmGrid1.gridView.showToast(progressSpinner + "Saving data...", true);
+                    axios({
+                      method: "post",
+                      headers: { "content-type": "application/json"},
+                      url: BASE_URL + "sample/winguiv2/uico062/saveData1",
+                      data: changes
+                    })
+                    .then(function (response) { })
+                    .catch(function (response) { })
+                    .then(function () {
+                      UI_CO_062_vmGrid1.gridView.hideToast();
+                      UI_CO_062_vm.doDataLoad();
+                    });
+                  }
+                }
+            )
+          }
+        }
+      },
+      doCheckNecessary: function (obj) { // 필수 컬럼 체크
+        var errMsg = "";
+        if (!obj.convtPriority || !obj.refinePriority) {
+          return errMsg = "1"; // 필수 입력 컬럼입니다.
+        }
+        return errMsg;
+      },
+      doDataLoad2: function (val) {
+        UI_CO_062_vmGrid2.dataProvider.clearRows();
+        axios.get(BASE_URL+"sample/winguiv2/uico062/subDataload",{
+              params:{
+                MTRL_CD:val
+              }
+            })
+            .then(function(response){
+               if (response.status === gHttpStatus.SUCCESS) {
+                  if(response.data.length>0){
+                    UI_CO_062_vmGrid2.dataProvider.fillJsonData(response.data, { count: -1 });
+                  }
+                  else{
+                  }
+                } else if (response.status === gHttpStatus.NO_CONTENT) {
+                  UI_CO_062_vmGrid2.dataProvider.clearRows();
+                } 
+            })
+            .catch(function(err){})
+            .then(function(){
+              UI_CO_062_vmGrid2.dataProvider.clearSavePoints();
+              UI_CO_062_vmGrid2.dataProvider.savePoint();              
+            }) 
+      },
+      doSave2: function () {
+        UI_CO_062_vmGrid2.gridView.commit(true);
+        var checkPermission = checkUserPermission(gOperationType.UPDATE);
+        if (checkPermission) {
+          var changes = gChangedRows(UI_CO_062_vmGrid2);
+          var err = "";
+          
+          changes.map(function (row) {
+            row["modifyId"] = gSessionInfo.getUserId();
+            var necessaryColumns = UI_CO_062_vm.doCheckNecessary2(row);
+            
+            if (necessaryColumns !== "") {
+              err = necessaryColumns;
+            }
+          });
+
+          console.log(changes);
+
+          if (changes.length === 0) {
+            showDialog("알림", gI18n.tc("MSG_5039"), DIALOG_TYPE.CONFIRM);
+          }  else if (err === "1") {
+            showDialog("알림", gI18n.tc("LS_MSG_004"), DIALOG_TYPE.CONFIRM);
+          } else {
+            showDialog("저장", gI18n.tc("LS_MSG_001"), DIALOG_TYPE.CONFIRM).then(
+                function (answer) {
+                  if (answer) {
+                    UI_CO_062_vmGrid2.gridView.showToast(progressSpinner + "Saving data...", true);
+
+                    axios({
+                      method: "post",
+                      headers: { "content-type": "application/json"},
+                      url: BASE_URL + "sample/winguiv2/uico062/saveData2",
+                      data: changes
+                    })
+                    .then(function (response) { })
+                    .catch(function (response) { })
+                    .then(function () {
+                      UI_CO_062_vmGrid2.gridView.hideToast();
+                      
+                      var current = UI_CO_062_vmGrid1.gridView.getCurrent();
+                      var currentMtrlCd = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlCd');
+                      
+                      UI_CO_062_vm.currentRowSelect(currentMtrlCd);
+                    });
+                  }
+                }
+            )
+          }
+        }
+      },
+      doCheckNecessary2: function (obj) { // 필수 컬럼 체크
+        var errMsg = "";
+        /* if (!obj.plantCd || !obj.mtrlGrp || !obj.thputPriority || !obj.wgTy || 
+            !obj.minWgt || !obj.optWgt || !obj.maxWgt || !obj.thputType) { */
+        if (!obj.plantCd ){
+          return errMsg = "1"; // 필수 입력 컬럼입니다.
+        }
+        return errMsg;
+      },
+      doRefresh: function () {
+        UI_CO_062_vm.mMatClass = '';
+        UI_CO_062_vm.mMatCode = '';
+        UI_CO_062_vm.mMatGroup = '';
+        UI_CO_062_vm.mSetCheck = '';
+        UI_CO_062_vm.doDataLoad();        
+      },            
+      doResize: function () {
+        if (UI_CO_062_vmGrid1 !== undefined) {
+          UI_CO_062_vmGrid1.gridView.resetSize();
+        }
+        if (UI_CO_062_vmGrid2 !== undefined) {
+          UI_CO_062_vmGrid2.gridView.resetSize();
+        }
+      },
+      doGridRefresh: function () {
+        UI_CO_062_vmGrid1.gridView.commit(true);
+        UI_CO_062_vmGrid1.gridView.orderBy([], []); 
+        var points = UI_CO_062_vmGrid1.dataProvider.getSavePoints(true);
+        console.log(points);
+        UI_CO_062_vmGrid1.dataProvider.rollback(points);
+        //console.log("뫄");
+      },      
+      doGridRefresh2: function () {
+        UI_CO_062_vmGrid2.gridView.commit(true);
+        UI_CO_062_vmGrid1.gridView.orderBy([], []); 
+        var points = UI_CO_062_vmGrid2.dataProvider.getSavePoints();
+        UI_CO_062_vmGrid2.dataProvider.rollback(points);
+        //console.log("뫄2");
+      },   
+      getMatClass:function(){
+        axios.get(BASE_URL+"sample/winguiv2/uico062/getMatType",{
+                  params:{
+                    GRP_CD:"MTART_TYPE_CD"
+                  }
+                })
+          .then(function(response){
+            
+            if(response.status===gHttpStatus.SUCCESS)
+            {
+              if(response.data.length>0){
+                response.data.map(function(data){
+                  console.log({comnCd:data.comnCd,comnCdnm:data.comnCdnm});
+                  UI_CO_062_vm.mMatClassArray.push({comnCd:data.comnCd,comnCdnm:data.comnCdnm});
+                  console.log(UI_CO_062_vm.mMatClassArray);
+                  UI_CO_062_vm.mMatClass = UI_CO_062_vm.mMatClassArray[0].comnCd;
+                })
+              }
+            }
+            else{}
+          })
+          .catch(function(err){})
+          .then(function(){
+
+          })
+      },
+
+      getMatGroup:function(){
+
+        UI_CO_062_vm.mMatGroupGridvals = [];
+        UI_CO_062_vm.mMatGroupGridlabs = [];
+
+        axios.get(BASE_URL+"sample/winguiv2/uico062/getComnCd",{
+                  params:{
+                    GRP_CD:"P016",
+                    ATTR_01_VAL:""
+                  }
+                })
+          .then(function(response){
+            UI_CO_062_vm.mMatGroupArray=[];
+            if(response.status===gHttpStatus.SUCCESS)
+            {
+              if(response.data.length>0){
+                response.data.map(function(data){
+                  UI_CO_062_vm.mMatGroupArray.push({comnCd:data.comnCd,comnCdnm:data.comnCdnm});
+
+                  UI_CO_062_vm.mMatGroupGridvals.push(data.comnCd);
+                  UI_CO_062_vm.mMatGroupGridlabs.push(data.comnCdnm);
+
+                })
+                //UI_CO_062_vm.mMatGroup=UI_CO_062_vm.mMatGroupArray[0].mtrlGrp;
+              }
+            }
+            else{}
+          })
+          .catch(function(err){})
+          .then(function(){
+            var mtrlGrpLrg = UI_CO_062_vmGrid1.gridView.columnByName("mtrlGrpLrg");
+
+            mtrlGrpLrg.labels = UI_CO_062_vm.mMatGroupGridlabs;
+            mtrlGrpLrg.values = UI_CO_062_vm.mMatGroupGridvals;
+
+            UI_CO_062_vmGrid1.gridView.setColumn(mtrlGrpLrg);
+          })
+      },
+      currentRowSelect: function (val) {
+        UI_CO_062_vm.getGrid2PlantCd();
+        UI_CO_062_vm.getGrid2MatGrp();
+        UI_CO_062_vm.getGrid2Iroll();
+        UI_CO_062_vm.doDataLoad2(val);        
+      },
+      getGrid2PlantCd:function(){
+        UI_CO_062_vm.mGrid2PlantDropDonw = {id:"plantCd", levels:1, keys: [], values: []};
+
+        axios.get(BASE_URL+"cb062/plant")
+          .then(function(response){
+            
+            if(response.status===gHttpStatus.SUCCESS)
+            {
+              if(response.data.length>0){
+                response.data.map(function(data){
+                  UI_CO_062_vm.mGrid2PlantDropDonw.keys.push(data.plantCd);
+                  UI_CO_062_vm.mGrid2PlantDropDonw.values.push(data.plantNm);
+                })
+              }
+            }
+            else{}
+          })
+          .catch(function(err){})
+          .then(function(){
+            var grd2plantCd = UI_CO_062_vmGrid2.gridView.columnByName("plantCd");
+            
+            grd2plantCd.labels = UI_CO_062_vm.mGrid2PlantDropDonw.values;
+            grd2plantCd.values = UI_CO_062_vm.mGrid2PlantDropDonw.keys;
+
+            UI_CO_062_vmGrid2.gridView.setColumn(grd2plantCd);
+          })
+      },
+      getGrid2MatGrp:function(){
+        UI_CO_062_vm.mGrid2MatGroupGrid = {id:"mtrlGrp", levels:2, tags: [], keys: [], values: []};
+        
+        axios.get(BASE_URL+"sample/winguiv2/uico062/getComnCd",{
+                  params:{
+                    GRP_CD:"P010",
+                    ATTR_01_VAL:""
+                  }
+                })
+          .then(function(response){
+            
+            if(response.status===gHttpStatus.SUCCESS)
+            {
+              if(response.data.length>0){
+                response.data.map(function(data){
+                  UI_CO_062_vm.mGrid2MatGroupGrid.tags.push(data.comnCd);
+                  UI_CO_062_vm.mGrid2MatGroupGrid.keys.push([data.keyVal,data.comnCd]);
+                  UI_CO_062_vm.mGrid2MatGroupGrid.values.push(data.comnCdnm);
+                })
+              }
+            }
+            else{}
+          })
+          .catch(function(err){})
+          .then(function(){
+            UI_CO_062_vmGrid2.gridView.addLookupSource(UI_CO_062_vm.mGrid2MatGroupGrid);
+
+            var grd2mtrlGrp = UI_CO_062_vmGrid2.gridView.columnByName("mtrlGrp");
+            
+            grd2mtrlGrp.lookupSourceId = "mtrlGrp";
+            grd2mtrlGrp.lookupKeyFields = ["plantCd","mtrlGrp"];
+
+            UI_CO_062_vmGrid2.gridView.setColumn(grd2mtrlGrp);
+
+          })
+      },
+      getGrid2Iroll:function(){
+
+        UI_CO_062_vm.mGrid2IrollVals = [];
+        UI_CO_062_vm.mGrid2IrollLabs = [];
+
+        axios.get(BASE_URL+"sample/winguiv2/uico062/getComnCd",{
+                  params:{
+                    GRP_CD:"P013",
+                    ATTR_01_VAL:""
+                  }
+                })
+          .then(function(response){
+            
+            if(response.status===gHttpStatus.SUCCESS)
+            {
+              if(response.data.length>0){
+                response.data.map(function(data){
+                  UI_CO_062_vm.mGrid2IrollVals.push(data.comnCd);
+                  UI_CO_062_vm.mGrid2IrollLabs.push(data.comnCdnm);
+                })
+              }
+            }
+            else{}
+          })
+          .catch(function(err){})
+          .then(function(){
+            var thputType = UI_CO_062_vmGrid2.gridView.columnByName("thputType");
+
+            thputType.labels = UI_CO_062_vm.mGrid2IrollLabs;
+            thputType.values = UI_CO_062_vm.mGrid2IrollVals;
+
+            UI_CO_062_vmGrid2.gridView.setColumn(thputType); 
+          })
+      },
+      doInsertRow2: function() {
+        gAddRow(UI_CO_062_vmGrid2);
+
+        var GridRowlength = UI_CO_062_vmGrid2.dataProvider.getRowCount();
+        //console.log(GridRowlength);
+
+        if(GridRowlength>0){
+          var current = UI_CO_062_vmGrid1.gridView.getCurrent();
+          
+          var currentMtrlCd = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlCd');
+          var currentMtrlDesc = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlDesc');
+
+          UI_CO_062_vmGrid2.gridView.setValue(UI_CO_062_vmGrid2.gridView.getCurrent().itemIndex,"mtrlCd",currentMtrlCd);
+          UI_CO_062_vmGrid2.gridView.setValue(UI_CO_062_vmGrid2.gridView.getCurrent().itemIndex,"mtrlDesc",currentMtrlDesc);
+          UI_CO_062_vmGrid2.gridView.setValue(UI_CO_062_vmGrid2.gridView.getCurrent().itemIndex,"useYn","Y");
+        }
+      },
+      doDeleteRow2 : function(){
+        var checkPermission = checkUserPermission(gOperationType.DELETE);
+        if(checkPermission) {
+
+          var err=0;
+          var checked = UI_CO_062_vmGrid2.gridView.getCheckedRows();
+
+          if (checked.length === 0) {
+            showDialog("알림", gI18n.tc("LS_MSG_003"), DIALOG_TYPE.CONFIRM);
+          } else {
+            showDialog("알림", gI18n.tc("LS_MSG_002"), DIALOG_TYPE.CONFIRM).then(
+              function(answer) {
+                if (answer) {
+                  var deleteRows = [];
+                  checked.map(function (row) {
+                    if (UI_CO_062_vmGrid2.dataProvider.getRowState(row) !== "created") {
+                      deleteRows.push(UI_CO_062_vmGrid2.dataProvider.getJsonRow(row));
+                    }
+                  });
+
+                  UI_CO_062_vmGrid2.dataProvider.removeRows(UI_CO_062_vmGrid2.dataProvider.getAllStateRows().created);
+
+                  if (deleteRows.length > 0) { // 데이터가 실제로 지워진 경우만 data reload
+                    axios({
+                      method: "delete",
+                      url: BASE_URL + "co62/deleteData2",
+                      headers: { "content-type": "application/json" },
+                      data: deleteRows
+                    })
+                    .then(function (response) {
+                      if (response.status === gHttpStatus.SUCCESS) {
+                        UI_CO_062_vmGrid2.dataProvider.removeRows(UI_CO_062_vmGrid2.gridView.getCheckedItems());
+                      }
+                    })
+                    .catch(function (err) {
+                      console.log(err);
+                    })
+                    .then(function () {
+                      showDialog("알림", gI18n.tc("MSG_0002"), DIALOG_TYPE.CONFIRM);
+                      
+                      var current = UI_CO_062_vmGrid1.gridView.getCurrent();
+                      var currentMtrlCd = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlCd');
+                      
+                      UI_CO_062_vm.currentRowSelect(currentMtrlCd);
+                    });
+                  }
+                }
+              }
+            );
+          }
+        }
+      }
+    },
+    mounted: function () {
+      this.mMountedFlag=true;
+      
+    },
+    watch: {
+      mMountedFlag:function(){
+        //Combo Data Load
+        UI_CO_062_vm.getMatClass();
+        UI_CO_062_vm.getMatGroup();
+        
+        //Main Data Load
+        //UI_CO_062_vm.doDataLoad();
+      }
+    }
+  });
+
+  var UI_CO_062_vmGrid1 = new Vue({
+    el: "#UI_CO_062-grid1",
+    data: function () {
+      return {
+        gStyle: {
+          indicator: {
+            visible: true
+          },
+          headerDepth : 2
+        },
+        gOptions: {
+          header: {
+            height: 42
+          }
+        },
+        dataProvider: null,
+        gridView: null,
+        fields: [
+                {fieldName:"mtrlCd"},
+                {fieldName:"mtrlDesc"},
+                {fieldName:"evalClassNm"},
+                {fieldName:"mtrlUom"},
+                {fieldName:"mtrlGrpLrg"},
+                {fieldName:"mtrlGrpLrgNm"},
+                {fieldName:"convtPriority", dataType:"number"},
+                {fieldName:"refinePriority", dataType:"number"},
+                {fieldName:"badRat", dataType:"number"},
+                {fieldName:"useYn"},
+                {fieldName:"remark"},
+                {fieldName:"modifyDtm", dataType: "date", datetimeFormat: "iso" }
+                ],
+        columns: [      
+                {fieldName:"mtrlCd" , name:"mtrlCd" ,header:{text:"자재코드"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"mtrlDesc" , name:"mtrlDesc" ,header:{text:"자재내역"} ,width:20 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"evalClassNm" , name:"evalClassNm" ,header:{text:"자재유형"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"mtrlUom" , name:"mtrlUom" ,header:{text:"자재단위"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"mtrlGrpLrg" , name:"mtrlGrpLrg" ,header:{text:"자재그룹"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"},
+                  editor: {
+                    type: "dropDown",
+                    textReadOnly: true
+                  },
+                  values: [],
+                  labels: [],
+                  lookupDisplay: true,
+                },
+                {type:"group",name:"투입우선순위",width:20, columns:[
+                  {fieldName:"convtPriority" , name:"convtPriority" ,header:{text:"전로"} ,width:10 ,editable:true,
+                    styles:{textAlignment:"far"}
+                  },
+                  {fieldName:"refinePriority" , name:"refinePriority" ,header:{text:"정재로"} ,width:10 ,editable:true,
+                    styles:{textAlignment:"far"}
+                  }
+                ]},
+                {fieldName:"badRat" , name:"badRat" ,header:{text:"불량율(%)"} ,width:5 ,editable:true,
+                  styles:{textAlignment:"far", numberFormat:"#,###.00"}
+                },
+                {fieldName:"useYn" , name:"useYn" ,header:{text:"사용여부"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"},
+                  renderer: {
+                    type: "check",
+                    trueValues: "Y",
+                    falseValues: "N",
+                    shape: "box",
+                    startEditOnClick: true,
+                    editable: true
+                  }
+                },
+                {fieldName:"remark" , name:"remark" ,header:{text:"Remark"} ,width:20 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"modifyDtm" , name:"modifyDtm" ,header:{text:"수정일시"} ,width:10 ,editable:false,
+                  styles: {textAlignment: "center", datetimeFormat: "yyyy-MM-dd HH:mm"}
+                }
+        ]
+      };
+    },
+    mounted: function () {
+      gCreateGridAsync(this).then(function () {
+        
+        UI_CO_062_vmGrid1.gridView.onDataCellClicked = function (grid, index) {
+          var current = UI_CO_062_vmGrid1.gridView.getCurrent();
+          var currentMtrlCd = UI_CO_062_vmGrid1.dataProvider.getValue(current.dataRow, 'mtrlCd');
+          
+          UI_CO_062_vm.currentRowSelect(currentMtrlCd);
+        };
+
+      });
+    }
+  });
+
+  var UI_CO_062_vmGrid2 = new Vue({
+    el: "#UI_CO_062-grid2",
+    data: function () {
+      return {
+        gStyle: {
+          indicator: {
+            visible: true
+          },
+          headerDepth : 2,
+          checkBar:{
+            visible:true
+          }
+        },
+        gOptions: {
+          header: {
+            height: 42
+          }
+        },
+        dataProvider: null,
+        gridView: null,
+        fields: [
+                {fieldName:"mtrlCd"},
+                {fieldName:"mtrlDesc"},
+                {fieldName:"plantCd"},
+                {fieldName:"plantNm"},
+                {fieldName:"mtrlGrp"},
+                {fieldName:"mtrlGrpNm"},            
+                {fieldName:"thputPriority", dataType:"number"},
+                {fieldName:"wgTy", dataType:"number"},
+                {fieldName:"minWgt", dataType:"number"},
+                {fieldName:"optWgt", dataType:"number" },
+                {fieldName:"maxWgt", dataType:"number"},
+                {fieldName:"thputType"},
+                {fieldName:"thputTypeNm"},
+                {fieldName:"attr01Val"},
+                {fieldName:"attr02Val"},
+                {fieldName:"attr03Val"},
+                {fieldName:"attr04Val"},
+                {fieldName:"attr05Val"},
+                {fieldName:"useYn"},
+                {fieldName:"createId"},
+                {fieldName:"createDtm", dataType: "date", datetimeFormat: "iso"},
+                {fieldName:"modifyId"},
+                {fieldName:"modifyDtm", dataType: "date", datetimeFormat: "iso"}
+        ],
+        columns: [      
+                {fieldName:"mtrlCd" , name:"mtrlCd" ,header:{text:"자재코드"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },  
+                {fieldName:"mtrlDesc" , name:"mtrlDesc" ,header:{text:"자재내역"} ,width:20 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"plantCd" , name:"plantCd" ,header:{text:"투입공장"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"},
+                  editor: {
+                    type: "dropDown",
+                    textReadOnly: true
+                  },
+                  values: [], 
+                  labels: [],
+                  lookupDisplay: true
+                },
+                {fieldName:"mtrlGrp" , name:"mtrlGrp" ,header:{text:"자재그룹(투입기준)"} ,width:15 ,editable:true,
+                  styles:{textAlignment:"near"},
+                  editor: {
+                    type: "dropDown",
+                    textReadOnly: true
+                  },
+                  lookupDisplay: true,
+                  lookupSourceId: [],
+                  lookupKeyFields: []
+                },
+                {fieldName:"thputPriority" , name:"thputPriority" ,header:{text:"투입우선순위"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"wgTy" , name:"wgTy" ,header:{text:"가중치"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {type:"group",name:"투입량(ton)",width:15, columns:[
+                  {fieldName:"minWgt" , name:"minWgt" ,header:{text:"최소"} ,width:3 ,editable:true,
+                    styles:{textAlignment:"near"}
+                  },
+                  {fieldName:"optWgt" , name:"optWgt" ,header:{text:"적정"} ,width:3 ,editable:true,
+                    styles:{textAlignment:"near"}
+                  },
+                  {fieldName:"maxWgt" , name:"maxWgt" ,header:{text:"최대"} ,width:3 ,editable:true,
+                    styles:{textAlignment:"near"}
+                  }
+                ]},
+                {fieldName:"thputType" , name:"thputType" ,header:{text:"투입방식"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"},
+                  editor: {
+                    type: "dropDown",
+                    textReadOnly: true
+                  },
+                  values: [],
+                  labels: [],
+                  lookupDisplay: true,
+                },
+                {fieldName:"useYn" , name:"useYn" ,header:{text:"사용여부"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"},
+                  renderer: {
+                    type: "check",
+                    trueValues: "Y",
+                    falseValues: "N",
+                    shape: "box",
+                    startEditOnClick: true,
+                    editable: true
+                  }
+                },
+                {fieldName:"attr01Val" , name:"attr01Val" ,header:{text:"속성1"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"attr02Val" , name:"attr02Val" ,header:{text:"속성2"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"attr03Val" , name:"attr03Val" ,header:{text:"속성3"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"attr04Val" , name:"attr04Val" ,header:{text:"속성4"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                {fieldName:"attr05Val" , name:"attr05Val" ,header:{text:"속성5"} ,width:10 ,editable:true,
+                  styles:{textAlignment:"near"}
+                },
+                /* {fieldName:"createId" , name:"createId" ,header:{text:"생성자"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                }, */
+                {fieldName:"createDtm" , name:"createDtm" ,header:{text:"생성일시"} ,width:10 ,editable:false,
+                  styles:{textAlignment:"near"}
+                },
+                /* {fieldName:"modifyId" , name:"modifyId" ,header:{text:"수정자"} ,width:5 ,editable:false,
+                  styles:{textAlignment:"near"}
+                }, */
+                {fieldName:"modifyDtm" , name:"modifyDtm" ,header:{text:"수정일시"} ,width:10 ,editable:false,
+                  styles:{textAlignment:"near"}
+                }
+
+        ]
+      };
+    },
+    mounted: function () {
+      gCreateGridAsync(this).then(function () {
+        
+        UI_CO_062_vmGrid2.gridView.onEditCommit = function (grid, index, oldValue, newValue) {
+          if (index.fieldName === "plantCd") {
+            if (oldValue !== newValue) {
+                grid.setValue(index.itemIndex, "mtrlGrp", "");
+            }
+          }
+        };
+
+      });
+    }
+  });
+
+  
+  UI_CO_062_vmGrid1.gridView.onCellEdited = function (grid, itemIndex, dataRow, field) {
+    grid.commit(true);
+  };
+
+  UI_CO_062_vmGrid2.gridView.onCellEdited = function (grid, itemIndex, dataRow, field) {
+    grid.commit();
+
+    //중복 데이터 입력 방지 로직,,
+    var i = 0;
+    var dataRows = UI_CO_062_vmGrid2.dataProvider.getJsonRows();
+    dataRows.map(function (row) {
+      //console.log(i);
+      if(i !== dataRow){
+        //console.log(row.plantCd+"==="+UI_CO_062_vmGrid2.dataProvider.getValue(dataRow,"plantCd"));
+        if(row.plantCd === UI_CO_062_vmGrid2.dataProvider.getValue(dataRow,"plantCd")){
+          showDialog("알림", "같은 공장을 입력할 수 없습니다.", DIALOG_TYPE.CONFIRM);
+          UI_CO_062_vmGrid2.gridView.setValue(dataRow,"plantCd","");
+        }
+      }
+      i++;
+    });
+  };
+
+  
+  $(window).unload(function(){  localStorage.setItem('lastViewId',''); localStorage.setItem('sm-setmenu','top');  });
+
+    
+</script>

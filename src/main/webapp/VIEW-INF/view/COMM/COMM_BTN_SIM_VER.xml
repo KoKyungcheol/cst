@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_BTN_SIM_VER" version="2.0">
+    <component id="BTN_SIMUL_VER" type="BUTTON">
+        <props>
+            <tooltip>New Simulation Version</tooltip>
+            <icon>plus-square</icon>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_SET_DATA_03_SIMUL_VER">
+                    <component-id>DATA_03</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="ACTION_KEY" value="SIMUL_VER" />
+                    </parameters>
+                </operation-call>
+                <operation-call id="OPC_ADJUST_SIMUL_VER_PRE_CHECK">
+                    <component-id>DATA_03</component-id>
+                    <operation-id>LOAD_ADJUST_SIMUL_VER_PRE_CHECK</operation-id>
+                    <conditions>
+                        <condition id="OPC_RST_CPT_01_SIMUL_VER_COND_01">
+                            <component>SRH_CPT_MAIN_VER_DTL_ID</component>
+                            <operator>notequal</operator>
+                            <value>empty</value>
+                            <msg>MAIN_VERSION_DTL_ID is necessary.</msg>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_RST_CPT_01_SIMUL_VER">
+                            <component-id>POP_UI_CM_17_01</component-id>
+                            <operation-id>OPEN</operation-id>
+                            <conditions>
+                                <condition id="OPC_RST_CPT_01_SIMUL_VER_COND_02">
+                                    <component>DATA_03</component>
+                                    <key>ADJUST_SIMUL_VER_PRE_CHECK</key>
+                                    <operator>equal</operator>
+                                    <value>true</value>
+                                    <extract-by>CONFRM_YN</extract-by>
+                                    <msg>MSG_5118</msg>
+                                </condition>
+                            </conditions>
+                            <success>
+                                <operation-call id="OPC_POP_UI_CM_17_01_SET_TITLE_SIMUL_VER">
+                                    <component-id>POP_UI_CM_17_01</component-id>
+                                    <operation-id>SET_TITLE</operation-id>
+                                    <parameters>
+                                        <parameter id="TITLE" value="GEN_NEW_VER" />
+                                    </parameters>
+                                </operation-call>
+                                <operation-call id="OPC_SIMUL_VER">
+                                    <component-id>DATA_03</component-id>
+                                    <operation-id>LOAD_SVC_SIMUL_VER</operation-id>
+                                    <success>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_01_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_01_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="MODULE_CD" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_02_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_02_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="MAIN_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_03_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_03_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="MAIN_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_04_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_04_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="SNRIO_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_05_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_05_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="SNRIO_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_INIT_POP_UI_CM_17_01_06_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_06_02</component-id>
+                                            <operation-id>INIT</operation-id>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_06_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_06_02</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="true" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_06_03_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_06_03</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="true" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_07_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_07_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="PROCESS_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_08_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_08_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="PROCESS_TP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_09_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_09_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="ORIGINAL_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_10_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_10_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="ORIGINAL_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_11_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_11_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="MAX_SIMUL_VER_ID" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_SET_POP_UI_CM_17_01_12_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_12_02</component-id>
+                                            <operation-id>SET</operation-id>
+                                            <parameters>
+                                                <parameter id="SET" reference-id="DATA_03:SVC_SIMUL_VER" extract-by="SIMUL_VER_DESCRIP" />
+                                            </parameters>
+                                        </operation-call>
+                                        <operation-call id="OPC_ENABLE_POP_UI_CM_17_01_12_02_SIMUL_VER">
+                                            <component-id>POP_UI_CM_17_01_12_02</component-id>
+                                            <operation-id>ENABLE</operation-id>
+                                            <parameters>
+                                                <parameter id="ENABLE" value="true" />
+                                            </parameters>
+                                        </operation-call>
+                                    </success>
+                                </operation-call>
+                            </success>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

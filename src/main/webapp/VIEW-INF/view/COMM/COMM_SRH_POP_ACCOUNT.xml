@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_ACCOUNT" version="2.0">
+    <component id="COMM_SRH_POP_ACCOUNT_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>COMM_SRH_POP_ACCOUNT</title>
+            <width>1010</width>
+            <height>500</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD" type="R_GRID">
+        <props>
+            <header-height>30</header-height>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="false" />
+            <columns>
+                <column id="ACCOUNT_ID" title="ACCOUNT_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="CHANNEL_ID" title="CHANNEL_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="INCOTERMS_ID" title="INCOTERMS_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="ACCOUNT_CD" title="ACCOUNT_CD" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                </column>
+                <column id="ACCOUNT_NM" title="ACCOUNT_NM" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+                <column id="CHANNEL_NM" title="CHANNEL_NM" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="INCOTERMS" title="INCOTERMS" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="VMI_YN" title="VMI_YN" type="bool">
+                    <width>60</width>
+                    <editable>false</editable>
+                </column>
+                <column id="DIRECT_SHIPPING_YN" title="DIRECT_SHIPPING_YN" type="bool">
+                    <width>70</width>
+                    <editable>false</editable>
+                </column>
+                <column id="CUST_DELIVY_MODELING_YN" title="CUST_DELIVY_MODELING_YN" type="bool">
+                    <width>120</width>
+                    <editable>false</editable>
+                    <text-alignment>left</text-alignment>
+                </column>
+                <column id="BILL_TO_NM" title="BILL_TO" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="SHIP_TO_NM" title="SHIP_TO" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="SOLD_TO_NM" title="SOLD_TO" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_SETDATA_01">
+                    <component-id>SRH_CPT_ACCOUNT_ID</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD:selections" extract-by="ACCOUNT_ID" />
+                    </parameters>
+                    <success>
+                        <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_SETDATA_02">
+                            <component-id>SRH_CPT_CHANNEL_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD:selections" extract-by="CHANNEL_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_SETDATA_03">
+                            <component-id>SRH_CPT_INCOTERMS_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD:selections" extract-by="INCOTERMS_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_SETDATA_04">
+                            <component-id>SRH_CPT_ACCOUNT_CD_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD:selections" extract-by="ACCOUNT_CD" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_SETDATA_05">
+                            <component-id>SRH_CPT_ACCOUNT_NM_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD:selections" extract-by="ACCOUNT_NM" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_ACCOUNT_WINDOW_01_CLOSE">
+                            <component-id>COMM_SRH_POP_ACCOUNT_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_GET_ACCOUNT_GRID_LIST</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

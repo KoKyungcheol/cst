@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="COMM_BUNDLE_LOCAT_MST" version="2.0">
+        <component id="POP_BUNDLE_LOCAT_MST_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_LOCAT</title>
+                <width>400</width>
+                <height>320</height>
+                <visible>false</visible>
+                <modal>true</modal>
+                <init-render>true</init-render>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_LOCAT_MST_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_LOCAT_MST_GRD" type="R_GRID">
+            <props>
+                <header-height>30</header-height>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="LOCAT_MST_ID" title="LOCAT_MST_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="LOCAT_TP_NM" title="LOCAT_TP_NM" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="LOCAT_LV" title="LOCAT_LV" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                        <filterable>true</filterable>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_MST_TP_SET">
+                        <component-id>POP_BUNDLE_LOCAT_TP_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_MST_GRD:selections" extract-by="LOCAT_TP_NM" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_MST_LV_SET">
+                        <component-id>POP_BUNDLE_LOCAT_LV_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_MST_GRD:selections" extract-by="LOCAT_LV" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_MST_DATA_SET">
+                        <component-id>POP_BUNDLE_LOCAT_MST_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="LOC_MST_ID" reference-id="POP_BUNDLE_LOCAT_MST_GRD:selections" extract-by="LOCAT_MST_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_LOCAT_MST_WINDOW_01_CLOSE">
+                        <component-id>POP_BUNDLE_LOCAT_MST_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_LOCAT_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_GET_LOCAT_MST_GRID_LIST</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_BUNDLE_LOCAT" version="2.0">
+        <component id="POP_BUNDLE_LOCAT_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_LOCAT</title>
+                <width>530</width>
+                <height>320</height>
+                <visible>false</visible>
+                <modal>true</modal>
+                <init-render>true</init-render>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_LOCAT_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_LOCAT_GRD" type="R_GRID">
+            <props>
+                <header-height>30</header-height>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="LOCAT_MST_ID" title="LOCAT_MST_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="LOCAT_TP_ID" title="LOCAT_TP_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="LOCAT_ID" title="LOCAT_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="LOCAT_MGMT_ID" title="LOCAT_MGMT_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="LOCAT_TP_NM" title="LOCAT_TP_NM" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="LOCAT_LV" title="LOCAT_LV" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="LOCAT_CD" title="LOCAT_CD" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                    </column>
+                    <column id="LOCAT_NM" title="LOCAT_NM" type="string">
+                        <width>150</width>
+                        <editable>false</editable>
+                        <text-alignment>center</text-alignment>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_TP_SET">
+                        <component-id>POP_BUNDLE_LOCAT_TP_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_TP_NM" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_LV_SET">
+                        <component-id>POP_BUNDLE_LOCAT_LV_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_LV" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_CD_SET">
+                        <component-id>POP_BUNDLE_LOCAT_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_CD" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_NM_SET">
+                        <component-id>POP_BUNDLE_LOCAT_NM_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_NM" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_COMM_BUNDLE_LOCAT_DATA_SET">
+                        <component-id>POP_BUNDLE_LOCAT_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="LOC_MGMT_ID" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_MGMT_ID" />
+                            <parameter id="LOC_MST_ID" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_MST_ID" />
+                            <parameter id="LOC_DTL_ID" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_ID" />
+                            <parameter id="LOC_TP_ID" reference-id="POP_BUNDLE_LOCAT_GRD:selections" extract-by="LOCAT_TP_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_LOCAT_WINDOW_01_CLOSE">
+                        <component-id>POP_BUNDLE_LOCAT_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_LOCAT_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_GET_LOCAT_GRID_LIST</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_BUNDLE_ACCOUNT" version="2.0">
+        <component id="POP_BUNDLE_ACCOUNT_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_ACCOUNT</title>
+                <width>1010</width>
+                <height>420</height>
+                <visible>false</visible>
+                <modal>true</modal>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ACCOUNT_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ACCOUNT_GRD" type="R_GRID">
+            <props>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="ACCOUNT_ID" title="ACCOUNT_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="CHANNEL_ID" title="CHANNEL_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="INCOTERMS_ID" title="INCOTERMS_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="ACCOUNT_CD" title="ACCOUNT_CD" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="ACCOUNT_NM" title="ACCOUNT_NM" type="string">
+                        <width>200</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="CHANNEL_NM" title="CHANNEL_NM" type="string">
+                        <width>90</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="INCOTERMS" title="INCOTERMS" type="string">
+                        <width>90</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="VMI_YN" title="VMI_YN" type="bool">
+                        <width>90</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="DIRECT_SHIPPING_YN" title="DIRECT_SHIPPING_YN" type="bool">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="BILL_TO_NM" title="BILL_TO" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="SHIP_TO_NM" title="SHIP_TO" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                    <column id="SOLD_TO_NM" title="SOLD_TO" type="string">
+                        <width>80</width>
+                        <editable>false</editable>
+                        <text-alignment>left</text-alignment>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="OPC_POP_BUNDLE_ACCOUNT_CD_SET">
+                        <component-id>POP_BUNDLE_ACCOUNT_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_ACCOUNT_GRD:selections" extract-by="ACCOUNT_CD" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ACCOUNT_NM_SET">
+                        <component-id>POP_BUNDLE_ACCOUNT_NM_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_ACCOUNT_GRD:selections" extract-by="ACCOUNT_NM" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ACCOUNT_DATA_SET">
+                        <component-id>POP_BUNDLE_ACCOUNT_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="ACCOUNT_ID" reference-id="POP_BUNDLE_ACCOUNT_GRD:selections" extract-by="ACCOUNT_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ACCOUNT_WINDOW_01_CLOSE">
+                        <component-id>POP_BUNDLE_ACCOUNT_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_ACCOUNT_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_GET_ACCOUNT_GRID_LIST</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_BUNDLE_ITEM" version="2.0">
+        <component id="POP_BUNDLE_ITEM_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_ITEM</title>
+                <width>950</width>
+                <height>480</height>
+                <visible>false</visible>
+                <modal>true</modal>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_01" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_CD</init-value>
+            </props>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_02" type="INPUTBOX">
+            <props>
+                <width>120</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="key-enter">
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_CPT_02_ENTER_KEY">
+                        <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                        <operation-id>LOAD</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_03" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_NM</init-value>
+            </props>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_04" type="INPUTBOX">
+            <props>
+                <width>120</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="key-enter">
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_CPT_04_ENTER_KEY">
+                        <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                        <operation-id>LOAD</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_05" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_TP</init-value>
+            </props>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_06" type="COMBOBOX">
+            <props>
+                <width>120</width>
+                <lang>true</lang>
+                <select-index>0</select-index>
+                <value-id>ITEM_TP_ID</value-id>
+                <text-id>ITEM_TP_NM</text-id>
+            </props>
+            <actions>
+                <action event-type="init">
+                    <operation-call id="OPC_POP_UI_MP_06_03_WINDOW_01_CPT_03_04_INIT_01">
+                        <component-id>POP_BUNDLE_ITEM_CPT_06</component-id>
+                        <operation-id>LOAD</operation-id>
+                        <success>
+                            <operation-call id="OPC_POP_UI_MP_06_03_WINDOW_01_CPT_03_04_INIT_01_SUCCESS">
+                                <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                                <operation-id>LOAD</operation-id>
+                            </operation-call>
+                        </success>
+                    </operation-call>
+                </action>
+                <action event-type="select-item">
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_CPT_06_ACTION_ENTER">
+                        <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                        <operation-id>LOAD</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_ITEM_WINDOW_01_CPT_06_LOAD">
+                        <service-id>SRV_GET_COMBO_LIST</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="TYPE" value="ITEM_TP" />
+                        </parameters>
+                    </service-call>
+                </operation>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_07" type="LABEL">
+            <props>
+                <lang>true</lang>
+                <init-value>ITEM_DESCRIP</init-value>
+            </props>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_08" type="INPUTBOX">
+            <props>
+                <width>120</width>
+                <editable>true</editable>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="key-enter">
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_CPT_08_ENTER_KEY">
+                        <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                        <operation-id>LOAD</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_CPT_09" type="BUTTON">
+            <props>
+                <tooltip>SEARCH</tooltip>
+                <icon>search</icon>
+                <lang>true</lang>
+            </props>
+            <actions>
+                <action event-type="click">
+                    <operation-call id="OPC_COMM_SRH_POP_ITEM_WINDOW_01_CPT_90_CLICK_SUCCESS_01">
+                        <component-id>POP_BUNDLE_ITEM_GRD</component-id>
+                        <operation-id>LOAD</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+        </component>
+        <component id="POP_BUNDLE_ITEM_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_ITEM_GRD" type="R_GRID">
+            <props>
+                <height>395</height>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="ITEM_MST_ID" title="ITEM_MST_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="ITEM_TP_ID" title="ITEM_TP_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="ITEM_UOM_ID" title="ITEM_UOM_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="ITEM_CD" title="ITEM_CD" type="string" sort="asc">
+                        <width>120</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="ITEM_NM" title="ITEM_NM" type="string">
+                        <width>200</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="ITEM_DESCRIP" title="ITEM_DESCRIP" type="string">
+                        <width>150</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="ITEM_TP_NM" title="ITEM_TP_NM" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="ITEM_UOM_NM" title="ITEM_UOM_NM" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_CD_SET">
+                        <component-id>POP_BUNDLE_ITEM_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_ITEM_GRD:selections" extract-by="ITEM_CD" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_NM_SET">
+                        <component-id>POP_BUNDLE_ITEM_NM_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_ITEM_GRD:selections" extract-by="ITEM_NM" default-value="" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_DATA_SET">
+                        <component-id>POP_BUNDLE_ITEM_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="ITEM_MST_ID" reference-id="POP_BUNDLE_ITEM_GRD:selections" extract-by="ITEM_MST_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_ITEM_WINDOW_01_CLOSE">
+                        <component-id>POP_BUNDLE_ITEM_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_ITEM_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_GET_ITEM_GRID_LIST</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="ITEM_CD" reference-id="POP_BUNDLE_ITEM_CPT_02" default-value="" />
+                            <parameter id="ITEM_NM" reference-id="POP_BUNDLE_ITEM_CPT_04" default-value="" />
+                            <parameter id="ITEM_TP_ID" reference-id="POP_BUNDLE_ITEM_CPT_06" default-value="" />
+                            <parameter id="ITEM_DESCRIP" reference-id="POP_BUNDLE_ITEM_CPT_08" default-value="" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_BUNDLE_RES" version="2.0">
+        <component id="POP_BUNDLE_RES_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_RES</title>
+                <width>340</width>
+                <height>320</height>
+                <visible>false</visible>
+                <modal>true</modal>
+                <init-render>true</init-render>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_RES_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_BUNDLE_RES_GRD" type="R_GRID">
+            <props>
+                <header-height>30</header-height>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="RES_MGMT_MST_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="RES_MGMT_DTL_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="RES_CD" title="RES_CD" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="RES_DESCRIP" title="RES_DESCRIP" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="OPC_POP_BUNDLE_RES_GRD_CELL_DBL_CLICK_01">
+                        <component-id>POP_BUNDLE_RES_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_RES_GRD:selections" extract-by="RES_CD" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_RES_GRD_CELL_DBL_CLICK_02">
+                        <component-id>POP_BUNDLE_RES_DESCRIP_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_BUNDLE_RES_GRD:selections" extract-by="RES_DESCRIP" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_RES_GRD_CELL_DBL_CLICK_03">
+                        <component-id>POP_BUNDLE_RES_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="RES_DTL_ID" reference-id="POP_BUNDLE_RES_GRD:selections" extract-by="RES_MGMT_DTL_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="OPC_POP_BUNDLE_RES_GRD_CELL_DBL_CLICK_04">
+                        <component-id>POP_BUNDLE_RES_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_UI_MP_11_Q2">
+                        <service-id>SRV_UI_MP_11_Q2</service-id>
+                        <service-target>T3SeriesSupplyNetServer</service-target>
+                        <parameters>
+                            <parameter id="LOC_MGMT_ID" value="" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+</views>

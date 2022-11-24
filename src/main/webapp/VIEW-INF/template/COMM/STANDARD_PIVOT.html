@@ -1,0 +1,1007 @@
+<meta charset="utf-8" />
+<section id="contentsInner" class="STANDARD">
+	<!--
+	 
+	Title : STANDARD
+	UI id : STANDARD
+	최초 작성자 : 김지호
+	최초 생성일 : 2017.06.13
+	마지막 작성자 : 홍길동
+	마지막 수정일 : 2017.06.29
+	파일버전 : 1.0
+	 
+	설명
+	 - GCS standard template
+	 
+	History (수정일자 / 수정자 / 수정내용)
+	- 2017.06.13 / 김지호 / 최초 작성
+	- 2017.06.15 / 김지호 / DATA component 전용 DATA_01 ~ 03 추가
+	- 2017.06.16 / 김지호 / result영역 각 component마다 상단에 좌우배열 component 추가
+	- 2017.06.29 / 김지호 / 파일명 STANDARD로 변경
+	 
+	구조
+	- 상단 :
+	- 중단 : 콤보박스(2), Inputbox(2)
+	- 하단 : R-Grid(1)
+	 
+	 -->
+
+	<!-- 타이틀 영역 시작  -->
+	<div class="data_area">
+
+		<!-- data component-->
+		<div id="DATA_01" class="component_ui"></div>
+		<div id="DATA_02" class="component_ui"></div>
+		<div id="DATA_03" class="component_ui"></div>
+		<!-- view meta data component-->
+		<div id="VIEW_META" class="component_ui"></div>
+
+		<!-- 페이지 제목 영역 시작  -->
+	<!-- 	<h3 class='leftCon'>
+			<span id="TTL_CPT_01" class="component_ui"></span>
+		</h3> -->
+		<!-- 페이지 제목 영역 끝  -->
+
+		<!-- 공통 버튼 영역 시작  -->
+		<!-- <div class='rightCon'>
+			<span id="TTL_COMM_CPT_HELP" class="component_ui"></span>
+			<span id="TTL_COMM_CPT_PERSONALIZATION" class="component_ui"></span>
+			<span id="TTL_CPT_03" class="component_ui"></span>
+			<span id="TTL_CPT_04" class="component_ui"></span>
+			<span id="TTL_CPT_05" class="component_ui"></span>
+			<span id="TTL_CPT_06" class="component_ui"></span>
+		</div> -->
+
+		<!-- 공통 버튼 영역 끝 -->
+
+	</div>
+	<!-- 타이틀 영역 끝  -->
+
+	<!-- 본 영역 시작  -->
+	<div class="content_area parentCon">
+		<div id='CONTENT_SPLIT' class="component_ui split_component">
+	
+			<!-- 조회 조건 시작  -->
+			<div class="search_area">
+			<!-- 공통 버튼 영역 시작  -->
+				<div class='commonBtn_area'>
+					<span id="TTL_COMM_CPT_HELP" class="component_ui"></span>
+					<span id="TTL_COMM_CPT_PERSONALIZATION" class="component_ui"></span>
+					<span id="TTL_CPT_03" class="component_ui"></span>
+					<span id="TTL_CPT_04" class="component_ui"></span>
+					<span id="TTL_CPT_05" class="component_ui"></span>
+					<span id="TTL_CPT_06" class="component_ui"></span>
+				</div>
+				<!-- 공통 버튼 영역 끝 -->
+				
+
+				<div id="SRH_TAB" class="component_ui tab_component">
+					
+					<!--first tab-->
+					<div>
+						<!-- 기본 조회 조건 영역 시작 -->
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_01_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_01_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_01_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_01_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_01_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_01_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_02_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_02_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_02_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_02_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_02_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_02_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_03_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_03_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_03_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_03_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_03_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_03_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_04_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_04_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_04_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_04_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_04_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_04_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_05_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_05_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_05_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_05_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_05_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_05_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_06_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_06_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_06_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_06_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_06_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_06_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_07_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_07_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_07_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_07_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_07_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_07_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_08_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_08_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_08_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_08_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_08_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_08_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_09_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_09_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_09_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_09_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_09_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_09_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T1_10_01" class="component_ui"></span>
+								<span id="SRH_CPT_T1_10_02" class="component_ui"></span>
+								<span id="SRH_CPT_T1_10_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T1_10_04" class="component_ui"></span>
+								<span id="SRH_CPT_T1_10_05" class="component_ui"></span>
+								<span id="SRH_CPT_T1_10_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div>
+							<div id="SRH_CPT_T1_11" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T1_12" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T1_13" class="component_ui"></div>
+						</div>
+	
+						<!-- 기본 조회 조건 영역 끝 -->
+					</div>
+					<!--first tab end-->
+	
+					<!--second tab start-->
+					<div>
+						<!-- 기본 조회 조건 영역 시작 -->
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_01_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_01_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_01_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_01_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_01_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_01_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_02_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_02_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_02_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_02_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_02_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_02_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_03_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_03_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_03_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_03_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_03_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_03_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_04_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_04_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_04_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_04_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_04_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_04_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_05_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_05_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_05_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_05_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_05_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_05_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_06_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_06_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_06_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_06_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_06_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_06_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_07_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_07_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_07_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_07_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_07_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_07_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_08_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_08_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_08_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_08_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_08_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_08_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_09_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_09_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_09_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_09_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_09_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_09_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T2_10_01" class="component_ui"></span>
+								<span id="SRH_CPT_T2_10_02" class="component_ui"></span>
+								<span id="SRH_CPT_T2_10_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T2_10_04" class="component_ui"></span>
+								<span id="SRH_CPT_T2_10_05" class="component_ui"></span>
+								<span id="SRH_CPT_T2_10_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div>
+							<div id="SRH_CPT_T2_11" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T2_12" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T2_13" class="component_ui"></div>
+						</div>
+	
+						<!-- 기본 조회 조건 영역 끝 -->
+					</div>
+					<!--second tab end-->
+	
+					<!--third tab start-->
+					<div>
+						<!-- 기본 조회 조건 영역 시작 -->
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_01_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_01_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_01_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_01_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_01_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_01_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_02_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_02_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_02_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_02_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_02_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_02_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_03_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_03_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_03_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_03_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_03_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_03_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_04_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_04_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_04_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_04_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_04_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_04_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_05_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_05_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_05_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_05_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_05_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_05_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_06_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_06_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_06_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_06_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_06_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_06_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_07_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_07_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_07_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_07_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_07_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_07_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_08_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_08_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_08_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_08_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_08_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_08_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_09_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_09_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_09_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_09_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_09_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_09_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T3_10_01" class="component_ui"></span>
+								<span id="SRH_CPT_T3_10_02" class="component_ui"></span>
+								<span id="SRH_CPT_T3_10_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T3_10_04" class="component_ui"></span>
+								<span id="SRH_CPT_T3_10_05" class="component_ui"></span>
+								<span id="SRH_CPT_T3_10_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div>
+							<div id="SRH_CPT_T3_11" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T3_12" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T3_13" class="component_ui"></div>
+						</div>
+	
+						<!-- 기본 조회 조건 영역 끝 -->
+					</div>
+					<!--third tab start-->
+	
+					<!--fourth tab start-->
+					<div>
+						<!-- 기본 조회 조건 영역 시작 -->
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_01_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_01_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_01_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_01_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_01_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_01_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_02_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_02_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_02_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_02_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_02_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_02_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_03_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_03_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_03_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_03_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_03_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_03_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_04_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_04_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_04_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_04_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_04_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_04_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_05_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_05_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_05_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_05_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_05_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_05_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_06_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_06_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_06_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_06_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_06_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_06_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_07_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_07_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_07_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_07_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_07_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_07_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_08_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_08_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_08_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_08_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_08_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_08_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_09_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_09_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_09_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_09_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_09_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_09_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T4_10_01" class="component_ui"></span>
+								<span id="SRH_CPT_T4_10_02" class="component_ui"></span>
+								<span id="SRH_CPT_T4_10_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T4_10_04" class="component_ui"></span>
+								<span id="SRH_CPT_T4_10_05" class="component_ui"></span>
+								<span id="SRH_CPT_T4_10_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div>
+							<div id="SRH_CPT_T4_11" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T4_12" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T4_13" class="component_ui"></div>
+						</div>
+	
+						<!-- 기본 조회 조건 영역 끝 -->
+					</div>
+					<!--fourth tab start-->
+	
+					<!--fifth tab start-->
+					<div>
+						<!-- 기본 조회 조건 영역 시작 -->
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_01_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_01_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_01_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_01_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_01_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_01_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_02_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_02_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_02_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_02_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_02_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_02_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_03_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_03_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_03_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_03_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_03_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_03_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_04_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_04_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_04_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_04_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_04_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_04_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_05_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_05_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_05_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_05_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_05_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_05_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_06_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_06_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_06_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_06_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_06_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_06_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_07_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_07_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_07_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_07_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_07_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_07_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_08_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_08_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_08_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_08_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_08_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_08_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_09_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_09_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_09_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_09_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_09_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_09_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div class="parentCon">
+							<span class="leftCon">
+								<span id="SRH_CPT_T5_10_01" class="component_ui"></span>
+								<span id="SRH_CPT_T5_10_02" class="component_ui"></span>
+								<span id="SRH_CPT_T5_10_03" class="component_ui"></span>
+							</span>
+							<span class="rightCon">
+								<span id="SRH_CPT_T5_10_04" class="component_ui"></span>
+								<span id="SRH_CPT_T5_10_05" class="component_ui"></span>
+								<span id="SRH_CPT_T5_10_06" class="component_ui"></span>
+							</span>
+						</div>
+	
+						<div>
+							<div id="SRH_CPT_T5_11" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T5_12" class="component_ui"></div>
+						</div>
+						<div>
+							<div id="SRH_CPT_T5_13" class="component_ui"></div>
+						</div>
+	
+						<!-- 기본 조회 조건 영역 끝 -->
+					</div>
+					<!--fifth tab start-->
+	
+				</div><!--tab component-->
+	
+			</div>
+			<!-- 조회 조건 끝 -->
+	
+			<!-- 결과 영역 시작  -->
+			<div class="result_area">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_01_01" class="component_ui"></span>
+									<span id="RST_CPT_01_02" class="component_ui"></span>
+									<span id="RST_CPT_01_03" class="component_ui"></span>
+									<span id="RST_CPT_01_04" class="component_ui"></span>
+									<span id="RST_CPT_01_05" class="component_ui"></span>
+									<span id="RST_CPT_01_06" class="component_ui"></span>
+									<span id="RST_CPT_01_07" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_01_08" class="component_ui"></span>
+									<span id="RST_CPT_01_09" class="component_ui"></span>
+									<span id="RST_CPT_01_10" class="component_ui"></span>
+									<span id="RST_CPT_01_11" class="component_ui"></span>
+									<span id="RST_CPT_01_12" class="component_ui"></span>
+									<span id="RST_CPT_01_13" class="component_ui"></span>
+									<span id="RST_CPT_01_14" class="component_ui"></span>
+								</div>
+							</div>
+							<div id="RST_CPT_01" class="component_ui"></div>
+						</div>
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_02_01" class="component_ui"></span>
+									<span id="RST_CPT_02_02" class="component_ui"></span>
+									<span id="RST_CPT_02_03" class="component_ui"></span>
+									<span id="RST_CPT_02_04" class="component_ui"></span>
+									<span id="RST_CPT_02_05" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_02_06" class="component_ui"></span>
+									<span id="RST_CPT_02_07" class="component_ui"></span>
+									<span id="RST_CPT_02_08" class="component_ui"></span>
+									<span id="RST_CPT_02_09" class="component_ui"></span>
+									<span id="RST_CPT_02_10" class="component_ui"></span>
+								</div>
+							</div>
+							<div id="RST_CPT_02" class="component_ui"></div>
+						</div>
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_03_01" class="component_ui"></span>
+									<span id="RST_CPT_03_02" class="component_ui"></span>
+									<span id="RST_CPT_03_03" class="component_ui"></span>
+									<span id="RST_CPT_03_04" class="component_ui"></span>
+									<span id="RST_CPT_03_05" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_03_06" class="component_ui"></span>
+									<span id="RST_CPT_03_07" class="component_ui"></span>
+									<span id="RST_CPT_03_08" class="component_ui"></span>
+									<span id="RST_CPT_03_09" class="component_ui"></span>
+									<span id="RST_CPT_03_10" class="component_ui"></span>
+								</div>
+							</div>
+							<div id="RST_CPT_03" class="component_ui"></div>
+						</div>
+					</div>
+	
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_04_01" class="component_ui"></span>
+									<span id="RST_CPT_04_02" class="component_ui"></span>
+									<span id="RST_CPT_04_03" class="component_ui"></span>
+									<span id="RST_CPT_04_04" class="component_ui"></span>
+									<span id="RST_CPT_04_05" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_04_06" class="component_ui"></span>
+									<span id="RST_CPT_04_07" class="component_ui"></span>
+									<span id="RST_CPT_04_08" class="component_ui"></span>
+									<span id="RST_CPT_04_09" class="component_ui"></span>
+									<span id="RST_CPT_04_10" class="component_ui"></span>
+								</div>
+							</div>
+							<div id="RST_CPT_04" class="component_ui"></div>
+						</div>
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_05_01" class="component_ui"></span>
+									<span id="RST_CPT_05_02" class="component_ui"></span>
+									<span id="RST_CPT_05_03" class="component_ui"></span>
+									<span id="RST_CPT_05_04" class="component_ui"></span>
+									<span id="RST_CPT_05_05" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_05_06" class="component_ui"></span>
+									<span id="RST_CPT_05_07" class="component_ui"></span>
+									<span id="RST_CPT_05_08" class="component_ui"></span>
+									<span id="RST_CPT_05_09" class="component_ui"></span>
+									<span id="RST_CPT_05_10" class="component_ui"></span>
+								</div>
+							</div>						
+							<div id="RST_CPT_05" class="component_ui"></div>
+						</div>
+						<div>
+							<div class="parentCon">
+								<div class="leftCon">
+									<span id="RST_CPT_06_01" class="component_ui"></span>
+									<span id="RST_CPT_06_02" class="component_ui"></span>
+									<span id="RST_CPT_06_03" class="component_ui"></span>
+									<span id="RST_CPT_06_04" class="component_ui"></span>
+									<span id="RST_CPT_06_05" class="component_ui"></span>
+								</div>
+								<div class="rightCon">
+									<span id="RST_CPT_06_06" class="component_ui"></span>
+									<span id="RST_CPT_06_07" class="component_ui"></span>
+									<span id="RST_CPT_06_08" class="component_ui"></span>
+									<span id="RST_CPT_06_09" class="component_ui"></span>
+									<span id="RST_CPT_06_10" class="component_ui"></span>
+								</div>
+							</div>						
+							<div id="RST_CPT_06" class="component_ui"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 결과 영역 종료 -->
+			
+		</div>
+
+	</div>
+	<!-- 본 영역 종료  -->
+
+	<!-- 팝업 영역 시작-->
+	<div class="popupGroup">
+		<div id="POP_CPT_01" class="component_ui window_component">
+			<div id="POP_CPT_01_01" class="component_ui"></div>
+			<div id="POP_CPT_01_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_02" class="component_ui window_component">
+			<div id="POP_CPT_02_01" class="component_ui"></div>
+			<div id="POP_CPT_02_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_03" class="component_ui window_component">
+			<div id="POP_CPT_03_01" class="component_ui"></div>
+			<div id="POP_CPT_03_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_04" class="component_ui window_component">
+			<div id="POP_CPT_04_01" class="component_ui"></div>
+			<div id="POP_CPT_04_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_05" class="component_ui window_component">
+			<div id="POP_CPT_05_01" class="component_ui"></div>
+			<div id="POP_CPT_05_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_06" class="component_ui window_component">
+			<div id="POP_CPT_06_01" class="component_ui"></div>
+			<div id="POP_CPT_06_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_07" class="component_ui window_component">
+			<div id="POP_CPT_07_01" class="component_ui"></div>
+			<div id="POP_CPT_07_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_08" class="component_ui window_component">
+			<div id="POP_CPT_08_01" class="component_ui"></div>
+			<div id="POP_CPT_08_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_09" class="component_ui window_component">
+			<div id="POP_CPT_09_01" class="component_ui"></div>
+			<div id="POP_CPT_09_02" class="component_ui"></div>
+		</div>
+		<div id="POP_CPT_10" class="component_ui window_component">
+			<div class="parentCon">
+				<div class="leftCon">
+					<span id="POP_CPT_10_01"></span>
+				</div>
+				<div class="rightCon"></div>
+			</div>
+			<div id="POP_CPT_10_10" class="component_ui"></div>
+			<div id="POP_CPT_10_11" class="component_ui"></div>
+		</div>
+	</div>
+	<!--팝업 영역 종료-->
+
+</section>
+

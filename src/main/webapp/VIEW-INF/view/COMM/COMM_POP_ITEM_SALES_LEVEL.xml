@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="COMM_POP_ITEM_LEVEL" version="2.0">
+        <component id="POP_ITEM_LV_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_ITEM_LV</title>
+                <width>550</width>
+                <height>320</height>
+                <visible>false</visible>
+                <modal>true</modal>
+                <init-render>true</init-render>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_ITEM_LV_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_ITEM_LV_GRD" type="R_GRID">
+            <props>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="ITEM_LV_ID" title="ITEM_LV_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="ITEM_LV_CD" title="ITEM_LV_CD" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="ITEM_LV_NM" title="ITEM_LV_NM" type="string">
+                        <width>100</width>
+                        <editable>false</editable>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="PARENT_ITEM_LV_CD" title="PARENT_ITEM_LV_CD" type="string">
+                        <width>130</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="PARENT_ITEM_LV_NM" title="PARENT_ITEM_LV_NM" type="string">
+                        <width>130</width>
+                        <editable>false</editable>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="SET_ITEM_LV_CD">
+                        <component-id>POP_ITEM_LV_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_ITEM_LV_GRD:selections" extract-by="ITEM_LV_CD" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="SET_ITEM_LV_NM">
+                        <component-id>POP_ITEM_LV_NM_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_ITEM_LV_GRD:selections" extract-by="ITEM_LV_NM" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="SET_ITEM_LV_DATA">
+                        <component-id>POP_ITEM_LV_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="ITEM_LV_ID" reference-id="POP_ITEM_LV_GRD:selections" extract-by="ITEM_LV_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="CLOSE_POP_ITEM_LV">
+                        <component-id>POP_ITEM_LV_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_ITEM_LV_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_UI_COMM_DATA_Q</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="DATA_DIV" value="GET_ITEM_LV" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+    <view id="COMM_POP_SALES_LEVEL" version="2.0">
+        <component id="POP_SALES_LV_WINDOW_01" type="WINDOW">
+            <props>
+                <lang>true</lang>
+                <title>COMM_SRH_POP_SALES_LV</title>
+                <width>700</width>
+                <height>320</height>
+                <visible>false</visible>
+                <modal>true</modal>
+                <init-render>true</init-render>
+            </props>
+            <operations>
+                <operation id="OPEN" />
+                <operation id="CLOSE" />
+            </operations>
+        </component>
+        <component id="POP_SALES_LV_DATA_01" type="DATA">
+            <operations>
+                <operation id="SET" />
+            </operations>
+        </component>
+        <component id="POP_SALES_LV_GRD" type="R_GRID">
+            <props>
+                <check-bar>false</check-bar>
+                <fit-style>evenFill</fit-style>
+                <pageable>false</pageable>
+                <toolbar use="false" />
+                <columns>
+                    <column id="SALES_LV_ID" title="SALES_LV_ID" type="string">
+                        <visible>false</visible>
+                    </column>
+                    <column id="SALES_LV_CD" title="SALES_LV_CD" type="string">
+                        <width>120</width>
+                        <editable>false</editable>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="SALES_LV_NM" title="SALES_LV_NM" type="string">
+                        <width>120</width>
+                        <editable>false</editable>
+                        <filterable>true</filterable>
+                    </column>
+                    <column id="PARENT_SALES_LV_CD" title="PARENT_SALES_LV_CD" type="string">
+                        <width>150</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="PARENT_SALES_LV_NM" title="PARENT_SALES_LV_NM" type="string">
+                        <width>150</width>
+                        <editable>false</editable>
+                    </column>
+                    <column id="VIRTUAL_YN" title="VIRTUAL_YN" type="bool">
+                        <width>150</width>
+                        <editable>false</editable>
+                    </column>
+                </columns>
+            </props>
+            <actions>
+                <action event-type="cell-double-click">
+                    <operation-call id="SET_SALES_LV_CD">
+                        <component-id>POP_SALES_LV_CD_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_SALES_LV_GRD:selections" extract-by="SALES_LV_CD" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="SET_SALES_LV_NM">
+                        <component-id>POP_SALES_LV_NM_04</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SET" reference-id="POP_SALES_LV_GRD:selections" extract-by="SALES_LV_NM" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="SET_SALES_LV_DATA">
+                        <component-id>POP_SALES_LV_DATA_01</component-id>
+                        <operation-id>SET</operation-id>
+                        <parameters>
+                            <parameter id="SALES_LV_ID" reference-id="POP_SALES_LV_GRD:selections" extract-by="SALES_LV_ID" />
+                        </parameters>
+                    </operation-call>
+                    <operation-call id="CLOSE_POP_SALES_LV">
+                        <component-id>POP_SALES_LV_WINDOW_01</component-id>
+                        <operation-id>CLOSE</operation-id>
+                    </operation-call>
+                </action>
+            </actions>
+            <operations>
+                <operation id="LOAD">
+                    <service-call id="SVC_COMM_SRH_POP_SALES_LV_WINDOW_01_GRD_LOAD">
+                        <service-id>SRV_UI_COMM_DATA_Q</service-id>
+                        <service-target>T3SeriesDataServer</service-target>
+                        <parameters>
+                            <parameter id="DATA_DIV" value="GET_SALES_LV" />
+                        </parameters>
+                    </service-call>
+                </operation>
+            </operations>
+        </component>
+    </view>
+</views>

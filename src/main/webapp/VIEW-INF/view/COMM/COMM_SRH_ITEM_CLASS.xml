@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_ITEM_CLASS" version="2.0">
+    <component id="SRH_ITEM_CLASS_01_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>ITEM_LV</init-value>
+        </props>
+    </component>
+    <component id="SRH_ITEM_CLASS_01_04" type="COMBOBOX">
+        <props>
+            <width>190</width>
+            <editable>true</editable>
+            <lang>true</lang>
+            <value-id>ID</value-id>
+            <text-id>CD_NM</text-id>
+        </props>
+        <actions>
+            <action event-type="init">
+                <operation-call id="OPC_SRH_ITEM_CLASS_01_04_LOAD">
+                    <component-id>SRH_ITEM_CLASS_01_04</component-id>
+                    <operation-id>LOAD</operation-id>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="SET" />
+            <operation id="LOAD">
+                <service-call id="SVC_UI_CM_03_DATA_META_01">
+                    <service-id>SRV_UI_CM_CODE</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                    <parameters>
+                        <parameter id="CODE" value="ITEM_SCOPE" />
+                    </parameters>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+    <component id="SRH_ITEM_CLASS_02_01" type="LABEL">
+        <props>
+            <lang>true</lang>
+            <init-value>ITEM_CLASS_VAL</init-value>
+        </props>
+    </component>
+    <component id="SRH_ITEM_CLASS_02_04" type="INPUTBOX">
+        <props>
+            <width>160</width>
+            <editable>true</editable>
+            <lang>true</lang>
+        </props>
+        <operations>
+            <operation id="SET" />
+        </operations>
+    </component>
+    <component id="SRH_ITEM_CLASS_02_05" type="BUTTON">
+        <props>
+            <name>...</name>
+            <lang>true</lang>
+        </props>
+        <actions>
+            <action event-type="click">
+                <operation-call id="OPC_SRH_ITEM_CLASS_02_05_CLICK">
+                    <component-id>POP_SRH_ITEM_CLASS_WINDOW_01</component-id>
+                    <operation-id>OPEN</operation-id>
+                    <conditions>
+                        <condition id="CON_SRH_ITEM_CLASS_01_04_NOT_EMPTY">
+                            <component>SRH_ITEM_CLASS_01_04</component>
+                            <operator>notEqual</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                    <success>
+                        <operation-call id="OPC_SRH_ITEM_CLASS_02_05_01">
+                            <component-id>POP_SRH_ITEM_CLASS_WINDOW_01_GRD</component-id>
+                            <operation-id>LOAD</operation-id>
+                            <parameters>
+                                <parameter id="SP_COMM_SRH_ITEM_CLASS_01" reference-id="SRH_ITEM_CLASS_01_04:CD" />
+                            </parameters>
+                        </operation-call>
+                    </success>
+                </operation-call>
+                <operation-call id="OPC_SPECIAL_DIALOG_FAIL">
+                    <component-id>COMMON</component-id>
+                    <operation-id>DIALOG</operation-id>
+                    <parameters>
+                        <parameter id="title" value="Information" />
+                        <parameter id="msg" value="MSG_5014" />
+                        <parameter id="type" value="info" />
+                    </parameters>
+                    <conditions>
+                        <condition id="CON_SRH_ITEM_CLASS_01_04_EMPTY">
+                            <component>SRH_ITEM_CLASS_01_04</component>
+                            <operator>equal</operator>
+                            <value>empty</value>
+                        </condition>
+                    </conditions>
+                </operation-call>
+            </action>
+        </actions>
+    </component>
+</view>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view id="COMM_SRH_POP_LOCAT" version="2.0">
+    <component id="COMM_SRH_POP_LOCAT_WINDOW_01" type="WINDOW">
+        <props>
+            <lang>true</lang>
+            <title>COMM_SRH_POP_LOCAT</title>
+            <width>530</width>
+            <height>320</height>
+            <visible>false</visible>
+            <modal>true</modal>
+        </props>
+        <operations>
+            <operation id="OPEN" />
+            <operation id="CLOSE" />
+        </operations>
+    </component>
+    <component id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD" type="R_GRID">
+        <props>
+            <header-height>30</header-height>
+            <check-bar>false</check-bar>
+            <fit-style>evenFill</fit-style>
+            <pageable>false</pageable>
+            <toolbar use="false" />
+            <columns>
+                <column id="LOCAT_MST_ID" title="LOCAT_MST_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="LOCAT_TP_ID" title="LOCAT_TP_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="LOCAT_ID" title="LOCAT_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="LOCAT_MGMT_ID" title="LOCAT_MGMT_ID" type="string">
+                    <visible>false</visible>
+                </column>
+                <column id="LOCAT_TP_NM" title="LOCAT_TP_NM" type="string">
+                    <width>100</width>
+                    <editable>false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="LOCAT_LV" title="LOCAT_LV" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                    <filterable>true</filterable>
+                </column>
+                <column id="LOCAT_CD" title="LOCAT_CD" type="string">
+                    <width>80</width>
+                    <editable>false</editable>
+                </column>
+                <column id="LOCAT_NM" title="LOCAT_NM" type="string">
+                    <width>150</width>
+                    <editable>false</editable>
+                </column>
+            </columns>
+        </props>
+        <actions>
+            <action event-type="cell-double-click">
+                <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_01">
+                    <component-id>SRH_CPT_LOCAT_MST_ID</component-id>
+                    <operation-id>SET</operation-id>
+                    <parameters>
+                        <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_MST_ID" />
+                    </parameters>
+                    <success>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_02">
+                            <component-id>SRH_CPT_LOCAT_TP_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_TP_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_03">
+                            <component-id>SRH_CPT_LOCAT_DTL_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_04">
+                            <component-id>SRH_CPT_LOCAT_MGMT_ID</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_MGMT_ID" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_05">
+                            <component-id>SRH_CPT_LOCAT_TP_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_TP_NM" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_06">
+                            <component-id>SRH_CPT_LOCAT_LV_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_LV" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_07">
+                            <component-id>SRH_CPT_LOCAT_CD_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_CD" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD_SETDATA_08">
+                            <component-id>SRH_CPT_LOCAT_NM_04</component-id>
+                            <operation-id>SET</operation-id>
+                            <parameters>
+                                <parameter id="SET" reference-id="COMM_SRH_POP_LOCAT_WINDOW_01_GRD:selections" extract-by="LOCAT_NM" />
+                            </parameters>
+                        </operation-call>
+                        <operation-call id="COMM_SRH_POP_LOCAT_WINDOW_01_CLOSE">
+                            <component-id>COMM_SRH_POP_LOCAT_WINDOW_01</component-id>
+                            <operation-id>CLOSE</operation-id>
+                        </operation-call>
+                    </success>
+                </operation-call>
+            </action>
+        </actions>
+        <operations>
+            <operation id="LOAD">
+                <service-call id="SVC_COMM_SRH_POP_LOCAT_WINDOW_01_GRD_LOAD">
+                    <service-id>SRV_GET_LOCAT_GRID_LIST</service-id>
+                    <service-target>T3SeriesDataServer</service-target>
+                </service-call>
+            </operation>
+        </operations>
+    </component>
+</view>

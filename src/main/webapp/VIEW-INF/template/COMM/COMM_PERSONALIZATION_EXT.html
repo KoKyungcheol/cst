@@ -1,0 +1,96 @@
+<script type="text/javascript">
+
+content.getCreateComponentCompleteFlag().done(function () {
+  var grpCombo = cm.getComponent("POP_COMM_CPT_PERSONALIZATION_CPT_02");
+
+  grpCombo.onComboboxChanged = function (viewId, componentId, e) {
+    //console.log("[Develop Log] onComboboxChanged 1 componentId", viewId,componentId);
+    var prefrences = new Array();
+    var localItem = localStorage.getItem("preference-group");
+    var userName = cm.getComponent("SRH_CPT_T1_02_04").getValue();
+    //var userName = co.username;
+    var value = grpCombo.getValue();
+
+    //console.log("userName",userName, "value", value);
+    if(value == undefined || value.length <= 0){
+        value = cm.getComponent("SRH_CPT_T1_04_04").getValue();
+    }
+    var idx = -1;
+    if (localItem.length > 0) {
+      prefrences = JSON.parse(localItem);
+      for(var i in prefrences){
+        var row = prefrences[i];
+       if(row.viewId ==  viewId && row.username == userName){
+          prefrences[i].grpCd = value;
+          idx = 0;
+       }
+      }
+    }
+    if(idx == -1){
+      var obj = {};
+      obj.viewId = viewId;
+      obj.grpCd = value;
+      obj.username = userName;
+      prefrences.push(obj);
+    }
+    localStorage.setItem("preference-group", JSON.stringify(prefrences));
+
+	}
+
+    cm.getComponent("DATA_01").doBeforeServiceCall = function(paramMap,componentId, operationId, serviceCallId) {
+	    console.log("[Develop Log] DATA_01");
+		var doBeforeServiceCallResult = {
+				result : true,
+				msg : '',
+				paramMap : paramMap
+        };
+        if(serviceCallId == "SVC_SP_UI_DP_00_PERSONALIZATION_Q1_INIT" || serviceCallId == "SVC_SP_UI_DP_00_PERSONALIZATION_Q1_CHART" || serviceCallId == "SVC_SP_UI_DP_95_DIM"){
+            doBeforeServiceCallResult.paramMap["SP_UI_DP_00_PERSONALIZATION_Q1_02"] = cm.getComponent("VIEW_META").getValue("grpCd");
+            console.log("[Develop Log] DATA_01 doBeforeServiceCallResult", doBeforeServiceCallResult);
+        }
+
+		return doBeforeServiceCallResult; // result return
+	};
+
+	cm.getComponent("VIEW_META").doBeforeServiceCall = function(paramMap,componentId, operationId, serviceCallId) {
+		var doBeforeServiceCallResult = {
+				result : true,
+				msg : '',
+				paramMap : paramMap
+        };
+        if(serviceCallId == "CROSSTAB_INFO" || serviceCallId == "PREF_INFO"){
+            //console.log("[Develop Log] doBeforeServiceCall 3 componentId", componentId);
+            var psnl = localStorage.getItem("preference-group");
+            var selectGrpCd = "";
+            var userName = cm.getComponent("SRH_CPT_T1_02_04").getValue();
+            if(psnl.length > 0 && psnl !== "" && psnl !== undefined) {
+               selectGrpCd = JSON.parse(psnl).filter(function(row){""
+                return row.viewId == vo.getId() && row.username == userName
+              })[0];
+            }
+             if (selectGrpCd !== undefined && selectGrpCd.grpCd != undefined){
+                cm.getComponent("VIEW_META").setValue("grpCd", selectGrpCd.grpCd);
+                //console.log("[Develop Log] selectGrpCd", selectGrpCd.grpCd);
+             } else {
+              //선택한 그룹이 없으면 권한 유형의 값으로 선택됨.
+              var authTp = cm.getComponent("SRH_CPT_T1_04_04").getActualComponent().value();
+                cm.getComponent("VIEW_META").setValue("grpCd", authTp);
+                //console.log("[Develop Log] authTp", authTp);
+            }
+            doBeforeServiceCallResult.paramMap["grp-cd"] = cm.getComponent("VIEW_META").getValue("grpCd");
+            //console.log("[Develop Log] doBeforeServiceCallResult", doBeforeServiceCallResult);
+        }
+
+		return doBeforeServiceCallResult; // result return
+	};
+	//POP_PERSONALIZATION_RST_CPT_01
+        var grid = cm.getComponent("POP_PERSONALIZATION_RST_CPT_01");
+        grid.doAfterSetData = function (serviceCallId, data, resultData) {
+            var gridView = grid.getActualComponent();
+            var aColumn = gridView.columnByField("dataKeyYn");
+            gridView.activateColumnFilters(aColumn, ["false"], true);
+
+         };
+});
+
+</script>
